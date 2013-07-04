@@ -1,0 +1,2 @@
+<li class="nav">Hello, <%= link_to "#{current_user.name}", user_path(current_user.id) %></li>
+<li class="nav"><%= link_to "Logout", logout_path, method: :delete %></li>
