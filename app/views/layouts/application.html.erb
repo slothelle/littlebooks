@@ -13,6 +13,7 @@
 <nav>
   <ul class="nav">
     <li class="nav logo">Little Books.</li>
+    <li class="nav"><%= link_to "Home", root_path %></li>
     <% if @current_user %>
       <%= render partial: "shared/user_menu" %>
     <% else %>
