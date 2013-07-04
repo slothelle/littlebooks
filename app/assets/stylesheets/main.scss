@@ -3,8 +3,10 @@ $body-font: 'ABeeZee', Arial, sans-seif;
 $nav-spacing: 20px;
 $main-color: #7aa6bf;
 $small-font: 0.9em;
+$large-font: 1.1em;
 $light-gray: #CCCCCC;
 
+// Core styles
 body {
   font-family: $body-font;
   font-size: 1em;
@@ -13,6 +15,10 @@ body {
 
 p {
   line-height: 1.65em;
+}
+
+p.small {
+  font-size: $small-font;
 }
 
 footer {
@@ -43,6 +49,7 @@ a {
   width: 100%;
 }
 
+// Form boxes get perdy
 input {
   border: 1px solid $light-gray;
   padding: 5px;
@@ -57,7 +64,7 @@ input[type="submit"] {
 }
 
 // Nav menu formatting
-nav {
+#nav {
   position: fixed;
   background: #ffffff;
   top: 0;
@@ -82,4 +89,12 @@ nav {
 
 .logo {
   font-family: $accent-font;
+}
+
+// Reader specific styles
+.reader {
+  p {
+    line-height: 2em;
+    font-size: $large-font;
+  }
 }

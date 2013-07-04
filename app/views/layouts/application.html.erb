@@ -10,7 +10,7 @@
   </head>
 <body>
 
-<nav>
+<div id="nav">
   <ul class="nav">
     <li class="nav logo">Little Books.</li>
     <li class="nav"><%= link_to "Home", root_path %></li>
@@ -19,9 +19,10 @@
     <% else %>
       <%= render partial: "shared/anon_menu" %>
     <% end %>
+    <li class="nav">Browse stories</li>
     <li class="nav"><%= link_to "Learn more", page_path("learn")%></li>
   </ul>
-</nav>
+</div>
 
 
 <div id="container">

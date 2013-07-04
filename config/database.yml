@@ -17,6 +17,8 @@ development:
   encoding: UTF-8
   database: little_books_development
   pool: 5
+  host: localhost
+
   
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -42,7 +44,8 @@ test:
   encoding: UTF-8
   database: little_books_test
   pool: 5
-  
+  host: localhost
+
 
 production:
   adapter: postgresql
