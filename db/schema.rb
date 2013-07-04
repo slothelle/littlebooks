@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130704125014) do
+ActiveRecord::Schema.define(:version => 20130704174723) do
 
   create_table "ethnicities", :force => true do |t|
     t.string   "group"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(:version => 20130704125014) do
 
   create_table "mytales", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "mytale_id"
+    t.integer  "story_id"
     t.string   "summary"
     t.text     "content"
     t.boolean  "private",    :default => true
@@ -51,8 +51,11 @@ ActiveRecord::Schema.define(:version => 20130704125014) do
   create_table "stories", :force => true do |t|
     t.string   "summary"
     t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.string   "title"
+    t.string   "main_character"
+    t.string   "main_character_gender"
   end
 
   create_table "users", :force => true do |t|
