@@ -4,5 +4,5 @@ class Story < ActiveRecord::Base
   has_many :mytales
   has_many :users, :through => :mytales
 
-  slice :content, :as => :paged, :window => 2, :slice => { :maximum => 200, :complete => /(?<=\.\s)|(?<=\!\s)/ }
+  slice :content, :as => :paged, :window => 2, :slice => { :maximum => 300, :complete => /(?<=\.\s)|(?<=\!\s)/ }
 end
