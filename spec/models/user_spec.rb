@@ -20,64 +20,30 @@ describe User do
   it { should allow_mass_assignment_of(:email) }
   it { should allow_mass_assignment_of(:password) } #we shouldn't allow mass assignment to password?
 
-  it 'should be an instance of user' do 
-   pending
-  end
+  context 'with valid input' do 
 
-  it 'should have a valid name' do 
-    pending
-  end
-
-  it 'should be invalid if there is no name' do 
-    pending
-  end
-
-  it 'should have a valid email address' do 
-    pending
-  end
-
-  it 'should have unique email' do
-    pending
-  end
-
-  it 'should have a name with at least 4 characters' do 
-    pending
-  end
-
-  it 'should give short message if name is less than 4 characters ' do 
-    pending
-  end
-  
-  it 'should hava a name with at most 20 characters' do 
-    pending
-  end
-
-  it 'should give long message if name is more than 20 characters long ' do 
-    pending
-  end
-
-  it 'should have emails with a valid format i.e. test@test.com' do 
-    pending
-  end
-
-  it 'should not have emails with an invalid format i.e. blah.com' do 
-    pending
-  end
-
-  it 'should have a password with at least 6 characters' do 
+    it 'should create a user' do 
+      person = User.create(name: "Jackie Awesome", email: "jackie@awesome", password: "123Ab3cd")
+      expect(person).to be_instance_of(User)
+    end
 
   end
 
-  it 'should have a password with at most 15 characters' do 
-    pending
+  context 'with invalid input' do 
+
+    it 'should not create a user without a name' do 
+      person = User.create(email: "jackie@awesome", password: "123Ab3cd")
+      expect(person.id).to be(nil)
+    end
+
+    it 'should not create a user without an email' do 
+      person = User.create(name: "Jackiew Awesome", password: "123Ab3cd")
+      expect(person.id).to be(nil)
+    end
+
+    it 'should not create a usser without a password' do 
+      person = User.create(name: "Jackiew Awesome", email: "jackie@awesome")
+      expect(person.id).to be(nil)
+    end
   end
-
-  it 'should give short message if password is less than 4 characters' do 
-    pending
-  end
-
-  it 'should give long message if password is more than 15 characters' do 
-
-  end
-
 end
