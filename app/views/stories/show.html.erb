@@ -1,3 +1,12 @@
-<p><%=@story.summary %></p>
+<h2>
+  <%= @story.title %>
+</h2>
 
-<%=@story.content%>
+<p>
+  <%= @story.summary %>
+</p>
+
+<p>
+  <%= @story_paged %>
+  <%= slice @story_paged %>
+</p>
