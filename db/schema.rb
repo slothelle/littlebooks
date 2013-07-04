@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20130704005629) do
 
   create_table "mytales", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "mytale_id"
+    t.integer  "story_id"
     t.string   "summary"
     t.text     "content"
     t.boolean  "private",    :default => true
