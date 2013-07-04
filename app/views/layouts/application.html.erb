@@ -5,10 +5,36 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-</head>
+  <link href='http://fonts.googleapis.com/css?family=Trocchi' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
+  </head>
 <body>
 
-<%= yield %>
+<nav>
+  <ul class="nav">
+    <li class="nav logo">Little Books.</li>
+    <li class="nav"><%= link_to "Signup", new_user_path %></li>
+  </ul>
+</nav>
+
+
+<div id="container">
+  <div class="col span_1_of_5"></div>
+
+  <div class="col span_3_of_5">
+    <header>
+      <h1>Little Books.</h1>
+    </header>
+
+    <%= yield %>
+
+    <footer>
+      Copyright information goes here.
+    </footer>
+  </div>
+
+  <div class="col span_1_of_5"></div>
+</div>
 
 </body>
 </html>
