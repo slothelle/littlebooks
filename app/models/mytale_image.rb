@@ -1,4 +1,4 @@
 class MytaleImage < ActiveRecord::Base
-  belongs_to :mytales
-  belongs_to :people_images
+  belongs_to :mytale
+  belongs_to :people_image
 end
