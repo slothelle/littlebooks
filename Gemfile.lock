@@ -77,6 +77,7 @@ GEM
     guard-rspec (3.0.2)
       guard (>= 1.8)
       rspec (~> 2.13)
+    high_voltage (1.2.3)
     hike (1.2.3)
     i18n (0.6.1)
     journey (1.0.4)
@@ -201,6 +202,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   guard-rspec
+  high_voltage
   jquery-rails
   meta_request
   pg
