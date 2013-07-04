@@ -7,7 +7,7 @@ $light-gray: #CCCCCC;
 
 body {
   font-family: $body-font;
-  font-size: 0.9em;
+  font-size: 1em;
   color: #333333;
 }
 
@@ -61,6 +61,7 @@ nav {
   width: 100%;
   padding: $nav-spacing;
   border-bottom: 1px solid $light-gray;
+  font-size: $small-font;
 }
 
 .nav {
