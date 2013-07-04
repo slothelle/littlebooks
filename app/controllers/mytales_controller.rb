@@ -8,14 +8,21 @@ class MytalesController < ApplicationController
   def create
     # p params.inspect
     mainc = params[:main_character]
+    gender = params[:gender]
     @story = Story.first
-    @mytale = Mytale.create(:summary => @story.summary, :content => @story.content, 
+    @mytale = Mytale.new(:summary => @story.summary, :content => @story.content, 
                             :title => params[:title], :main_character => mainc, 
                             :main_character_gender => params[:gender])
-    @mytale.replace_goldilocks    
-    render show_url(@mytale)
+    @mytale.replace_goldilocks(gender, mainc) 
+    @mytale.save   
+    redirect_to @mytale
   end
 
   def edit
+  end
+
+  def show
+    @story = Story.first
+    @mytale = Mytale.find(params[:id])
   end
 end
