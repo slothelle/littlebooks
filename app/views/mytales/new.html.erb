@@ -1,0 +1,13 @@
+<%= form_for @mytale, html: {class: "create-story"} do |f| %>
+<%= label_tag "title" %>
+<%= text_field_tag "title", nil, placeholder: "title" %>
+<%= label_tag "main_character" %>
+<%= text_field_tag "main_character", nil, placeholder: "name your main character" %>
+<%= label_tag "gender" %>
+<%= select_tag "gender", "<option>Male</option><option>Female</option>".html_safe %>
+<%= f.submit("create story") %>
+<% end %>
+
+<p><%=@story.summary %></p>
+
+<%=@story.content%>
