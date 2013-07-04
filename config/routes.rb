@@ -7,4 +7,6 @@ LittleBooks::Application.routes.draw do
   match '/logout',  to: 'sessions#destroy', via: :delete
 
   root :to => 'high_voltage/pages#show', :id => 'home'
+
+  resources :stories
 end
