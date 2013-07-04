@@ -2,7 +2,7 @@ class CreateMytalesTable < ActiveRecord::Migration
   def change
     create_table :mytales do |t|
       t.references :user
-      t.references :mytale
+      t.references :story
       t.string :summary
       t.text   :content
       t.boolean :private, :default => true
