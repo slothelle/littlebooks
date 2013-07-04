@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby "1.9.3"
 gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
@@ -22,8 +22,10 @@ end
 
 gem 'jquery-rails'
 
+gem 'faker'
+
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
@@ -36,3 +38,20 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'better-errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+  gem 'guard-rspec'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
+  gem 'shoulda-context'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+end
