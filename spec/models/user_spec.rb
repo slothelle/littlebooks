@@ -20,4 +20,64 @@ describe User do
   it { should allow_mass_assignment_of(:email) }
   it { should allow_mass_assignment_of(:password) } #we shouldn't allow mass assignment to password?
 
+  it 'should be an instance of user' do 
+   pending
+  end
+
+  it 'should have a valid name' do 
+    pending
+  end
+
+  it 'should be invalid if there is no name' do 
+    pending
+  end
+
+  it 'should have a valid email address' do 
+    pending
+  end
+
+  it 'should have unique email' do
+    pending
+  end
+
+  it 'should have a name with at least 4 characters' do 
+    pending
+  end
+
+  it 'should give short message if name is less than 4 characters ' do 
+    pending
+  end
+  
+  it 'should hava a name with at most 20 characters' do 
+    pending
+  end
+
+  it 'should give long message if name is more than 20 characters long ' do 
+    pending
+  end
+
+  it 'should have emails with a valid format i.e. test@test.com' do 
+    pending
+  end
+
+  it 'should not have emails with an invalid format i.e. blah.com' do 
+    pending
+  end
+
+  it 'should have a password with at least 6 characters' do 
+
+  end
+
+  it 'should have a password with at most 15 characters' do 
+    pending
+  end
+
+  it 'should give short message if password is less than 4 characters' do 
+    pending
+  end
+
+  it 'should give long message if password is more than 15 characters' do 
+
+  end
+
 end
