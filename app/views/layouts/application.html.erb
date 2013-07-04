@@ -6,20 +6,29 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Trocchi' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet' type='text/css'>
   </head>
 <body>
 
 <nav>
   <ul class="nav">
     <li class="nav logo">Little Books.</li>
-    <li class="nav"><%= link_to "Signup", new_user_path %></li>
+    <li class="nav"><%= link_to "Home", root_path %></li>
+    <% if @current_user %>
+      <%= render partial: "shared/user_menu" %>
+    <% else %>
+      <%= render partial: "shared/anon_menu" %>
+    <% end %>
+    <li class="nav">Browse stories</li>
+    <li class="nav"><%= link_to "Learn more", page_path("learn")%></li>
   </ul>
 </nav>
 
 
 <div id="container">
-  <div class="col span_1_of_5"></div>
+  <div class="col span_1_of_5">
+    <!-- Empty div for spacing -->
+  </div>
 
   <div class="col span_3_of_5">
     <header>
@@ -28,12 +37,16 @@
 
     <%= yield %>
 
-    <footer>
-      Copyright information goes here.
-    </footer>
+    <div class="section">
+      <footer>
+        Copyright information goes here.
+      </footer>
+    </div>
   </div>
 
-  <div class="col span_1_of_5"></div>
+  <div class="col span_1_of_5">
+    <!-- Empty div for spacing -->
+  </div>
 </div>
 
 </body>

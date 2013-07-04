@@ -1,13 +1,18 @@
 $accent-font: 'Trocchi', Georgia, serif;
-$body-font: 'Lato', Arial, sans-seif;
+$body-font: 'ABeeZee', Arial, sans-seif;
 $nav-spacing: 20px;
 $main-color: #7aa6bf;
 $small-font: 0.9em;
+$light-gray: #CCCCCC;
 
 body {
   font-family: $body-font;
-  font-size: 0.9em;
+  font-size: 1em;
   color: #333333;
+}
+
+p {
+  line-height: 1.65em;
 }
 
 footer {
@@ -38,6 +43,19 @@ a {
   width: 100%;
 }
 
+input {
+  border: 1px solid $light-gray;
+  padding: 5px;
+}
+
+input[type="text"], input[type="password"] {
+  width: 50%;
+}
+
+input[type="submit"] {
+    width: 20%;
+}
+
 // Nav menu formatting
 nav {
   position: fixed;
@@ -46,7 +64,8 @@ nav {
   left: 0;
   width: 100%;
   padding: $nav-spacing;
-  border-bottom: 1px solid #CCCCCC;
+  border-bottom: 1px solid $light-gray;
+  font-size: $small-font;
 }
 
 .nav {
