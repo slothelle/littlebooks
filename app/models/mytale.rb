@@ -1,4 +1,6 @@
 class Mytale < ActiveRecord::Base
+  attr_accessible :main_character, :main_character_gender, :title
+
   belongs_to :user
   belongs_to :story
   
@@ -6,13 +8,13 @@ class Mytale < ActiveRecord::Base
   validates_presence_of :summary
 
   def replace_goldilocks
-    m = Mytale.new
-    m.content = m.content.gsub(/Goldenhair/, "Bill")
-    m.summary = m.summary.gsub(/Goldilocks/, "Bill")
-    m.content = m.content.gsub(/miss/, "lad")
-    m.content = m.content.gsub(/Her/, "His")
-    m.content = m.content.gsub(/herself/, "himself")
-    m.content = m.content.gsub(/her/, "his")
-    m.save
+   content.gsub(/Goldenhair/, :main_character)
+   summary.gsub(/Goldilocks/, :main_character)
+   if params[:gender] != "female"
+     content.gsub(/miss/, "lad")
+     content.gsub(/Her/, "His")
+     content.gsub(/herself/, "himself")
+     content.gsub(/her/, "his")
+   end
   end
 end
