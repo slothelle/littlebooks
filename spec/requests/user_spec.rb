@@ -1,17 +1,21 @@
 require 'spec_helper'
 
-describe "Users can signup, login, and logout" do
-  context "on the home page" do
-    it "logs in the user with correct credentials" do
-      pending
+describe "Users#" do
+  context "account authentication" do
+    it "can login the user with correct credentials" do
+      login
+      expect(page).to have_content("Logout")
     end
 
-    it "creates a user given valid inputs" do
-      pending
+    it "can create an account given valid inputs" do
+      signup
+      expect(page).to have_content("Logout")
     end
 
     it "logs an existing user out" do
-      pending
+      login
+      click_link("Logout")
+      expect(page).to have_content("Hello, friend!")
     end
   end
 end
