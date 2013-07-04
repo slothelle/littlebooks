@@ -1,0 +1,9 @@
+<%= form_tag login_path do %>
+<%= label_tag(:email, "Email") %><br>
+<%= text_field_tag :email, nil, :placeholder => "me@email.com"%>
+<p>
+  <%= label_tag(:password, "Password") %><br>
+<%= password_field_tag :password, nil, :placeholder => "********"%>
+</p>
+<%= submit_tag("Login") %>
+<% end %>

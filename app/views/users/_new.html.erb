@@ -1,0 +1,13 @@
+<%= form_for(:user, url: user_path) do |f| %>
+<%= f.label :name, "Name" %><br>
+<%= f.text_field :name, placeholder: 'Name'%>
+<p>
+<%= f.label :email, "Email" %><br>
+<%= f.text_field :email, placeholder: 'me@email.com' %>
+</p>
+<%= f.label :password, "Password" %><br>
+<%= f.password_field :password, placeholder: '********'%>
+<p>
+<%= f.submit "Signup" %>
+</p>
+<%end%>
