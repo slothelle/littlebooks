@@ -1,4 +1,7 @@
-Story.create(:summary => "Goldilocks and the three bears", :content => "_THE STORY OF_ THE THREE BEARS.
+Gender.create(sex: "female")
+Gender.create(sex: "male")
+
+Story.create(:main_character_gender => "female", :title => "Three Bears", :main_character => "Goldilocks", :summary => "Goldilocks and the three bears", :content => "_THE STORY OF_ THE THREE BEARS.
     There were once three bears, who lived in a wood,
     Their porridge was thick, and their chairs and beds good.
     The biggest bear, Bruin, was surly and rough;
