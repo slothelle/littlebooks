@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       create_session
       redirect_to root_path
     else
-      render login_path
+      render root_path
     end
   end
 
