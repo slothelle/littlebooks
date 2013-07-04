@@ -6,7 +6,6 @@ class MytalesController < ApplicationController
   end
 
   def create
-    # p params.inspect
     mainc = params[:main_character]
     gender = params[:gender]
     @story = Story.first
