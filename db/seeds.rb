@@ -1,3 +1,6 @@
+Gender.delete_all
+Story.delete_all
+
 Gender.create(sex: "female")
 Gender.create(sex: "male")
 
