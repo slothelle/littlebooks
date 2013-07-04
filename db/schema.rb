@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130704125014) do
 
-
   create_table "ethnicities", :force => true do |t|
     t.string   "group"
     t.datetime "created_at", :null => false
