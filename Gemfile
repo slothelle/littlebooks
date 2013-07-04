@@ -40,10 +40,13 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # To use debugger
 # gem 'debugger'
 
+group :development do 
+  gem 'binding_of_caller'
+end
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'meta_request'
   gem 'guard-rspec'
 end
