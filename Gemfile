@@ -41,7 +41,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'better-errors'
+  gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'guard-rspec'
