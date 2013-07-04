@@ -1,5 +1,5 @@
 Welcome to Little Books
 
-Our staging url is http://mysterious-reef-6094.herokuapp.com
+Our staging url is http://littlebooks-staging.herokuapp.com
 
-Our production url is http://intense-lake-9491.herokuapp.com
+Our production url is http://littlebooks.herokuapp.com
