@@ -1,0 +1,7 @@
+<div class="#">
+  <%= form_tag login_path do %>
+  <%= field_text_tag :name, nil, :placeholder => "name"%>
+  <%= password_field_tag :password, nil, :placeholder => "password"%>
+  <%= submit_tag("Login") %>
+  <% end %>
+</div>
