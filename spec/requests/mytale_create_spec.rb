@@ -7,10 +7,11 @@ describe "create your own story" do
   end
 
   it "creates a new mytale story" do
-    visit new_mytale_path
-    fill_in 'title', :with => 'Bill Adventures'
-    fill_in 'main_character', :with => 'Hercules'
-    click_button('create story')
+    login
+    visit new_story_mytale_path(1)
+    fill_in 'mytale_title', :with => 'Bill Adventures'
+    fill_in 'mytale[main_character]', :with => 'Hercules'
+    click_button('Customize')
     expect(page).to have_content('Bill Adventures')
   end
 end
