@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130704184848) do
+ActiveRecord::Schema.define(:version => 20130705161133) do
 
   create_table "ethnicities", :force => true do |t|
     t.string   "group"
@@ -47,8 +47,10 @@ ActiveRecord::Schema.define(:version => 20130704184848) do
 
   create_table "people_images", :force => true do |t|
     t.string   "url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "gender_id"
+    t.integer  "ethnicity_id"
   end
 
   create_table "stories", :force => true do |t|
