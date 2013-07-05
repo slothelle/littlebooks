@@ -6,8 +6,8 @@ describe User do
   it { should have_many(:mytales) }
   it { should have_many(:stories).through(:mytales) }
   it { should validate_presence_of(:name) }
-  it { should ensure_length_of(:name).is_at_least(2).with_short_message(/Please choose a name with at least 4 characters/) }
-  it { should ensure_length_of(:name).is_at_most(20).with_long_message(/Please choose a name with less than 20 characters/) }
+  it { should ensure_length_of(:name).is_at_least(2).with_short_message(/must be at least 4 characters/) }
+  it { should ensure_length_of(:name).is_at_most(20).with_long_message(/must be less than 20 characters/) }
   it { should validate_presence_of(:email) }
   it { should validate_uniqueness_of(:email) }
   it { should validate_presence_of(:password) }
