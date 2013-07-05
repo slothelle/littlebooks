@@ -1,4 +1,4 @@
-Welcome to Little Books https://travis-ci.org/feministy/littlebooks.png
+Welcome to Little Books https://travis-ci.org/[feministy]/[littlebooks].png
 
 Our staging url is http://littlebooks-staging.herokuapp.com
 
