@@ -10,10 +10,10 @@ class SessionsController < ApplicationController
       redirect_to :root
     elsif @user.nil?
       @error = "An account with the email address #{params[:email]} not found."
-      render :new
+      render "_new"
     else
       @error = "Authentication failed."
-      render :new
+      render "_new"
     end
   end
 
