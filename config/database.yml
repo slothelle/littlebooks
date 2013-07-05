@@ -1,52 +1,53 @@
-postgresql: &postgresql
-  adapter: postgresql
-  username: postgres
-  password:
-  database: little_books_<%= Rails.env %>
-  min_messages: ERROR
-
-  defaults: &defaults
-  pool: 5
-  timeout: 5000
-  host: localhost
-  <<: *<%= ENV['DB'] || "postgresql" %>
-  #<<: *<%= "postgresql" %> #might need only this one. Not sure yet.
-
-
-  development:
-    <<: *defaults
-
-  test:
-    <<: *defaults
-
-  staging:
-    <<: *defaults
-
-  production:
-    <<: *defaults
-
-
-
-
 #commenting these out to configure Travis CI
-# development:
+development:
+  adapter: postgresql
+  # username: postgres
+  # password:
+  encoding: UTF-8
+  database: little_books_<%= Rails.env %>
+  pool: 5
+  host: localhost
+
+test:
+  adapter: postgresql
+  # username: postgres
+  # password:
+  encoding: UTF-8
+  database: little_books_<%= Rails.env %>
+  pool: 5
+  host: localhost
+
+
+production:
+  adapter: postgresql
+  # username: postgres
+  # password:
+  encoding: UTF-8
+  database: little_books_<%= Rails.env %>
+  pool: 5
+
+# postgresql: &postgresql
 #   adapter: postgresql
-#   encoding: UTF-8
-#   database: little_books_development
+#   username: postgres
+#   password:
+#   database: little_books_<%= Rails.env %>
+#   min_messages: ERROR
+
+#   defaults: &defaults
 #   pool: 5
+#   timeout: 5000
 #   host: localhost
-
-# test:
-#   adapter: postgresql
-#   encoding: UTF-8
-#   database: little_books_test
-#   pool: 5
-#   host: localhost
+#   <<: *<%= "postgresql" %>
 
 
-# production:
-#   adapter: postgresql
-#   encoding: UTF-8
-#   database: little_books_production
-#   pool: 5
+#   development:
+#     <<: *defaults
 
+#   test:
+#     <<: *defaults
+
+#   staging:
+#     <<: *defaults
+
+#   production:
+#     <<: *defaults
