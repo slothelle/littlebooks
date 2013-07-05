@@ -9,5 +9,6 @@ env:
   - DB=postgresql
 script:
   - RAILS_ENV=test bundle exec rake --trace db:migrate test
+  - bundle exec rake db:test:prepare
 before_script:
   - psql -c 'create database little_books_test' -U postgres
