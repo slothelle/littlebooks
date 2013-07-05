@@ -1,3 +1,5 @@
+<%= render "shared/errors", layout: false %>
+
 <%= form_tag sessions_path do %>
 <%= label_tag(:email, "Email") %><br>
 <%= text_field_tag :email, nil, :placeholder => "me@email.com"%>
