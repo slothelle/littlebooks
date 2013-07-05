@@ -1,0 +1,9 @@
+<% if @error %>
+  <div class="error">
+    <p>
+      <%= @error %> Please try again!
+    </p>
+  </div>
+<% end %>
+
+<%= render "sessions/new", layout: false %>
