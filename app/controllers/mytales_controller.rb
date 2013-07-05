@@ -1,27 +1,26 @@
 class MytalesController < ApplicationController
   def new
-
-    @story = Story.first
+    @story = Story.find_by_id(params[:story_id])
     @mytale = Mytale.new
   end
 
   def create
-    mainc = params[:main_character]
-    gender = params[:gender]
-    @story = Story.first
-    @mytale = Mytale.new(:summary => @story.summary, :content => @story.content, 
-                            :title => params[:title], :main_character => mainc, 
-                            :main_character_gender => params[:gender])
-    @mytale.replace_goldilocks(gender, mainc) 
-    @mytale.save   
-    redirect_to @mytale
+    params[:mytale][:user_id] = @current_user.id
+    @story = Story.find_by_id(params[:story_id])
+    @mytale = Mytale.new(params[:mytale])
+    @mytale.replace_goldilocks
+    if @mytale.save
+      redirect_to story_mytale_path(story_id: @story.id, id: @mytale.id)
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def show
-    @story = Story.first
+    @story = Story.find_by_id(params[:story_id])
     @mytale = Mytale.find(params[:id])
   end
 end

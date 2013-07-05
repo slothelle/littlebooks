@@ -4,7 +4,13 @@ Story.delete_all
 Gender.create(sex: "female")
 Gender.create(sex: "male")
 
-Story.create(:main_character_gender => "female", :title => "Three Bears", :main_character => "Goldilocks", :summary => "Goldilocks and the three bears", :content => "_THE STORY OF_ THE THREE BEARS.
+Story.create(main_character_gender: "male", main_character: "Jack", title: "Jack and the Beanstalk", summary: "A crazy kid gets some magic beans and battles an ogre.", content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, repellendus, nobis esse quas quidem modi ullam vitae rerum odit recusandae eaque iste deleniti earum nulla explicabo eveniet id quos quaerat.')
+
+Story.create(main_character_gender: "female", main_character: "Little Red Riding Hood", title: "Little Red Riding Hood", summary: "A child doesn't listen and wanders off the path.", content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, repellendus, nobis esse quas quidem modi ullam vitae rerum odit recusandae eaque iste deleniti earum nulla explicabo eveniet id quos quaerat.')
+
+Story.create(main_character_gender: "male", main_character: "Bob", title: "bob Goes to the Store", summary: "An enterprising mastermind starts a grocery store chain.", content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, repellendus, nobis esse quas quidem modi ullam vitae rerum odit recusandae eaque iste deleniti earum nulla explicabo eveniet id quos quaerat.')
+
+Story.create(:main_character_gender => "female", :title => "Three Bears", :main_character => "Goldilocks", :summary => "A wayward child wanders into the forest and meets some bears.", :content => "_THE STORY OF_ THE THREE BEARS.
     There were once three bears, who lived in a wood,
     Their porridge was thick, and their chairs and beds good.
     The biggest bear, Bruin, was surly and rough;

@@ -23,6 +23,7 @@ p.small {
 
 footer {
   font-size: $small-font;
+  padding-top: $nav-spacing * 3;
 }
 
 h1 {
@@ -49,18 +50,32 @@ a {
   width: 100%;
 }
 
+.error {
+  color: #e52232;
+  background-color: #e2acb0;
+  border: 1px solid #e52232;
+  padding: 0 10px 0 10px;
+  width: 50%;
+  margin: 0 0 20px 0;
+  font-size: $small-font;
+}
+
 // Form boxes get perdy
-input {
+input, select {
   border: 1px solid $light-gray;
   padding: 5px;
+  font-family:$body-font;
+  font-size: $small-font;
 }
 
 input[type="text"], input[type="password"] {
-  width: 50%;
+  width: 75%;
 }
 
 input[type="submit"] {
-    width: 20%;
+  width: 20%;
+  color:#333333;
+  padding:6px 24px;
 }
 
 // Nav menu formatting

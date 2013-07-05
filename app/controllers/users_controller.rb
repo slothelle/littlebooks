@@ -10,7 +10,8 @@ class UsersController < ApplicationController
       create_session
       redirect_to root_path
     else
-      redirect_to root_path
+      @error = @user.errors.full_messages.join(". ")
+      render "_new"
     end
   end
 
