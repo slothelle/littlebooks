@@ -5,48 +5,24 @@ postgresql: &postgresql
   database: little_books_<%= Rails.env %>
   min_messages: ERROR
 
-defaults: &defaults
-  pool: 5
-  timeout: 5000
-  host: localhost
-  <<: *<%= ENV['DB'] || "postgresql" %>
-
 development:
-  <<: *defaults
+  adapter: postgresql
+  encoding: UTF-8
+  database: little_books_development
+  pool: 5
+  host: localhost
 
 test:
-  <<: *defaults
+  adapter: postgresql
+  encoding: UTF-8
+  database: little_books_test
+  pool: 5
+  host: localhost
+
 
 production:
-  <<: *defaults
-
-####
-
-#commenting these out to configure Travis CI
-# development:
-#   adapter: postgresql
-#   # username: postgres
-#   # password:
-#   encoding: UTF-8
-#   database: little_books_<%= Rails.env %>
-#   pool: 5
-#   host: localhost
-
-# test:
-#   adapter: postgresql
-#   # username: postgres
-#   # password:
-#   encoding: UTF-8
-#   database: little_books_<%= Rails.env %>
-#   pool: 5
-#   host: localhost
-
-
-# production:
-#   adapter: postgresql
-#   # username: postgres
-#   # password:
-#   encoding: UTF-8
-#   database: little_books_<%= Rails.env %>
-#   pool: 5
+  adapter: postgresql
+  encoding: UTF-8
+  database: little_books_production
+  pool: 5
 
