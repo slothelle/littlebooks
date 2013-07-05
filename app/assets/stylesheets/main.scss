@@ -23,6 +23,7 @@ p.small {
 
 footer {
   font-size: $small-font;
+  padding-top: $nav-spacing * 3;
 }
 
 h1 {
@@ -47,6 +48,16 @@ a {
   margin: 0 auto;
   margin-top: 80px;
   width: 100%;
+}
+
+.error {
+  color: #e52232;
+  background-color: #e2acb0;
+  border: 1px solid #e52232;
+  padding: 0 10px 0 10px;
+  width: 50%;
+  margin: 0 0 20px 0;
+  font-size: $small-font;
 }
 
 // Form boxes get perdy

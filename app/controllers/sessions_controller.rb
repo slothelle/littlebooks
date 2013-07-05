@@ -1,16 +1,19 @@
 class SessionsController < ApplicationController
   def new
     @user = User.new
-    render "_new"
   end
 
   def create
     @user = User.find_by_email(params[:email])
     if @user && @user.authenticate(params[:password])
       create_session
-      redirect_to root_path
+      redirect_to :root
+    elsif @user.nil?
+      @error = "An account with the email address #{params[:email]} not found."
+      render :new
     else
-      redirect_to root_path
+      @error = "Authentication failed."
+      render :new
     end
   end
 
