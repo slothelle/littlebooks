@@ -1,13 +1,39 @@
-<%= form_for @mytale, html: {class: "create-story"} do |f| %>
-<%= label_tag "title" %>
-<%= text_field_tag "title", nil, placeholder: "title" %>
-<%= label_tag "main_character" %>
-<%= text_field_tag "main_character", nil, placeholder: "name your main character" %>
-<%= label_tag "gender" %>
-<%= select_tag "gender", "<option>Male</option><option>Female</option>".html_safe %>
-<%= f.submit("create story") %>
+<% if current_user %>
+
+  <%= form_for ([@story, @mytale]) do |f| %>
+  <div class="section">
+    <div class="col span_1_of_3">
+      <%= f.label :title, "Title" %> <br>
+      <%= f.text_field :title, placeholder: "#{@story.title}" %>
+    </div>
+
+    <div class="col span_1_of_3">
+      <%= f.label :main_character, "Main Character Name" %> <br>
+      <%= f.text_field :main_character, placeholder: "#{@story.main_character}" %>
+    </div>
+
+    <div class="col span_1_of_3">
+      <%= f.label :main_character_gender, "Gender" %> <br>
+      <%= f.select :main_character_gender, "<option>Male</option><option>Female</option>".html_safe %>
+    </div>
+  </div>
+  <div class="section">
+    <%= f.submit "Customize" %>
+    <%= f.hidden_field :content, value: @story.content %>
+    <%= f.hidden_field :story_id, value: @story.id %>
+    <%= f.hidden_field :summary, value: @story.summary %>
+  <% end %>
+  </div>
+
+<% else %>
+  <h4>
+    Please <%= link_to "login", new_user_path %> or <%= link_to "signup", new_session_path %> to customize this story.
+  </h4>
 <% end %>
 
-<p><%=@story.summary %></p>
 
-<%=@story.content%>
+<h2><%= @story.title %></h2>
+
+<p>
+  <%=@story.content%>
+</p>

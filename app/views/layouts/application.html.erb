@@ -19,7 +19,7 @@
     <% else %>
       <%= render partial: "shared/anon_menu" %>
     <% end %>
-    <li class="nav">Browse stories</li>
+    <li class="nav"><%= link_to "Browse stories", stories_path %></li>
     <li class="nav"><%= link_to "Learn more", page_path("learn")%></li>
   </ul>
 </div>
