@@ -10,6 +10,6 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   validates_presence_of :name, :email, :password
   validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
-  validates_length_of :name, :within => 2..20, :too_long => "Please choose a name with less than 20 characters", :too_short => "Please choose a name with at least 4 characters"
-  validates_length_of :password, :within => 6..15, :too_long => "Please choose a password with less than 15 characters", :too_short => "Please choose a password with at least 6 characters"
+  validates_length_of :name, :within => 2..20, :too_long => "Please choose a name with less than 20 characters.", :too_short => "Please choose a name with at least 4 characters."
+  validates_length_of :password, :within => 6..15, :too_long => "must be less than 15 characters.", :too_short => "must be at least 6 characters."
 end
