@@ -13,3 +13,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+$(document).ready(function(){
+  $("p").html(function(index, value) {
+    return value.replace(/\b(Goldenhair)\b/g, '<span class="main_character">$1</span>');
+  });
+
+  $('#mytale_title').keyup(function(){
+    var input = $(this).val();
+    $('h2').text(input);
+  });
+  $('#mytale_main_character').keyup(function(){
+    var input = $(this).val();
+    console.log(input);
+    $('.main_character').text(input);
+  });
+});
