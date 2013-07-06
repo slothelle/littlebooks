@@ -1,5 +1,5 @@
 class Character < ActiveRecord::Base
-  attr_accessible :name, :story, :gender
+  attr_accessible :name, :story, :gender, :story_id
   belongs_to :story
   belongs_to :gender
   has_many :mytales_characters
