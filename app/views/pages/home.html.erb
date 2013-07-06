@@ -1,19 +1,6 @@
-<h2>Enriching children's reading experiences with customizable stories.</h2>
-
-<% if !@current_user %>
-  <div class="section">
-    <div class="col span_1_of_2">
-      <h3>Signup</h3>
-      <%= render "users/new", layout: false %>
-    </div>
-
-    <div class="col span_1_of_2">
-      <h3>Login</h3>
-      <%= render "sessions/new", layout: false %>
-    </div>
-  </div>
-<% else %>
-  <div class="section">
-    <p>You are logged in. Magic will happen here.</p>
-  </div>
-<% end %>
+<h2 class="center intro">Once upon a time there was a little <br>
+  <a href="#">girl</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="#">boy</a>
+</h2>
+<p class="center">
+  <%= image_tag "bears.jpg" %>
+</p>
