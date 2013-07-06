@@ -1,11 +1,11 @@
 class Mytale < ActiveRecord::Base
-  attr_accessible :main_character, :main_character_gender, :title, :summary, :title, :content, :user_id, :story_id, :mytale_character_id
+  attr_accessible :title, :summary, :content, :user, :story, :mytale_character
 
   belongs_to :user
   belongs_to :story
   belongs_to :mytale_character
 
-  validates_presence_of :content
+  validates_presence_of :title, :content, :user, :story, :mytale_character
 
   slice :content, :as => :paged, :window => 2, :slice => { :maximum => 300, :complete => /(?<=\.\s)|(?<=\!\s)/ }
 
