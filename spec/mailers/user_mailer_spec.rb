@@ -1,5 +1,5 @@
 require "spec_helper"
 
 describe UserMailer do
-  pending "add some examples to (or delete) #{__FILE__}"
+  pending "Tests still need to be written"
 end
