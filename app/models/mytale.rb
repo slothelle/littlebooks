@@ -1,8 +1,9 @@
 class Mytale < ActiveRecord::Base
-  attr_accessible :main_character, :main_character_gender, :title, :summary, :title, :content, :user_id, :story_id
+  attr_accessible :main_character, :main_character_gender, :title, :summary, :title, :content, :user_id, :story_id, :mytale_character_id
 
   belongs_to :user
   belongs_to :story
+  belongs_to :mytale_character
 
   validates_presence_of :content
 
