@@ -1,4 +1,5 @@
 class PeopleImage < ActiveRecord::Base
   belongs_to :gender
-  belongs_to :ethnicity 
+  belongs_to :ethnicity
+  validates_presence_of :gender, :ethnicity, :url
 end

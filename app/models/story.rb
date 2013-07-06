@@ -1,8 +1,11 @@
 class Story < ActiveRecord::Base
-  attr_accessible :summary, :content, :title, :main_character, :main_character_gender
+  attr_accessible :summary, :content, :title, :character
 
   has_many :mytales
   has_many :users, :through => :mytales
+  belongs_to :character
 
   slice :content, :as => :paged, :window => 2, :slice => { :maximum => 300, :complete => /(?<=\.\s)|(?<=\!\s)/ }
+
+  validates_presence_of :title, :content, :summary, :character
 end

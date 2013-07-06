@@ -44,7 +44,7 @@ describe "User" do
       fill_in("Email", :with => "joe@joe.com")
       fill_in("Password", :with => "password1234")
       click_button("Signup")
-      expect(page).to have_content("must be at least 4 characters.")
+      expect(page).to have_content("must be at least 2 characters.")
     end
 
     it "fails with invalid long name" do
