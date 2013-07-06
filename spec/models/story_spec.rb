@@ -9,4 +9,8 @@ describe Story do
   it { should allow_mass_assignment_of(:content) }
   it { should allow_mass_assignment_of(:title) }
   it { should allow_mass_assignment_of(:character) }
+  it { should validate_presence_of(:title) }
+  it { should validate_presence_of(:content) }
+  it { should validate_presence_of(:summary) }
+  it { should validate_presence_of(:character) }
 end
