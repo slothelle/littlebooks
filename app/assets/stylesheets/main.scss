@@ -64,6 +64,25 @@ a {
   font-size: $small-font;
 }
 
+// Customize button
+button {
+  border: 1px solid #ffffff;
+  background-color: #ffffff;
+  font-family: $accent-font;
+  font-size: $large-font;
+  width: 100%;
+  padding: 10px;
+}
+
+button.ready {
+  border: 1px solid $main-color;
+  background-color: $main-color;
+  font-family: $accent-font;
+  font-size: $large-font;
+  width: 100%;
+  padding: 10px;
+}
+
 // Form boxes get perdy
 input, select {
   border: 1px solid $light-gray;
@@ -79,7 +98,7 @@ input[type="text"], input[type="password"] {
 input[type="submit"] {
   width: 20%;
   color:#333333;
-  padding:6px 24px;
+  padding: 5px;
 }
 
 // Nav menu formatting
