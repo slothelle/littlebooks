@@ -6,4 +6,6 @@ class Story < ActiveRecord::Base
   belongs_to :character
 
   slice :content, :as => :paged, :window => 2, :slice => { :maximum => 300, :complete => /(?<=\.\s)|(?<=\!\s)/ }
+
+  validates_presence_of :title, :content, :summary, :character
 end

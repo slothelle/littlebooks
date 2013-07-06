@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
   attr_accessible :name, :email, :password
 
   has_many :mytales
@@ -11,6 +10,6 @@ class User < ActiveRecord::Base
   validates_presence_of :name, :email, :password
   validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
 
-  validates_length_of :name, :within => 2..20, :too_long => "must be less than 20 characters.", :too_short => "must be at least 4 characters."
+  validates_length_of :name, :within => 2..20, :too_long => "must be less than 20 characters.", :too_short => "must be at least 2 characters."
   validates_length_of :password, :within => 6..15, :too_long => "must be less than 15 characters.", :too_short => "must be at least 6 characters."
 end
