@@ -1,4 +1,4 @@
-class UpdateMytalesAgain < ActiveRecord::Migration
+class RemoveColumnsMytales < ActiveRecord::Migration
   def up
     remove_column :mytales, :main_character
     remove_column :mytales, :main_character_gender

@@ -4,6 +4,7 @@ class CreateCharacters < ActiveRecord::Migration
       t.string :name
       t.references :story
       t.references :gender
+      t.timestamps
     end
   end
 

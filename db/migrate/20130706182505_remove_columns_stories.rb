@@ -1,4 +1,4 @@
-class UpdateStoriesAgain < ActiveRecord::Migration
+class RemoveColumnsStories < ActiveRecord::Migration
   def up
     remove_column :stories, :main_character
     remove_column :stories, :main_character_gender
