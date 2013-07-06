@@ -21,11 +21,11 @@ LittleBooks::Application.configure do
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
-    domain: "littlebooks.herokuapp.com",
+    domain: ENV["GMAIL_DOMAIN"],
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "littlebooksnoreply@gmail.com",
-    password: "Devb00tcamp!"
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"]
   }
 
   # Specify what domain to use for mailer URLs
