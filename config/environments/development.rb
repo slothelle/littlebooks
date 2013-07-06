@@ -28,6 +28,9 @@ LittleBooks::Application.configure do
     password: "Devb00tcamp!"
   }
 
+  # Specify what domain to use for mailer URLs
+  config.action_mailer.default_url_options = { host: "localhost:3000" }
+
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
