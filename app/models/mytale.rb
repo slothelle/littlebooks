@@ -6,6 +6,8 @@ class Mytale < ActiveRecord::Base
 
   validates_presence_of :content
 
+  slice :content, :as => :paged, :window => 2, :slice => { :maximum => 300, :complete => /(?<=\.\s)|(?<=\!\s)/ }
+
   def replace_goldilocks
     self.content.gsub!(/Goldenhair/, self.main_character)
     if self.main_character_gender != "Female"
