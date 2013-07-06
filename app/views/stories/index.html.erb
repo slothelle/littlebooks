@@ -1,17 +1,34 @@
-<% @stories.each_with_index do |story, num| %>
-  <% if num == 0 || num % 2 == 0 %>
-    <div class="section">
-      <div class="col span_1_of_2">
-        <h3><%= story.title %></h3>
-        <%= story.summary %> <br>
-        <%= link_to "Customize this story", new_story_mytale_path(story.id) %>
-      </div>
-  <% else %>
-    <div class="col span_1_of_2">
-      <h3><%= story.title %></h3>
-      <%= story.summary %> <br>
-      <%= link_to "Customize this story", new_story_mytale_path(story.id) %>
+
+<% if !current_user %>
+ <%= form_for ([@story, @mytale]) do |f| %>
+  <div class="section">
+    <div class="col span_1_of_3">
+      <%= f.label :title, "Title" %> <br>
+      <%= f.text_field :title, placeholder: "#{@story.title}" %>
+    </div>
+
+    <div class="col span_1_of_3">
+      <%= label_tag :name, "Main Character Name" %> <br>
+      <%= text_field_tag :name, "", placeholder: "#{@character.name}" %>
+    </div>
+
+    <div class="col span_1_of_3">
+      <%= label_tag :gender, "Gender" %> <br>
+      <%= select_tag :gender, options_from_collection_for_select(@gender, "id", "sex") %>
     </div>
   </div>
+  <div class="section">
+    <%= f.hidden_field :content, value: @story.content %>
+    <%= f.hidden_field :story_id, value: @story.id %>
+    <%= f.hidden_field :summary, value: @story.summary %>
+    <h2><%= @story.title %></h2>
+    <%= @story_paged%>
+    <%= f.button "Customize" %>
   <% end %>
+  </div>
+
+<% else %>
+  <h4>
+    Please <%= link_to "login", new_user_path %> or <%= link_to "signup", new_session_path %> to customize this story.
+  </h4>
 <% end %>
