@@ -8,13 +8,13 @@
     </div>
 
     <div class="col span_1_of_3">
-      <%= f.label :main_character, "Main Character Name" %> <br>
-      <%= f.text_field :main_character, placeholder: "#{@story.main_character}" %>
+      <%= label_tag :name, "Main Character Name" %> <br>
+      <%= text_field_tag :name, "", placeholder: "#{@character.name}" %>
     </div>
 
     <div class="col span_1_of_3">
-      <%= f.label :main_character_gender, "Gender" %> <br>
-      <%= f.select :main_character_gender, "<option>Male</option><option>Female</option>".html_safe %>
+      <%= label_tag :gender, "Gender" %> <br>
+      <%= select_tag :gender, options_from_collection_for_select(@gender, "id", "sex") %>
     </div>
   </div>
   <div class="section">
