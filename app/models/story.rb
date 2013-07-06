@@ -5,7 +5,7 @@ class Story < ActiveRecord::Base
   has_many :users, :through => :mytales
   belongs_to :character
 
-  slice :content, :as => :paged, :window => 2, :slice => { :maximum => 300, :complete => /(?<=\.\s)|(?<=\!\s)/ }
+  slice :content, :as => :paged, :window => 2, :slice => { :maximum => 500, :complete => /(?<=\.\s)|(?<=\!\s)/ }
 
   validates_presence_of :title, :content, :summary, :character
 end
