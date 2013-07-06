@@ -5,6 +5,7 @@ class CreateMytaleCharacters < ActiveRecord::Migration
       t.references :gender
       t.references :character
       t.references :mytale
+      t.timestamps
     end
   end
 
