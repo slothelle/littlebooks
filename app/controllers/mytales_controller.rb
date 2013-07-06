@@ -20,7 +20,9 @@ class MytalesController < ApplicationController
   end
 
   def show
-    @story = Story.find_by_id(params[:story_id])
-    @mytale = Mytale.find(params[:id])
+    story = Story.find_by_id(params[:story_id])
+    @story = Mytale.find(params[:id])
+    @story_paged = @story.paged.slice!(params[:slice])
+    render layout: "read"
   end
 end
