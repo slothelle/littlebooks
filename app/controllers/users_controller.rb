@@ -17,5 +17,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @mytales = @user.mytales
   end
 end
