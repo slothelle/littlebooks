@@ -17,8 +17,12 @@ p {
   line-height: 1.65em;
 }
 
-p.small {
+.small {
   font-size: $small-font;
+}
+
+.center {
+  text-align: center;
 }
 
 footer {
