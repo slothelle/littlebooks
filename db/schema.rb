@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130705161133) do
+ActiveRecord::Schema.define(:version => 20130706152409) do
+
+  create_table "characters", :force => true do |t|
+    t.string  "name"
+    t.integer "story_id"
+    t.integer "gender_id"
+  end
 
   create_table "ethnicities", :force => true do |t|
     t.string   "group"
@@ -23,6 +29,13 @@ ActiveRecord::Schema.define(:version => 20130705161133) do
     t.string   "sex"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "mytale_characters", :force => true do |t|
+    t.string  "name"
+    t.integer "gender_id"
+    t.integer "character_id"
+    t.integer "mytale_id"
   end
 
   create_table "mytale_images", :force => true do |t|
@@ -37,12 +50,11 @@ ActiveRecord::Schema.define(:version => 20130705161133) do
     t.integer  "story_id"
     t.string   "summary"
     t.text     "content"
-    t.boolean  "private",               :default => true
-    t.datetime "created_at",                              :null => false
-    t.datetime "updated_at",                              :null => false
+    t.boolean  "private",             :default => true
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.string   "title"
-    t.string   "main_character"
-    t.string   "main_character_gender"
+    t.integer  "mytale_character_id"
   end
 
   create_table "people_images", :force => true do |t|
@@ -56,11 +68,9 @@ ActiveRecord::Schema.define(:version => 20130705161133) do
   create_table "stories", :force => true do |t|
     t.string   "summary"
     t.text     "content"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "title"
-    t.string   "main_character"
-    t.string   "main_character_gender"
   end
 
   create_table "users", :force => true do |t|
