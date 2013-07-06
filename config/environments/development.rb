@@ -24,7 +24,7 @@ LittleBooks::Application.configure do
     domain: "littlebooks.herokuapp.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "littlebooksnoreply@gmail.com"
+    user_name: "littlebooksnoreply@gmail.com",
     password: "Devb00tcamp!"
   }
 
