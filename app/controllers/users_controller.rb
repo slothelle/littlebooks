@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       create_session
+      UserMailer.welcome_signup(@user).deliver
       redirect_to root_path
     else
       @error = @user.errors.full_messages.join(". ")
