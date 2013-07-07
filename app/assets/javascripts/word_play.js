@@ -17,6 +17,13 @@
   }
 };
 
+function highlightButton(){
+  if ($(storyForm.titleTextField).val() !== "" && $(storyForm.nameTextField).val() !== "" && $(''+ storyForm.selectTarg + ' option:selected').text() !== "Gender?"){
+    $('button').addClass('ready');
+  // }else{
+  //   $('button').removeClass('ready');
+  }
+}
 
 function breakTxt(){
   return $("p").html(plantFlag($("p").index(), $("p").html()));
@@ -28,10 +35,12 @@ function plantFlag(index, value) {
 
 function changeTitle(){
   $(storyForm.titleTextField).keyup(getVal(storyForm.titleTarg));
+  highlightButton();
 }
 
 function changeMainC(){
   $(storyForm.nameTextField).keyup(getVal(storyForm.mainCharDivClass));
+  highlightButton();
 }
 
 function getVal(targ){
@@ -72,8 +81,14 @@ function changePronouns(){
   $(storyForm.selectTarg).change(function(){
     if ($(''+ storyForm.selectTarg +' option:selected').text() === "male"){
       setMale();
+      highlightButton();
+      $('.male').animate({backgroundColor:"yellow"},  100);
+      $('.male').animate({backgroundColor:"white" },  1000);
     } else if ($(''+ storyForm.selectTarg+' option:selected').text() === "female"){
       setFemale();
+      $('.female').animate({backgroundColor:"yellow"},  100);
+      $('.female').animate({backgroundColor:"white" },  1000);
+      highlightButton();
     }
   });
 }
@@ -88,4 +103,5 @@ $(document).ready(function(){
   changeMainC();
 
   changePronouns();
+
 });
