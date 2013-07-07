@@ -26,7 +26,7 @@ function highlightButton(){
 }
 
 function breakTxt(){
-  return $("p").html(plantFlag($("p").index(), $("p").html()));
+  return $(".word-play").html(plantFlag($(".word-play").index(), $(".word-play").html()));
 }
 
 function plantFlag(index, value) {
@@ -51,7 +51,7 @@ function getVal(targ){
 
 function placeSpans(){
   for (var pronoun in storyForm.subberMale){
-        $("p").html(function(index, value) {
+        $(".word-play").html(function(index, value) {
           return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="male">' + storyForm.subberMale[pronoun] +' </span>');
         });
   }
