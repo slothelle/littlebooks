@@ -90,6 +90,9 @@ GEM
     jquery-rails (3.0.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (4.0.3)
+      jquery-rails
+      railties (>= 3.1.0)
     json (1.8.0)
     listen (1.2.2)
       rb-fsevent (>= 0.9.3)
@@ -211,6 +214,7 @@ DEPENDENCIES
   high_voltage
   html_slicer
   jquery-rails
+  jquery-ui-rails
   meta_request
   pg
   rails (= 3.2.13)
