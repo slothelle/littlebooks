@@ -5,7 +5,7 @@ class Mytale < ActiveRecord::Base
   belongs_to :story
   belongs_to :mytales_character
 
-  validates_presence_of :title, :content, :user, :story, :mytales_character
+  validates_presence_of :title, :content, :story, :mytales_character
 
   slice :content, :as => :paged, :window => 2, :slice => { :maximum => 300, :complete => /(?<=\.\s)|(?<=\!\s)/ }
 
