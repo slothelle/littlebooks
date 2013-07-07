@@ -14,7 +14,7 @@
 
     <div class="col span_1_of_3">
       <%= label_tag :gender, "Gender" %> <br>
-      <%= select_tag :gender, options_from_collection_for_select(@gender, "id", "sex") %>
+      <%= select_tag :gender, options_from_collection_for_select(@gender, "id", "sex"), { :prompt => 'Gender?', :include_blank => 'None' } %>
     </div>
   </div>
   <div class="section">
@@ -22,7 +22,7 @@
     <%= f.hidden_field :story_id, value: @story.id %>
     <%= f.hidden_field :summary, value: @story.summary %>
     <h2><%= @story.title %></h2>
-    <%= @story_paged%>
+    <p><%= @story_paged%></p>
     <%= f.button "Customize" %>
   <% end %>
   </div>
