@@ -20,8 +20,8 @@
 function highlightButton(){
   if ($(storyForm.titleTextField).val() !== "" && $(storyForm.nameTextField).val() !== "" && $(''+ storyForm.selectTarg + ' option:selected').text() !== "Gender?"){
     $('button').addClass('ready');
-  // }else{
-  //   $('button').removeClass('ready');
+  }else{
+    $('button').removeClass('ready');
   }
 }
 
