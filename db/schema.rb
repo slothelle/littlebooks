@@ -11,18 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130706182656) do
+ActiveRecord::Schema.define(:version => 20130707194044) do
 
   create_table "characters", :force => true do |t|
     t.string   "name"
     t.integer  "story_id"
     t.integer  "gender_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "ethnicities", :force => true do |t|
-    t.string   "group"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -76,6 +70,8 @@ ActiveRecord::Schema.define(:version => 20130706182656) do
     t.datetime "updated_at",   :null => false
     t.string   "title"
     t.integer  "character_id"
+    t.string   "source_link"
+    t.string   "attribution"
   end
 
   create_table "users", :force => true do |t|
