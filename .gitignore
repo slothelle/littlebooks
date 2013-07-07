@@ -16,3 +16,6 @@
 
 # Gemfile lock
 /Gemfile.lock
+
+#ignore local environment file
+/config/local_env.yml
