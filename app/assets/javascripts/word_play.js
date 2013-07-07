@@ -7,6 +7,9 @@
    nameTextField: "#name",
    startFlag: ".edit-text",
    selectTarg: "#gender",
+   aniTargM: '.male',
+   aniTargF: '.female',
+   pTarg: 'p',
    subberMale: {
     She: "He",
     she: "he",
@@ -19,14 +22,12 @@
 
 function highlightButton(){
   if ($(storyForm.titleTextField).val() !== "" && $(storyForm.nameTextField).val() !== "" && $(''+ storyForm.selectTarg + ' option:selected').text() !== "Gender?"){
-    $('button').addClass('ready');
-  }else{
-    $('button').removeClass('ready');
+    $('button').toggleClass('ready');
   }
 }
 
 function breakTxt(){
-  return $("p").html(plantFlag($("p").index(), $("p").html()));
+  return $(storyForm.pTarg).html(plantFlag($(storyForm.pTarg).index(), $(storyForm.pTarg).html()));
 }
 
 function plantFlag(index, value) {
@@ -49,25 +50,26 @@ function getVal(targ){
   };
 }
 
-function placeSpans(){
-  for (var pronoun in storyForm.subberMale){
-        $("p").html(function(index, value) {
-          return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="male">' + storyForm.subberMale[pronoun] +' </span>');
-        });
+function placeSpans(hash){
+  for (var pronoun in hash){
+    $(storyForm.pTarg).html(function(index, value) {
+      return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="female">' + storyForm.subberMale[pronoun] +' </span>');
+    });
   }
 }
 
-function setMale(){
-  for (var pronoun in storyForm.subberMale){
+
+function setMale(hash){
+  for (var pronoun in hash){
     $(storyForm.startFlag).nextAll().html(function(index, value) {
       return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="male">' + storyForm.subberMale[pronoun] +' </span>');
     });
   }
 }
 
-function setFemale(){
-  for (var pronoun in storyForm.subberMale){
-        rep(pronoun, storyForm.subberMale);
+function setFemale(hash){
+  for (var pronoun in hash){
+        rep(pronoun, hash);
   }
 }
 
@@ -77,24 +79,27 @@ function rep(ind,val){
   });
 }
 
+function backAnimate(target){
+  $(target).animate({backgroundColor:"yellow"},  100);
+  $(target).animate({backgroundColor:"white" },  1000);
+}
+
 function changePronouns(){
   $(storyForm.selectTarg).change(function(){
     if ($(''+ storyForm.selectTarg +' option:selected').text() === "male"){
-      setMale();
+      setMale(storyForm.subberMale);
+      backAnimate(storyForm.aniTargM);
       highlightButton();
-      $('.male').animate({backgroundColor:"yellow"},  100);
-      $('.male').animate({backgroundColor:"white" },  1000);
     } else if ($(''+ storyForm.selectTarg+' option:selected').text() === "female"){
-      setFemale();
-      $('.female').animate({backgroundColor:"yellow"},  100);
-      $('.female').animate({backgroundColor:"white" },  1000);
+      setFemale(storyForm.subberMale);
+      backAnimate(storyForm.aniTargF);
       highlightButton();
     }
   });
 }
 
 $(document).ready(function(){
-  placeSpans();
+  placeSpans(storyForm.subberMale);
 
   breakTxt();
 
