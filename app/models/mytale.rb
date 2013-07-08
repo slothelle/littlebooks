@@ -1,5 +1,5 @@
 class Mytale < ActiveRecord::Base
-  attr_accessible :title, :summary, :title, :content, :user, :story_id, :mytales_character_id
+  attr_accessible :title, :summary, :title, :content, :user, :story_id, :mytales_character_id, :mytale_image_id
 
   belongs_to :user
   belongs_to :story
