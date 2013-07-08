@@ -46,7 +46,7 @@ class MytalesController < ApplicationController
   def read
     @story = Mytale.find_by_id(params[:mytale_id])
     @story_paged = @story.page.slice!(params[:slice])
-    @kid = PeopleImage.find_by_id(@story.mytale_image_id)
+    @kid = PeopleImage.find_by_id(@story.mytale_image.people_image_id)
     respond_to do |format|
       format.html { render layout: "read" }
       format.js {}
