@@ -16,7 +16,7 @@ class MytalesController < ApplicationController
     if @mytale.save
       @mytales_character.update_attributes(mytale_id: @mytale.id)
       @mytale.update_attributes(user: current_user)
-      redirect_to story_mytale_path(story_id: @story.id, id: @mytale.id)
+      redirect_to new_story_mytale_mytale_image_path(story_id: @story.id, mytale_id: @mytale.id)
     else
       render :new
     end
