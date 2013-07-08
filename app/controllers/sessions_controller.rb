@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_email(params[:email])
     if @user && @user.authenticate(params[:password])
       create_session
-      redirect_to :root
+      redirect_to @user
     elsif @user.nil?
       @error = "An account with the email address #{params[:email]} not found."
       render "_new"
@@ -20,6 +20,6 @@ class SessionsController < ApplicationController
 
   def destroy
     destroy_session
-    redirect_to :root
+    redirect_to new_session_path
   end
 end
