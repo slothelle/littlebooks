@@ -6,11 +6,13 @@ class MytaleImagesController < ApplicationController
   end
 
   def create
-    @myimage = MytaleImage.new(params)
+    @mytale = Mytale.find_by_id(params[:mytale_id])
+    @myimage = MytaleImage.new(people_image_id: params[:people_image_id], mytale_id: params[:mytale_id])
     if @myimage.save
-      # magic
+      @mytale.update_attribute(:mytale_image_id, @myimage.id)
+      redirect_to story_mytale_path(story_id: @mytale.story_id, id: @mytale.id)
     else
-      # poop
+      render :create
     end
   end
 end
