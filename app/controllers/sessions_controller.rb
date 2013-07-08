@@ -22,8 +22,5 @@ class SessionsController < ApplicationController
     destroy_session
     redirect_to new_session_path
   end
-
-  def facebook
-    @user = User.from_omniauth(env["omniauth.auth"])
-  end
+  
 end

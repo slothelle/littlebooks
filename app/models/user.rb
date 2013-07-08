@@ -7,11 +7,12 @@ class User < ActiveRecord::Base
   has_secure_password
 
   validates_uniqueness_of :email
-  validates_presence_of :name, :email, :password
+  validates_presence_of :name, :email
+  #validates_presence_of :password, :if => :user_needs_password?
   validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
 
   validates_length_of :name, :within => 2..20, :too_long => "must be less than 20 characters.", :too_short => "must be at least 2 characters."
-  validates_length_of :password, :within => 6..15, :too_long => "must be less than 15 characters.", :too_short => "must be at least 6 characters."
+  #validates_length_of :password, :within => 6..15, :too_long => "must be less than 15 characters.", :too_short => "must be at least 6 characters.", :if => :user_needs_password?
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
@@ -21,8 +22,12 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.oauth_token = auth.credentials.oauth_token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      user.save!
+      user.save(:validation => false)
     end
+  end
+
+  def user_needs_password?
+
   end
 
 end
