@@ -7,13 +7,13 @@
       <div class="col span_1_of_2">
         <h3><%= tale.title %></h3>
         <%= tale.summary %> <br>
-        <%= link_to "Read this tale", story_mytale_path(story_id: tale.story_id, id: tale.id) %>
+        <%= link_to "View this tale", story_mytale_path(story_id: tale.story_id, id: tale.id) %>
       </div>
   <% else %>
     <div class="col span_1_of_2">
       <h3><%= tale.title %></h3>
       <%= tale.summary %> <br>
-      <%= link_to "Read this tale", story_mytale_path(story_id: tale.story_id, id: tale.id) %>
+      <%= link_to "View this tale", story_mytale_path(story_id: tale.story_id, id: tale.id) %>
     </div>
   </div>
   <% end %>
