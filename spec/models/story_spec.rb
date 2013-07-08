@@ -13,4 +13,6 @@ describe Story do
   it { should validate_presence_of(:content) }
   it { should validate_presence_of(:summary) }
   it { should validate_presence_of(:character) }
+  it { should validate_presence_of(:source_link) }
+  it { should validate_presence_of(:attribution) }
 end
