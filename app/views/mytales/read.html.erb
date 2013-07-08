@@ -1,0 +1,40 @@
+<div class="section reader-title">
+  <h2 class="center">
+    <%= @story.title %>
+  </h2>
+</div>
+
+<div class="section">
+  <div class="col span_1_of_5"></div>
+  <div class="col span_3_of_5 center">
+    <%= image_tag "bears.jpg" %>
+
+    <div class="kid">
+      <%= image_tag @kid.url %>
+    </div>
+  </div>
+  </div>
+  <div class="col span_1_of_5"></div>
+</div>
+
+<div class="section">
+  <div class="col span_1_of_5"></div>
+
+  <div class="col span_3_of_5" id="paged-content">
+      <%= render partial: "page" %>
+  </div>
+
+  <div class="col span_1_of_5"></div>
+</div>
+
+<div class="section read-menu">
+  <ul class="read">
+    <li class="read">Home</li>
+    <li class="read">Print story</li>
+    <% if current_user %>
+      <li class="read">My profile</li>
+    <% else %>
+      <li class="read">Signup or Login to save</li>
+    <% end %>
+  </ul>
+</div>
