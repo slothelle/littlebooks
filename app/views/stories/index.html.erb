@@ -4,12 +4,12 @@
   <div class="section">
     <div class="col span_1_of_3">
       <%= f.label :title, "Title" %> <br>
-      <%= f.text_field :title, placeholder: "#{@story.title}" %>
+      <%= f.text_field :title, value: "#{@story.title}", autofocus: true %>
     </div>
 
     <div class="col span_1_of_3">
       <%= label_tag :name, "Main Character Name" %> <br>
-      <%= text_field_tag :name, "", placeholder: "#{@character.name}" %>
+      <%= text_field_tag :name, "", value: "#{@character.name}" %>
     </div>
 
     <div class="col span_1_of_3">
