@@ -51,15 +51,16 @@ function getVal(targ){
   };
 }
 
-function placeSpans(){
-  for (var pronoun in storyForm.subberMale){
+
+function placeSpans(hash){
+  for (var pronoun in hash){
     if ($('.edit-text').parent().html().match(/\bshe\b/g) !== null && $('.edit-text').parent().html().match(/\bshe\b/g).length >4){
       $(storyForm.pTarg).html(function(index, value) {
         return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="female">' + pronoun +' </span>');
       });
     }
     $(storyForm.pTarg).html(function(index, value) {
-      return value.replace(new RegExp('\\b'+ storyForm.subberMale[pronoun] + '\\b', 'g'), '<span class="male">' + storyForm.subberMale[pronoun] +' </span>');
+      return value.replace(new RegExp('\\b'+ hash[pronoun] + '\\b', 'g'), '<span class="male">' + hash[pronoun] +' </span>');
     });
   }
 }
@@ -109,9 +110,10 @@ $(document).ready(function(){
     return value.replace(new RegExp('\\b' + storyForm.mainc() + '\\b','g'), '<span class="main_character">' + storyForm.mainc() +'</span>');
   });
 
+
   breakTxt();
 
-  placeSpans();
+  placeSpans(storyForm.subberMale);
 
   changeTitle();
 
