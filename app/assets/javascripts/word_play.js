@@ -2,7 +2,7 @@
  var storyForm = {
    mainCharDivClass: ".main_character",
    titleTarg: 'h2',
-   mainc: "Goldenhair",
+   mainc: function(){ return $('#name').attr('value');},
    titleTextField: "#mytale_title",
    nameTextField: "#name",
    startFlag: ".edit-text",
@@ -32,9 +32,7 @@ function breakTxt(){
 }
 
 function plantFlag(index, value, targ) {
-  if (window.location.pathname.length < 21){
     return value.replace(new RegExp('\\b'+ targ + '\\b', 'g'), '<span class="edit-text">' + targ + '</span>');
-  }
 }
 
 function changeTitle(){
@@ -55,8 +53,13 @@ function getVal(targ){
 
 function placeSpans(){
   for (var pronoun in storyForm.subberMale){
+    if ($('.edit-text').parent().html().match(/\bshe\b/g) !== null && $('.edit-text').parent().html().match(/\bshe\b/g).length >4){
+      $(storyForm.pTarg).html(function(index, value) {
+        return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="female">' + pronoun +' </span>');
+      });
+    }
     $(storyForm.pTarg).html(function(index, value) {
-      return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="female">' + storyForm.subberMale[pronoun] +' </span>');
+      return value.replace(new RegExp('\\b'+ storyForm.subberMale[pronoun] + '\\b', 'g'), '<span class="male">' + storyForm.subberMale[pronoun] +' </span>');
     });
   }
 }
@@ -102,9 +105,13 @@ function changePronouns(){
 }
 
 $(document).ready(function(){
-  placeSpans();
+  $(storyForm.pTarg).html(function(index, value) {
+    return value.replace(new RegExp('\\b' + storyForm.mainc() + '\\b','g'), '<span class="main_character">' + storyForm.mainc() +'</span>');
+  });
 
   breakTxt();
+
+  placeSpans();
 
   changeTitle();
 

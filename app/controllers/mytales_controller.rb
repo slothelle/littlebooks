@@ -23,6 +23,11 @@ class MytalesController < ApplicationController
   end
 
   def edit
+    @story = Story.find_by_id(params[:story_id])
+    @mytale = Mytale.find_by_id(params[:id])
+    @character = @story.character
+    @mytales_character = MytalesCharacter.find_by_id(@mytale.mytales_character_id)
+    @gender = Gender.all
   end
 
   def show
