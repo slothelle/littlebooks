@@ -1,1 +1,38 @@
-<%= @story_paged %>
+<h2>
+  Congratulations! You created a story about <%= @mytale.mytales_character.name %>.
+</h2>
+
+<p>
+  What would you like to do next?
+</p>
+
+<div class="section">
+  <div class="col span_1_of_3">
+    <p class="center">
+      <%= image_tag(@image.url) %>
+    </p>
+  </div>
+  <div class="col span_2_of_3">
+    <h2>
+      <%= link_to "Read #{@mytale.title} now!", read_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id)  %>
+    </h2>
+
+    <p>
+      Or <%= link_to "print #{@mytale.title}", print_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id) %>
+    </p>
+
+    <p>
+      Starring: <%= @mytale.mytales_character.name %>
+    </p>
+
+    <p>
+      Summary: <%= @mytale.story.summary %>
+    </p>
+
+    <% if current_user == @mytale.user %>
+      <p>
+        <%= link_to "Edit", edit_story_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id) %> or <%= link_to "delete", story_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id), method: :delete %> this story
+      </p>
+    <% end %>
+  </div>
+</div>
