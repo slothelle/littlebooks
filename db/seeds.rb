@@ -18,7 +18,7 @@ PeopleImage.create(gender: girl, url: "girl-4.png")
 PeopleImage.create(gender: girl, url: "girl-5.png")
 
 # Goldenhair and the Three Bears
-three_bears = Story.create(:title => "Goldenhair and the Three Bears", :summary => "A wayward child wanders into the forest, finds some porridge, and meets some bears.", :content => "_THE STORY OF_ THE THREE BEARS.
+three_bears = Story.create(:source_link=>"hi", :attribution => "hi", :title => "Goldenhair and the Three Bears", :summary => "A wayward child wanders into the forest, finds some porridge, and meets some bears.", :content => "_THE STORY OF_ THE THREE BEARS.
     There were once three bears, who lived in a wood,
     Their porridge was thick, and their chairs and beds good.
     The biggest bear, Bruin, was surly and rough;
