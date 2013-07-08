@@ -16,7 +16,7 @@ class MytalesController < ApplicationController
     if @mytale.save
       @mytales_character.update_attributes(mytale_id: @mytale.id)
       @mytale.update_attributes(user: current_user)
-      redirect_to story_mytale_path(story_id: @story.id, id: @mytale.id)
+      redirect_to new_story_mytale_mytale_image_path(story_id: @story.id, mytale_id: @mytale.id)
     else
       render :new
     end
@@ -31,9 +31,19 @@ class MytalesController < ApplicationController
   end
 
   def show
-    story = Story.find_by_id(params[:story_id])
-    @story = Mytale.find(params[:id])
-    @story_paged = @story.paged.slice!(params[:slice])
-    render layout: "read"
+    @mytale = Mytale.find(params[:id])
+    image = MytaleImage.find_by_id(@mytale.mytale_image_id)
+    @image = PeopleImage.find_by_id(image.people_image_id)
+  end
+
+  def print
+    @mytale = Mytale.find_by_id(params[:mytale_id])
+    image = MytaleImage.find_by_id(@mytale.mytale_image_id)
+    @image = PeopleImage.find_by_id(image.people_image_id)
+    render layout: "print"
+  end
+
+  def read
+    # magic
   end
 end
