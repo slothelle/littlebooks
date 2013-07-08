@@ -53,10 +53,10 @@ function getVal(targ){
   };
 }
 
-function placeSpans(){
-  for (var pronoun in storyForm.subberMale){
+function placeSpans(hash){
+  for (var pronoun in hash){
     $(storyForm.pTarg).html(function(index, value) {
-      return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="female">' + storyForm.subberMale[pronoun] +' </span>');
+      return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="female">' + hash[pronoun] +' </span>');
     });
   }
 }
@@ -102,7 +102,7 @@ function changePronouns(){
 }
 
 $(document).ready(function(){
-  placeSpans();
+  placeSpans(storyForm.subberMale);
 
   breakTxt();
 
