@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe "User" do
+  before (:each) do
+    FactoryGirl.create(:character)
+    FactoryGirl.create(:story)
+  end
+
   context "account authentication" do
     it "passes with correct credentials" do
       login
