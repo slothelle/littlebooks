@@ -16,6 +16,20 @@ LittleBooks::Application.configure do
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = false
+  #Change mail delivery to smtp:
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: ENV["GMAIL_DOMAIN"],
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"]
+  }
+
+  # Specify what domain to use for mailer URLs
+  config.action_mailer.default_url_options = { host: "http://littlebooks.herokuapp.com/" }
 
   # Generate digests for assets URLs
   config.assets.digest = true
