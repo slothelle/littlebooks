@@ -12,6 +12,21 @@ FactoryGirl.define do
     character_id  1
   end
 
+  factory :character do
+    name "Poopies"
+    story_id 1
+    gender_id 1
+  end
+
+  factory :story do
+    summary "Donec sed odio dui."
+    content "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, reiciendis, eligendi ad quasi distinctio ex quibusdam nostrum facere animi sit aut delectus magni error! Repudiandae, laborum excepturi eos ut hic! Nullam id dolor id nibh ultricies vehicula ut id elit. Nulla vitae elit libero, a pharetra augue. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    title "Taco Truck"
+    character_id 1
+    source_link "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    attribution "Parturient Ornare"
+  end
+
   factory :mytale do
     user_id 1
     mytales_character_id 1
