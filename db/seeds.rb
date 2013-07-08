@@ -1,9 +1,21 @@
 Gender.delete_all
 Story.delete_all
 Character.delete_all
+PeopleImage.delete_all
 
 girl = Gender.create(sex: "female")
 boy = Gender.create(sex: "male")
+
+PeopleImage.create(gender: boy, url: "boy-1.png")
+PeopleImage.create(gender: boy, url: "boy-2.png")
+PeopleImage.create(gender: boy, url: "boy-3.png")
+PeopleImage.create(gender: boy, url: "boy-4.png")
+PeopleImage.create(gender: boy, url: "boy-5.png")
+PeopleImage.create(gender: girl, url: "girl-1.png")
+PeopleImage.create(gender: girl, url: "girl-2.png")
+PeopleImage.create(gender: girl, url: "girl-3.png")
+PeopleImage.create(gender: girl, url: "girl-4.png")
+PeopleImage.create(gender: girl, url: "girl-5.png")
 
 # Goldenhair and the Three Bears
 three_bears = Story.create(:title => "Goldenhair and the Three Bears", :summary => "A wayward child wanders into the forest, finds some porridge, and meets some bears.", :content => "_THE STORY OF_ THE THREE BEARS.

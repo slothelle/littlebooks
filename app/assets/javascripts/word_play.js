@@ -9,7 +9,8 @@
    selectTarg: "#gender",
    aniTargM: '.male',
    aniTargF: '.female',
-   pTarg: 'p',
+   pTarg: '.word-play',
+   flagTarg: 'Wood',
    subberMale: {
     She: "He",
     she: "he",
@@ -27,12 +28,14 @@ function highlightButton(){
 }
 
 function breakTxt(){
-  return $(storyForm.pTarg).html(plantFlag($(storyForm.pTarg).index(), $(storyForm.pTarg).html()));
+  return $(storyForm.pTarg).html(plantFlag($(storyForm.pTarg).index(), $(storyForm.pTarg).html(), storyForm.flagTarg));
 }
 
-function plantFlag(index, value) {
-    return value.replace(/Wood/, '<span class="edit-text">Wood</span>');
+function plantFlag(index, value, targ) {
+  if (window.location.pathname.length < 21){
+    return value.replace(new RegExp('\\b'+ targ + '\\b', 'g'), '<span class="edit-text">' + targ + '</span>');
   }
+}
 
 function changeTitle(){
   $(storyForm.titleTextField).keyup(getVal(storyForm.titleTarg));
@@ -53,7 +56,7 @@ function getVal(targ){
 function placeSpans(hash){
   for (var pronoun in hash){
     $(storyForm.pTarg).html(function(index, value) {
-      return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="female">' + storyForm.subberMale[pronoun] +' </span>');
+      return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="female">' + hash[pronoun] +' </span>');
     });
   }
 }
