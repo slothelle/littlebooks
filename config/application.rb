@@ -16,10 +16,13 @@ if defined?(Bundler)
 end
 
 #ENV.update YAML.load(File.read(File.expand_path('../local_env.yml', __FILE__))) rescue {}
-config = YAML.load(File.read(File.expand_path('../local_env.yml', __FILE__)))
-config.merge! config.fetch(Rails.env, {})
-config.each do |key, value|
-    ENV[key] = value unless value.kind_of? Hash
+
+if File.exist?("config/local_env.yml")
+    config = YAML.load(File.read(File.expand_path('../local_env.yml', __FILE__)))
+    config.merge! config.fetch(Rails.env, {})
+    config.each do |key, value|
+        ENV[key] = value unless value.kind_of? Hash
+    end
 end
 
 
