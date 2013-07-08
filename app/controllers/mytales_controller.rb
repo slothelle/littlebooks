@@ -4,11 +4,11 @@ class MytalesController < ApplicationController
     @character = @story.character
     @mytale = Mytale.new
     @mytales_character = MytalesCharacter.new
-    @gender = Gender.all
+    @gender = Gender.all # @genders = Gender.all maybe?
   end
 
   def create
-    @story = Story.find_by_id(params[:story_id])
+    @story = Story.find_by_id(params[:story_id]) # DRY ! -- you can move this code into a before filter and reuse it accross actions
     @mytales_character = MytalesCharacter.create(name: params[:name], gender: Gender.find(params[:gender]), character: @story.character)
     params[:mytale][:mytales_character_id] = @mytales_character.id
     @mytale = Mytale.new(params[:mytale])
