@@ -4,6 +4,7 @@ class Mytale < ActiveRecord::Base
   belongs_to :user
   belongs_to :story
   belongs_to :mytales_character
+  belongs_to :mytale_image
 
   validates_presence_of :title, :content, :story, :mytales_character
 
