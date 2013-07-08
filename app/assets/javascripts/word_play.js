@@ -1,3 +1,4 @@
+// as bill and i discussed, all of this should be moved into an object literal / namespace
 
  var storyForm = {
    mainCharDivClass: ".main_character",
