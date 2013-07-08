@@ -24,6 +24,7 @@
         <%= link_to "My profile", user_path(current_user.id) %>
       <% end %>
       <%= link_to "Home", root_path %>
+      <%= link_to "Edit", edit_story_mytale_path(@story.story_id, @story) %>
     </p>
   </div>
 

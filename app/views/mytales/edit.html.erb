@@ -1,0 +1,25 @@
+<%= form_for ([@story, @mytale]) do |f| %>
+  <div class="section">
+    <div class="col span_1_of_3">
+      <%= f.label :title, "Title" %> <br>
+      <%= f.text_field :title, placeholder: "#{@mytale.title}" %>
+    </div>
+
+    <div class="col span_1_of_3">
+      <%= label_tag :name, "Main Character Name" %> <br>
+      <%= text_field_tag :name, "", value: "#{@mytales_character.name}", autofocus: true %>
+    </div>
+
+    <div class="col span_1_of_3">
+      <%= label_tag :gender, "Gender" %> <br>
+      <%= select_tag :gender, options_from_collection_for_select(@gender, "id", "sex", @mytale.mytales_character.gender.id)%>
+    </div>
+  </div>
+  <div class="section">
+    <%= f.hidden_field :content, value: @mytale.content %>
+    <%= f.hidden_field :story_id, value: @mytale.id %>
+    <%= f.hidden_field :summary, value: @mytale.summary %>
+    <h2><%= @mytale.title %></h2>
+    <p class="word-play"><%= @mytale.content%></p>
+    <%= f.button "Edit your story" %>
+<%end%>
