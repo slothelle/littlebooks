@@ -30,6 +30,19 @@ class MytalesController < ApplicationController
     @gender = Gender.all
   end
 
+  def update
+    @story = Story.find_by_id(params[:story_id])
+    @mytale = Mytale.find_by_id(params[:id])
+    @mytales_character = MytalesCharacter.find_by_id(@mytale.mytales_character_id)
+    @mytales_character.assign_attributes(name: params[:name], gender: Gender.find(params[:gender]))
+    @mytale.assign_attributes(params[:mytale])
+    if @mytale.save && @mytales_character.save
+      redirect_to story_mytale_path(story_id: @story.id, mytale_id: @mytale.id)
+    else
+      render :edit
+    end
+  end
+
   def show
     @mytale = Mytale.find(params[:id])
     image = MytaleImage.find_by_id(@mytale.mytale_image_id)
