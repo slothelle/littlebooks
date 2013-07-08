@@ -4,10 +4,11 @@ class Mytale < ActiveRecord::Base
   belongs_to :user
   belongs_to :story
   belongs_to :mytales_character
+  belongs_to :mytale_image
 
   validates_presence_of :title, :content, :story, :mytales_character
 
-  slice :content, :as => :paged, :window => 2, :slice => { :maximum => 300, :complete => /(?<=\.\s)|(?<=\!\s)/ }
+  slice :content, :as => :page, :window => 0, :slice => { :maximum => 175, :complete => /\b/ }
 
   def replace_goldilocks
     content.gsub!(/#{story.character.name}/, mytales_character.name)

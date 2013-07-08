@@ -10,42 +10,9 @@
   </head>
 <body>
 
-
 <div id="container">
-  <div class="col span_1_of_11">
-    <!-- Empty div for spacing -->
-  </div>
-
-  <div class="col span_1_of_11">
-    <p class="small logo">
-      Little Books. <br>
-      <%= @story.title %> <br><br>
-      <% if current_user %>
-        <%= link_to "My profile", user_path(current_user.id) %>
-      <% end %>
-      <%= link_to "Home", root_path %>
-      <%= link_to "Edit", edit_story_mytale_path(@story.story_id, @story) %>
-    </p>
-  </div>
-
-  <div class="col span_1_of_11">
-    <!-- Empty div for spacing -->
-  </div>
-
-  <div class="col span_5_of_11">
-    <nav>
-      <%= slice @story_paged %>
-    </nav>
-    <div class="reader">
-      <p>
-        <%= yield %>
-      </p>
-    </div>
-  </div>
-
-  <div class="col span_3_of_11">
-    <!-- Empty div for spacing -->
-  </div>
+  <%= yield %>
 </div>
+
 </body>
 </html>

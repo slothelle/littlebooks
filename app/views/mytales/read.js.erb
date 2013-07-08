@@ -1,0 +1,2 @@
+$("#paged-content").empty();
+$("#paged-content").append("<%= escape_javascript(render 'page', locals: {story_paged: @story_paged}) %>");
