@@ -1,1 +1,27 @@
-YOU DID IT
+<h3>
+  <%= @mytale.title %>
+</h3>
+
+<p>
+  What does <%= @mycharacter.name %> look like?
+</p>
+
+<div class="section">
+<% @peopleimages.each do |image| %>
+  <% if image.gender.sex == "female" %>
+    <div class="col span_1_of_5">
+      <%= link_to image_tag(image.url), story_mytale_mytale_images_path(people_image_id: image.id), mytale_id: params[:mytale_id], method: :post %>
+    </div>
+  <% end %>
+<% end %>
+</div>
+
+<div class="section">
+<% @peopleimages.each do |image| %>
+  <% if image.gender.sex == "male" %>
+    <div class="col span_1_of_5">
+      <%= link_to image_tag(image.url), story_mytale_mytale_images_path(people_image_id: image.id), mytale_id: params[:mytale_id], method: :post %>
+    </div>
+  <% end %>
+<% end %>
+</div>
