@@ -18,7 +18,7 @@ PeopleImage.create(gender: girl, url: "girl-4.png")
 PeopleImage.create(gender: girl, url: "girl-5.png")
 
 # Goldenhair and the Three Bears
-three_bears = Story.create(:source_link=>"hi", :attribution => "hi", :title => "Goldenhair and the Three Bears", :summary => "A wayward child wanders into the forest, finds some porridge, and meets some bears.", :content => "_THE STORY OF_ THE THREE BEARS.
+three_bears = Story.new(:source_link=>"hi", :attribution => "hi", :title => "Goldenhair and the Three Bears", :summary => "A wayward child wanders into the forest, finds some porridge, and meets some bears.", :content => "_THE STORY OF_ THE THREE BEARS.
     There were once three bears, who lived in a wood,
     Their porridge was thick, and their chairs and beds good.
     The biggest bear, Bruin, was surly and rough;
@@ -117,6 +117,7 @@ three_bears = Story.create(:source_link=>"hi", :attribution => "hi", :title => "
     To say that there never existed THREE BEARS.")
 goldy = Character.create(name: "Goldenhair", gender: girl, story: three_bears)
 three_bears.update_attributes(character: goldy)
+three_bears.save
 
 # Little Red Riding Hood
 little_red_riding = Story.create(title: "Little Red Riding Hood", content: "Once upon a time there lived in a village a country girl, who was the sweetest little creature that ever was seen; her mother naturally loved her with excessive fondness, and her grandmother doted on her still more. The good woman had made for her a pretty little red-coloured hood, which so much became the little girl, that every one called her Little Red Riding Hood.
