@@ -7,6 +7,8 @@ LittleBooks::Application.routes.draw do
   root :to => 'stories#index', :id => 'home'
 
   resources :stories do
-    resources :mytales
+    resources :mytales do
+      resources :mytale_images
+    end
   end
 end
