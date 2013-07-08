@@ -1,3 +1,5 @@
+### OVERALL THERE ARE LOTS OF WAYS TO DRY UP CODE USING FILTERS OR CONTROLLER METHODS!
+
 class MytalesController < ApplicationController
   def new
     @story = Story.find_by_id(params[:story_id])
