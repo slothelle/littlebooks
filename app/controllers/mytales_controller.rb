@@ -31,10 +31,9 @@ class MytalesController < ApplicationController
   end
 
   def show
-    story = Story.find_by_id(params[:story_id])
-    @story = Mytale.find(params[:id])
-    @story_paged = @story.paged.slice!(params[:slice])
-    render layout: "read"
+    @mytale = Mytale.find(params[:id])
+    image = MytaleImage.find_by_id(@mytale.mytale_image_id)
+    @image = PeopleImage.find_by_id(image.people_image_id)
   end
 
   def print
