@@ -26,8 +26,27 @@ class MytalesController < ApplicationController
     @story = Story.find_by_id(params[:story_id])
     @mytale = Mytale.find_by_id(params[:id])
     @character = @story.character
+    @peopleimages = PeopleImage.all
     @mytales_character = MytalesCharacter.find_by_id(@mytale.mytales_character_id)
     @gender = Gender.all
+  end
+
+  def update
+    @gender = Gender.all
+    @peopleimages = PeopleImage.all
+    @story = Story.find_by_id(params[:story_id])
+    @mytale = Mytale.find_by_id(params[:id])
+    @mytales_character = MytalesCharacter.find_by_id(@mytale.mytales_character_id)
+    @mytales_character.assign_attributes(name: params[:name], gender: Gender.find(params[:gender]))
+    @mytale.assign_attributes(params[:mytale])
+    @myimage = MytaleImage.find_by_mytale_id(params[:id])
+    @myimage.assign_attributes(people_image_id: params[:image_ids][0].to_i)
+
+    if @mytale.save && @mytales_character.save && @myimage.save
+      redirect_to story_mytale_path(story_id: @story.id, mytale_id: @mytale.id)
+    else
+      render :edit
+    end
   end
 
   def show
@@ -44,6 +63,12 @@ class MytalesController < ApplicationController
   end
 
   def read
-    # magic
+    @story = Mytale.find_by_id(params[:mytale_id])
+    @story_paged = @story.page.slice!(params[:slice])
+    @kid = PeopleImage.find_by_id(@story.mytale_image.people_image_id)
+    respond_to do |format|
+      format.html { render layout: "read" }
+      format.js {}
+    end
   end
 end

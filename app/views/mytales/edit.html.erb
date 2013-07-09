@@ -1,4 +1,18 @@
 <%= form_for ([@story, @mytale]) do |f| %>
+  <p>
+  What does <%= @mytale.mytales_character.name %> look like?
+</p>
+<p> Current
+  <%= image_tag (@mytale.mytale_image.people_image.url) %>
+</p>
+
+<h5>Would you like to pick a new image?</h5>
+  <% @peopleimages.each do |image| %>
+    <div class="col span_1_of_6">
+      <%= image_tag image.url,  size: '39x105' %>
+      <%= radio_button_tag 'image_ids[]', image.id, @mytale.mytale_image.people_image.id == image.id %>
+    </div>
+  <%end%>
   <div class="section">
     <div class="col span_1_of_3">
       <%= f.label :title, "Title" %> <br>
@@ -17,7 +31,7 @@
   </div>
   <div class="section">
     <%= f.hidden_field :content, value: @mytale.content %>
-    <%= f.hidden_field :story_id, value: @mytale.id %>
+    <%= f.hidden_field :story_id, value: @mytale.story_id %>
     <%= f.hidden_field :summary, value: @mytale.summary %>
     <h2><%= @mytale.title %></h2>
     <p class="word-play"><%= @mytale.content%></p>
