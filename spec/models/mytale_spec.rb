@@ -19,25 +19,25 @@ describe Mytale do
   it { should allow_mass_assignment_of(:mytale_image_id) }
 
   context "replace_goldilocks" do
-    before(:all) do
+    before do
       FactoryGirl.create(:gender)
-      FactoryGirl.create(:character)
-      FactoryGirl.create(:mytales_character)
       FactoryGirl.create(:story)
+      Character.create(name: "Colinpants", story_id: Story.last.id, gender: Gender.last)
+      MytalesCharacter.create(name: "Eggbert", character: Character.last, gender: Gender.last)
     end
 
     it "should replace 'Colinpants' with 'Eggbert'" do
-      mytale = FactoryGirl.create(:mytale)
+      mytale = Mytale.create(story_id: Story.last.id, summary: "Hello", content: "Colinpants young miss", title: "Hello three", mytales_character_id: MytalesCharacter.last.id)
       mytale.replace_goldilocks
       mytale.save
       expect(mytale.content).to match(/Eggbert/)
     end
 
     it "should change gender pronouns" do
-      mytale = FactoryGirl.create(:mytale)
+      mytale = Mytale.create(story_id: Story.last.id, summary: "Hello", content: "Colinpants young miss", title: "Hello three", mytales_character_id: MytalesCharacter.last.id)
       mytale.replace_goldilocks
       mytale.save
-      expect(mytale.content).to include("That there lived a young lad")
+      expect(mytale.content).to include("young lad")
     end
   end
 end

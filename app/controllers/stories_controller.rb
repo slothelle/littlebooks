@@ -1,11 +1,11 @@
 class StoriesController < ApplicationController
   def index
-    if !current_user 
+    if !current_user
       @story = Story.first
       @mytale = Mytale.new
       @character = @story.character
       @mytales_character = MytalesCharacter.new
-      @gender = Gender.all
+      grab_all_genders
       @story_paged = @story.paged.slice!(2)
       render "_new"
     elsif current_user
@@ -13,9 +13,6 @@ class StoriesController < ApplicationController
       @mytale = Mytale.new
       render "_loggedin"
     end
-  end
-
-  def new
   end
 
   def show
