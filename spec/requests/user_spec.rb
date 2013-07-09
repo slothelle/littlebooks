@@ -1,8 +1,10 @@
 require 'spec_helper'
 
 describe "User" do
-  before (:each) do
+  before (:all) do
+    FactoryGirl.create(:gender)
     FactoryGirl.create(:character)
+    FactoryGirl.create(:mytales_character)
     FactoryGirl.create(:story)
   end
 
