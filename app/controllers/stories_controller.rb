@@ -1,6 +1,6 @@
 class StoriesController < ApplicationController
   def index
-    @story = Story.find_by_id(1)
+    @story = Story.last
     @mytale = Mytale.new
     @character = @story.character
     @mytales_character = MytalesCharacter.new
