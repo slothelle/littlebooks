@@ -19,7 +19,7 @@ LittleBooks::Application.routes.draw do
 
   get '/stories/:story_id/mytales/:mytale_id/read' => 'mytales#read', :as => :read_mytale
 
-  get '/auth/facebook' => 'facebook#create', :as => :facebook_login
+  get '/auth/facebook/callback' => 'facebook#create', :as => :facebook_login
   get '/auth/failure' => 'stories#index'
   
 end
