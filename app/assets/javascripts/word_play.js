@@ -28,11 +28,11 @@ function highlightButton(){
 }
 
 function breakTxt(){
-  return $(storyForm.pTarg).html(plantFlag($(storyForm.pTarg).index(), $(storyForm.pTarg).html(), storyForm.flagTarg));
+  return $(storyForm.pTarg).html(replacer($(storyForm.pTarg).index(), $(storyForm.pTarg).html(), storyForm.flagTarg, 'edit-text'));
 }
 
-function plantFlag(index, value, targ) {
-    return value.replace(new RegExp('\\b'+ targ + '\\b', 'g'), '<span class="edit-text">' + targ + '</span>');
+function replacer(index, value, targ, spanc) {
+    return value.replace(new RegExp('\\b'+ targ + '\\b', 'g'), '<span class="'+spanc+'">' + targ + '</span>');
 }
 
 function changeTitle(){
@@ -52,15 +52,17 @@ function getVal(targ){
 }
 
 
+function replaceFemale(oldHtml, pronoun, gender) {
+  return oldHtml.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="'+gender+'">' + pronoun +' </span>');
+}
+
 function placeSpans(hash){
   for (var pronoun in hash){
     if ($('.edit-text').parent().html().match(/\bshe\b/g) !== null && $('.edit-text').parent().html().match(/\bshe\b/g).length >4){
-      $(storyForm.pTarg).html(function(index, value) {
-        return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="female">' + pronoun +' </span>');
-      });
+      $(storyForm.pTarg).html(function(index, oldHtml) { return replaceFemale(oldHtml, pronoun, "female"); });
     }
-    $(storyForm.pTarg).html(function(index, value) {
-      return value.replace(new RegExp('\\b'+ hash[pronoun] + '\\b', 'g'), '<span class="male">' + hash[pronoun] +' </span>');
+    $(storyForm.pTarg).html(function(index, oldHtml) {
+      return replaceFemale(oldHtml, hash[pronoun], "male");
     });
   }
 }
@@ -105,11 +107,11 @@ function changePronouns(){
   });
 }
 
+
 $(document).ready(function(){
   $(storyForm.pTarg).html(function(index, value) {
     return value.replace(new RegExp('\\b' + storyForm.mainc() + '\\b','g'), '<span class="main_character">' + storyForm.mainc() +'</span>');
   });
-
 
   breakTxt();
 
