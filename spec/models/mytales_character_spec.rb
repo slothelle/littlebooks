@@ -10,6 +10,6 @@ describe MytalesCharacter do
   it { should allow_mass_assignment_of(:mytale_id) }
   it { should allow_mass_assignment_of(:character) }
   it { should validate_presence_of(:name) }
-  it { should validate_presence_of(:gender) }
-  it { should validate_presence_of(:character) }
+  it { should validate_presence_of(:gender_id) }
+  it { should validate_presence_of(:character_id) }
 end
