@@ -17,19 +17,19 @@ describe UsersController do
 
   describe "GET users#show" do
     it "should render show" do
-      u = FactoryGirl.create(:user)
+      u = FactoryGirl.create(:user_two)
       get :show, id: u
       response.should render_template :show
     end
 
     it "should assign @user" do
-      u = FactoryGirl.create(:user)
+      u = FactoryGirl.create(:user_two)
       get :show, id: u
       expect(assigns(:user)).to eq(u)
     end
 
     it "should assign @mytales" do
-      u = FactoryGirl.create(:user)
+      u = FactoryGirl.create(:user_two)
       get :show, id: u
       expect(assigns(:mytales)).to eq(u.mytales)
     end
@@ -38,16 +38,16 @@ describe UsersController do
   describe "POST users#create" do
     context "with valid attributes" do
       it "should create a new user" do
-        expect { post :create, user: FactoryGirl.attributes_for(:user) }.to change(User,:count).by(1)
+        expect { post :create, user: FactoryGirl.attributes_for(:user_two) }.to change(User,:count).by(1)
       end
 
       it "should redirect to @user upon successful creation" do
-        post :create, user: FactoryGirl.attributes_for(:user)
+        post :create, user: FactoryGirl.attributes_for(:user_two)
         response.should redirect_to User.last
       end
 
       it "should create_session upon successful creation" do
-        post :create, user: FactoryGirl.attributes_for(:user)
+        post :create, user: FactoryGirl.attributes_for(:user_two)
         expect(session[:current_user_id]).to eq(User.last.id)
       end
     end

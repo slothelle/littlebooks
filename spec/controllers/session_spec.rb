@@ -3,7 +3,7 @@ require 'spec_helper'
 describe SessionsController do
   render_views
 
-  before(:all) do
+  before do
     FactoryGirl.create(:user)
   end
 
@@ -33,7 +33,7 @@ describe SessionsController do
 
       it "should redirect to @user" do
         post :create, email: "joe@joe.com", password: "password1234"
-        response.should redirect_to user_path(1)
+        response.should redirect_to user_path(User.last.id)
       end
     end
 
