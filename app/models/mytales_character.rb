@@ -3,5 +3,5 @@ class MytalesCharacter < ActiveRecord::Base
   belongs_to :mytale
   belongs_to :gender
   belongs_to :character
-  validates_presence_of :name, :gender, :character
+  validates_presence_of :name, :gender_id, :character_id
 end
