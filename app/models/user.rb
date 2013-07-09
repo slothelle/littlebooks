@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
 
   validates_length_of :name, :within => 2..20, :too_long => "must be less than 20 characters.", :too_short => "must be at least 2 characters."
-  validates_length_of :password, :within => 6..15, :too_long => "must be less than 15 characters.", :too_short => "must be at least 6 characters.", :if => :user_needs_password?
+  validates_length_of :password, :within => 6..15, :too_long => "must be less than 15 characters.", :too_short => "must be at least 6 characters."
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
@@ -25,9 +25,4 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
-
-  def user_needs_password?
-
-  end
-
 end
