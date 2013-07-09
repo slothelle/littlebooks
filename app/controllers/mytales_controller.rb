@@ -41,6 +41,7 @@ class MytalesController < ApplicationController
     @mytale.assign_attributes(params[:mytale])
     @myimage = MytaleImage.find_by_mytale_id(params[:id])
     @myimage.assign_attributes(people_image_id: params[:image_ids][0].to_i)
+
     if @mytale.save && @mytales_character.save && @myimage.save
       redirect_to story_mytale_path(story_id: @story.id, mytale_id: @mytale.id)
     else
