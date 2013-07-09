@@ -1,11 +1,8 @@
 require 'spec_helper'
 
 describe "User" do
-  before (:all) do
-    FactoryGirl.create(:gender)
-    FactoryGirl.create(:character)
-    FactoryGirl.create(:mytales_character)
-    FactoryGirl.create(:story)
+  before do
+    populate_stories_mytales
   end
 
   context "account authentication" do
