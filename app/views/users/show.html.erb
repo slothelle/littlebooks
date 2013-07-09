@@ -2,16 +2,23 @@
 
 <% if @mytales.any? %>
   <% @mytales.each_with_index do |tale, num| %>
+  
   <% if num == 0 || num % 2 == 0 %>
     <div class="section">
       <div class="col span_1_of_2">
         <h3><%= tale.title %></h3>
+        <p>
+        <%= image_tag(tale.mytale_image.people_image.url) %>
+        </p>
         <%= tale.summary %> <br>
         <%= link_to "View this tale", story_mytale_path(story_id: tale.story_id, id: tale.id) %>
       </div>
   <% else %>
     <div class="col span_1_of_2">
       <h3><%= tale.title %></h3>
+      <p>
+        <%= image_tag(tale.mytale_image.people_image.url) %>
+      </p>
       <%= tale.summary %> <br>
       <%= link_to "View this tale", story_mytale_path(story_id: tale.story_id, id: tale.id) %>
     </div>
