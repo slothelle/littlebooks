@@ -14,6 +14,7 @@ RSpec.configure do |config|
 
     config.include LoginHelper, :type => :request
     config.include SeederHelper, :type => :request
+    config.include GeneralHelper, :type => :request
 
     # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
     config.fixture_path = "#{::Rails.root}/spec/fixtures"
