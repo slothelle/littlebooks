@@ -19,5 +19,21 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @mytales = @user.mytales
+    mytaleimages =[]
+    @mytales.each do |mytale|
+      mytaleimages << MytaleImage.find_by_id(mytale.mytale_image_id)
+    end
+    @images =[]
+    mytaleimages.each do |mytaleimage|
+      @images << PeopleImage.find_by_id(mytaleimage.people_image_id)
+    end
   end
 end
+
+# mytales.each do |mytale|
+#   mytaleimages << MytaleImage.find_by_id(mytale.mytale_image_id)
+# end
+
+# mytaleimages.each do |mytaleimage|
+#   images << PeopleImage.find_by_id(mytaleimage.people_image_id)
+# end
