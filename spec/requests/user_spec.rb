@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "User" do
-  before (:all) do
+  before do
     populate_stories_mytales
   end
 
