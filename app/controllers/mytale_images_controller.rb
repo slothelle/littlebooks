@@ -12,7 +12,7 @@ class MytaleImagesController < ApplicationController
       @mytale.update_attribute(:mytale_image_id, @myimage.id)
       redirect_to story_mytale_path(story_id: @mytale.story_id, id: @mytale.id)
     else
-      render :create
+      render :create # i dont see a view named "create"...
     end
   end
 end
