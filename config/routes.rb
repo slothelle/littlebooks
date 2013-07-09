@@ -3,10 +3,7 @@ LittleBooks::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
 
-  match '/auth/facebook/callback', :to => 'facebook#create'
-  match '/auth/failure', :to => redirect('/')
-  #do we need this since we already have the delete route below?
-  #match '/logout', :to => 'sessions#destroy'
+  
 
   delete '/logout', to: 'sessions#destroy'
 
@@ -21,4 +18,8 @@ LittleBooks::Application.routes.draw do
   get '/stories/:story_id/mytales/:mytale_id/print' => 'mytales#print', :as => :print_mytale
 
   get '/stories/:story_id/mytales/:mytale_id/read' => 'mytales#read', :as => :read_mytale
+
+  get '/auth/facebook' => 'facebook#create', :as => :facebook_login
+  get '/auth/failure' => 'stories#index'
+  
 end
