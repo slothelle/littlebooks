@@ -48,4 +48,9 @@ FactoryGirl.define do
     url "http://www.mwtech.com/rw/photos/GoogleEarth/Google%20Earth%20Chicago.jpg"
     gender_id 1
   end
+
+  factory :mytale_image do
+    people_image_id 1
+    mytale_id 1
+  end
 end
