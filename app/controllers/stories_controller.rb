@@ -1,11 +1,17 @@
 class StoriesController < ApplicationController
   def index
-    @story = Story.first
-    @mytale = Mytale.new
-    @character = @story.character
-    @mytales_character = MytalesCharacter.new
-    @gender = Gender.all
-    @story_paged = @story.paged.slice!(2)
+    if !current_user 
+      @story = Story.first
+      @mytale = Mytale.new
+      @character = @story.character
+      @mytales_character = MytalesCharacter.new
+      @gender = Gender.all
+      @story_paged = @story.paged.slice!(2)
+      render "_new"
+    elsif current_user
+     @story = Story.all
+     render "_loggedin"
+    end
   end
 
   def new
