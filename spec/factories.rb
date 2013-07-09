@@ -44,7 +44,8 @@ FactoryGirl.define do
     sex "male"
   end
 
-  factory :people_images do
+  factory :people_image do
     url "http://www.mwtech.com/rw/photos/GoogleEarth/Google%20Earth%20Chicago.jpg"
+    gender_id 1
   end
 end
