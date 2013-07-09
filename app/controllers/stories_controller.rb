@@ -8,9 +8,6 @@ class StoriesController < ApplicationController
     @story_paged = @story.paged.slice!(2)
   end
 
-  def new
-  end
-
   def show
     @story = Story.find(params[:id])
     @story_paged = @story.paged.slice!(params[:slice])
