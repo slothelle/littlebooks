@@ -5,6 +5,11 @@ FactoryGirl.define do
     password "password1234"
   end
 
+  factory :invalid_user, parent: :user do
+    name     "Joe"
+    password "password1234"
+  end
+
   factory :mytales_character do
     name          "Eggbert"
     gender_id     1
