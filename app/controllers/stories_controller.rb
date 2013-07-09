@@ -1,14 +1,10 @@
 class StoriesController < ApplicationController
   def index
-    @story = Story.last
+    @story = Story.first
     @mytale = Mytale.new
     @character = @story.character
     @mytales_character = MytalesCharacter.new
-    @gender = Gender.all
     @story_paged = @story.paged.slice!(2)
-  end
-
-  def new
   end
 
   def show
