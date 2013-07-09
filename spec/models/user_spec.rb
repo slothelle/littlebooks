@@ -23,7 +23,7 @@ describe User do
 
   context 'with valid input' do
     it 'should create a user' do
-      person = FactoryGirl.create(:user)
+      person = FactoryGirl.create(:user_three)
       expect(person).to be_instance_of(User)
     end
   end
