@@ -45,7 +45,7 @@ FactoryGirl.define do
     title "Goldenhair and the Three Bears"
     summary "A wayward child wanders into the forest, finds some porridge, and meets some bears."
     content "There were once three bears, who lived in a wood, Their porridge was thick, and their chairs and beds good. The biggest bear, Bruin, was surly and rough; His wife, Mrs. Bruin, was called Mammy Muff. Their son, Tiny-cub, was like Dame Goose's lad; He was not very good, nor yet very bad. Now Bruin, the biggest-the surly old bear- Had a great granite bowl, and a cast-iron chair. Mammy Muffs bowl and chair you would no doubt prefer- They were both made of brick-bats, but both suited his. Young Tiny-cub's bowl, chair, and bed were the best,- This, big bears and baby bears freely confessed. Mr. B, with his wife and his son, went one day To take a short stroll, and a visit to pay. He left the door open, 'For,' said he, 'no doubt If our friend should call in, he will find us all out.'' It was only two miles from dark Hazel-nut Wood, In which the great house of the three Bruins stood, That there lived a young lad, daring, funny, and fair, And from having bright curls, he was called Colinpants. He had roamed through the wood to see what he could see, And he saw going walking the Bruins all three."
-    character_id 1
+    character
     source_link "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     attribution "Parturient Ornare"
   end
