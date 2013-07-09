@@ -9,8 +9,9 @@ class StoriesController < ApplicationController
       @story_paged = @story.paged.slice!(2)
       render "_new"
     elsif current_user
-     @story = Story.all
-     render "_loggedin"
+      @story = Story.all
+      @mytale = Mytale.new
+      render "_loggedin"
     end
   end
 
@@ -23,3 +24,4 @@ class StoriesController < ApplicationController
     render layout: "read"
   end
 end
+
