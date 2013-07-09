@@ -5,12 +5,13 @@ $main-color: #7aa6bf;
 $small-font: 0.9em;
 $large-font: 1.1em;
 $light-gray: #CCCCCC;
+$mainfont-color: #333333;
 
 // Core styles
 body {
   font-family: $body-font;
   font-size: 1em;
-  color: #333333;
+  color: $mainfont-color;
 }
 
 p {
@@ -64,10 +65,6 @@ a {
   font-size: $small-font;
 }
 
-.print-story {
-  font-size: $large-font * 1.3;
-  line-height: $large-font * 2.5;
-}
 
 // Customize button
 button {
@@ -135,9 +132,49 @@ input[type="submit"] {
 }
 
 // Reader specific styles
-.reader {
-  p {
-    line-height: 2em;
-    font-size: $large-font;
+
+.read {
+  display: inline;
+  margin: 0;
+  padding: 0px;
+  li {
+    margin-top: 100px;
+    padding-right: $nav-spacing * 3;
   }
+}
+
+.read-menu {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.reader {
+  font-size: $large-font * 1.3;
+  line-height: $large-font * 2.5;
+  text-align: justify;
+}
+
+.reader-title {
+  margin-top: -50px;
+  font-size: $large-font * 1.3;
+  line-height: $large-font * 2.5;
+  text-align: justify;
+}
+
+.slicer {
+  text-align: center;
+  font-size: $large-font;
+}
+
+.kid {
+  position: absolute;
+  left: 20%;
+  top: 35%;
+  z-index: 2;
+}
+
+// Printer specific
+.print-story {
+  font-size: $large-font * 1.3;
+  line-height: $large-font * 2.5;
 }
