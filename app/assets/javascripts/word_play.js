@@ -105,11 +105,22 @@ function changePronouns(){
   });
 }
 
+function selectValidate(){
+  $('#new_mytale button').on('click', function(e){
+    if ($(''+ storyForm.selectTarg+' option:selected').text() !== "female" && $(''+ storyForm.selectTarg+' option:selected').text() !== "male") {
+      e.preventDefault();
+      $('.error').remove();
+      $(storyForm.selectTarg).parent().append('<span class="error">  Please Enter a Gender </span>');
+    }
+  });
+}
+
 $(document).ready(function(){
   $(storyForm.pTarg).html(function(index, value) {
     return value.replace(new RegExp('\\b' + storyForm.mainc() + '\\b','g'), '<span class="main_character">' + storyForm.mainc() +'</span>');
   });
 
+  selectValidate();
 
   breakTxt();
 
