@@ -14,7 +14,6 @@ FactoryGirl.define do
 
   factory :character do
     name "Poopies"
-    story_id 1
     gender_id 1
   end
 
