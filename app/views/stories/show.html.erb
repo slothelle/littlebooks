@@ -1,1 +1,26 @@
-<%= @story_paged %>
+<% if !current_user %>
+  <h2>
+    Enrich a child's reading experience by adding diversity to their favorite stories. For free.
+  </h2>
+
+  <p>
+    Create your custom story in a few simple steps:
+    <ol>
+      <li class="welcome">Select a story from the Little Books <%= link_to "library", stories_path %></li>
+      <li class="welcome">Give your story a title</li>
+      <li class="welcome">Tell us the name of the main character</li>
+      <li class="welcome">Select a gender for the main character</li>
+      <li class="welcome">Choose an <%= link_to "image", all_images_path %></li>
+    </ol>
+  </p>
+
+  <h1 class="emphasized">
+    Type below to see how it works:
+  </h1>
+<% else %>
+ <p>
+   To customize your story
+ </p>
+<% end %>
+
+<%= render 'mytales/new' %>
