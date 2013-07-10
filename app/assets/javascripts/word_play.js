@@ -25,12 +25,14 @@
   },
   checkStory: function() {
     if (storyForm.mainc() === "Little Red Riding Hood"){
-      storyForm.setflagTarg('Yet'); 
+      storyForm.setflagTarg('Yet');
     } else if (storyForm.mainc() === "Goldenhair"){
       storyForm.setflagTarg('Wood');
+    } else if (storyForm.mainc() === "Rapunzel"){
+      storyForm.setflagTarg('husband');
     }
   }
-};
+}
 
 function highlightButton(){
   if ($(storyForm.titleTextField).val() !== "" && $(storyForm.nameTextField).val() !== "" && $(''+ storyForm.selectTarg + ' option:selected').text() !== "Gender?"){
@@ -69,9 +71,9 @@ function placeSpans(hash){
   for (var pronoun in hash){
     if ($('.edit-text').parent().html().match(/\bshe\b/g) !== null && $('.edit-text').parent().html().match(/\bshe\b/g).length < 3) {
       $(storyForm.pTarg).html(function(index, value) {
-        return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="female">' + pronoun +' </span>')});
+        return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="female">' + pronoun +' </span>');
+      });
     } else {
-
       $(storyForm.pTarg).html(function(index, value) {
         return value.replace(new RegExp('\\b'+ hash[pronoun] + '\\b', 'g'), '<span class="male">' + hash[pronoun] +' </span>');
       });
