@@ -1,0 +1,30 @@
+<h1>
+  Create custom kid's stories. For free.
+</h1>
+
+  <h2>
+    Enrich a child's reading experience by adding diversity to their favorite stories.
+  </h2>
+
+  <h2 class="details">
+    Create your custom story in a few simple steps:
+  </h2>
+  <div class="section">
+    <div class="col span_2_of_3">
+        <ul>
+          <li class="welcome"><span class="num">1</span> Select a story from the Little Books <%= link_to "library", stories_path %></li>
+          <li class="welcome"><span class="num">2</span> Give your story a title</li>
+          <li class="welcome"><span class="num">3</span> Set the name and gender of the main character</li>
+          <li class="welcome"><span class="num">4</span> Choose an <%= link_to "image", all_images_path %> for your main character</li>
+        </ul>
+    </div>
+
+    <div class="col span_1_of_3 center">
+      <%= image_tag("girl-5.png") %> <br> <br> <br>
+      <%= image_tag("boy-5.png") %>
+    </div>
+  </div>
+
+  <div class="section center">
+    <span class="num-alt"><%= link_to "Create a custom story now!", stories_path %></span>
+  </div>

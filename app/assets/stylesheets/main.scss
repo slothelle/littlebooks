@@ -1,11 +1,10 @@
 $accent-font: 'Trocchi', Georgia, serif;
 $body-font: 'ABeeZee', Arial, sans-seif;
-$nav-spacing: 10px;
+$nav-spacing: 12px;
 $main-color: #96BE72;
-$dark-color: #336600;
 $small-font: 0.9em;
 $large-font: 1.1em;
-$light-gray: #CCCCCC;
+$light-gray: #dddddd;
 $mainfont-color: #333333;
 
 // Core styles
@@ -33,9 +32,9 @@ footer {
 }
 
 h1 {
-  font-size: 3.6em;
   font-family: $accent-font;
   font-weight: 400;
+  font-size: 2.5em;
   color: $main-color;
 }
 
@@ -44,7 +43,7 @@ h1 {
   padding-top: $nav-spacing * 2;
   font-family: $accent-font;
   font-weight: 400;
-  color: $dark-color;
+  color: $main-color;
 }
 
 h2, h3, h4, h5, h6 {
@@ -61,12 +60,12 @@ a {
 a.dark {
   font-weight: 700;
   text-decoration: none;
-  color: $dark-color;
+  color: $main-color;
 }
 
 #container {
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 50px;
   width: 100%;
 }
 
@@ -83,7 +82,8 @@ a.dark {
 }
 
 .welcome {
-  line-height: 1.5em;
+  font-size: $large-font;
+  list-style-type: none;
 }
 
 .word-play {
@@ -92,6 +92,32 @@ a.dark {
 
 .mytale-title {
   padding-top: 15px;
+}
+
+.num {
+  background-color: $main-color;
+  color: #ffffff;
+  border-radius: 100px;
+  font-size: $large-font * 2;
+  padding: 8px 20px 8px 20px;
+  margin-right: 10px;
+  line-height: 2.5em;
+}
+
+.num-alt {
+  a {
+    color: $mainfont-color;
+    background-color: $main-color;
+    border-radius: 100px;
+    font-size: $large-font * 1.7;
+    padding: 8px 20px 8px 20px;
+    margin-right: 10px;
+    line-height: 2.5em;
+  }
+  a:hover {
+    background-color: $mainfont-color;
+    color: $main-color;
+  }
 }
 
 // Customize button
@@ -135,12 +161,12 @@ input[type="submit"] {
 // Nav menu formatting
 #nav {
   position: fixed;
-  background: $main-color;
+  background: $light-gray;
   top: 0;
   left: 0;
   width: 100%;
   padding: $nav-spacing;
-  border-bottom: 3px solid $light-gray;
+  border-bottom: 3px solid $main-color;
   font-size: $small-font;
 }
 
@@ -156,15 +182,22 @@ input[type="submit"] {
   }
   a {
     color: $mainfont-color;
-    padding: 10px;
+    padding: $nav-spacing;
   }
   a:hover {
-    background-color: $light-gray;
+    background-color: $main-color;
   }
+}
+
+.right-nav {
+  text-align: right;
+  margin-top: -1.3em;
+  margin-right: $nav-spacing * 2;
 }
 
 .logo {
   font-family: $accent-font;
+  font-size: $large-font;
 }
 
 // Reader specific styles
