@@ -29,7 +29,6 @@
     } else if (storyForm.mainc() === "Goldenhair"){
       storyForm.setflagTarg('Wood');
     }
-    
   }
 };
 
@@ -69,7 +68,7 @@ function placeSpans(hash){
     if ($('.edit-text').parent().html().match(/\bshe\b/g) !== null && $('.edit-text').parent().html().match(/\bshe\b/g).length < 3) {
       $(storyForm.pTarg).html(function(index, value) {
         return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="female">' + pronoun +' </span>')});
-    } else { 
+    } else {
 
       $(storyForm.pTarg).html(function(index, value) {
         return value.replace(new RegExp('\\b'+ hash[pronoun] + '\\b', 'g'), '<span class="male">' + hash[pronoun] +' </span>');
