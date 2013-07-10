@@ -10,4 +10,12 @@ module ApplicationHelper
   def destroy_session
     session[:current_user_id] = nil
   end
+
+  def is_user?
+    current_user && (current_user == @user)
+  end
+
+  def is_owner?
+    current_user && (current_user == @mytale.user)
+  end
 end

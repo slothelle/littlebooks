@@ -28,7 +28,7 @@ class MytalesController < ApplicationController
     get_story_character
     get_images
     get_genders
-    if current_user && (current_user = @mytale.user)
+    if is_owner?
       render :edit
     else
       render "shared/denied"
@@ -57,7 +57,7 @@ class MytalesController < ApplicationController
 
   def destroy
     @mytale = Mytale.find(params[:id])
-    if current_user&& (current_user = @mytale.user)
+    if is_owner?
       @mytale.destroy
       redirect_to stories_path
     else
