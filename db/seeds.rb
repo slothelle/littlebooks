@@ -3,19 +3,19 @@ Story.delete_all
 Character.delete_all
 PeopleImage.delete_all
 
-girl = Gender.create(sex: "female")
-boy = Gender.create(sex: "male")
+girl = Gender.create!(sex: "female")
+boy = Gender.create!(sex: "male")
 
-PeopleImage.create(gender: boy, url: "boy-1.png")
-PeopleImage.create(gender: boy, url: "boy-2.png")
-PeopleImage.create(gender: boy, url: "boy-3.png")
-PeopleImage.create(gender: boy, url: "boy-4.png")
-PeopleImage.create(gender: boy, url: "boy-5.png")
-PeopleImage.create(gender: girl, url: "girl-1.png")
-PeopleImage.create(gender: girl, url: "girl-2.png")
-PeopleImage.create(gender: girl, url: "girl-3.png")
-PeopleImage.create(gender: girl, url: "girl-4.png")
-PeopleImage.create(gender: girl, url: "girl-5.png")
+PeopleImage.create!(gender: boy, url: "boy-1.png")
+PeopleImage.create!(gender: boy, url: "boy-2.png")
+PeopleImage.create!(gender: boy, url: "boy-3.png")
+PeopleImage.create!(gender: boy, url: "boy-4.png")
+PeopleImage.create!(gender: boy, url: "boy-5.png")
+PeopleImage.create!(gender: girl, url: "girl-1.png")
+PeopleImage.create!(gender: girl, url: "girl-2.png")
+PeopleImage.create!(gender: girl, url: "girl-3.png")
+PeopleImage.create!(gender: girl, url: "girl-4.png")
+PeopleImage.create!(gender: girl, url: "girl-5.png")
 
 # Goldenhair and the Three Bears
 three_bears = Story.new(:source_link=>"hi", :attribution => "hi", :title => "Goldenhair and the Three Bears", :summary => "A wayward child wanders into the forest, finds some porridge, and meets some bears.", :content => "The Story of the Three Bears...
@@ -47,7 +47,7 @@ three_bears = Story.new(:source_link=>"hi", :attribution => "hi", :title => "Gol
     And in it a spoon like a hair-cutter's pole.
     'That porridge,' said she 'may stay long enough there,
     It tastes like the food of the surly old bear,'
-    She tried Mammy Muff's, and she said, 'Mrs. B,
+    She tried Mammy Muff's, and she said, 'Mrs. Bruin,
     I think your taste and my taste will never agree.'
     Then she tried Tiny-Cub's bowl, and said, 'This is nice;
     I will put in some salt, and of bread a thick slice.'
@@ -117,14 +117,16 @@ three_bears = Story.new(:source_link=>"hi", :attribution => "hi", :title => "Gol
     To say that there never existed THREE BEARS.")
 goldy = Character.create(name: "Goldenhair", gender: girl, story: three_bears)
 three_bears.update_attributes(character: goldy)
-three_bears.save
-p three_bears
-# Little Red Riding Hood
-little_red = Character.create(name: "Little Red Riding Hood", gender: girl)
+#p three_bears
+three_bears.save!
+
+#Little Red Riding Hood
+little_red = Character.create!(name: "Little Red Riding Hood", gender: girl)
 little_red_riding = Story.new(title: "Little Red Riding Hood", content: "Once upon a time there lived in a village a country girl, who was the sweetest little creature that ever was seen; her mother naturally loved her with excessive fondness, and her grandmother doted on her still more. The good woman had made for her a pretty little red-coloured hood, which so much became the little girl, that every one called her Little Red Riding Hood.
 
 One day her mother having made some cheesecakes, said to her, 'Go, my child, and see how your grandmother does, for I hear she is ill; carry her some of these cakes, and a little pot of butter.' Little Red Riding Hood straight set out with a basket filled with the cakes and the pot of butter, for her grandmother's house, which was in a village a little way off the town that her mother lived in. As she was crossing a wood, which lay in her road, she met a large wolf, which had a great mind to eat her up, but dared not, for fear of some wood-cutters, who were at work near them in the forest. Yet he spoke to her, and asked her whither she was going. The little girl, who did not know the danger of talking to a wolf, replied: 'I am going to see my grandmamma, and carry these cakes and a pot of butter.' 'Does she live far off?' said the wolf. 'Oh yes!' answered Little Red Riding Hood; 'beyond the mill you see yonder, at the first house in the village.' 'Well,' said the wolf, 'I will take this way, and you take that, and see which will be there the soonest.'
 
 The wolf set out full speed, running as fast as he could, and taking the nearest way, while the little girl took the longest; and as she went along began to gather nuts, run after butterflies, and make nose-gays of such flowers as she found within her reach. The wolf got to the dwelling of the grandmother first, and knocked at the door. 'Who is there?' said some voice in the house. 'It is your grandchild, Little Red Riding Hood,' said the wolf, speaking like the little girl as well as he could. 'I have brought you some cheesecakes, and a little pot of butter, that mamma has sent you.' The good old woman, who was ill in bed, called out, 'Pull the bobbin, and the latch will go up.' The wolf pulled the bobbin, and the door went open. The wolf then jumped upon the poor old grandmother, and ate her up in a moment, for it was three days since he had tasted any food. The wolf then shut the door, and laid himself down in the bed, and waited for Little Red Riding Hood, who very soon after reached the house. Tap! tap! 'Who is there?' cried he. She was at first a little afraid at hearing the gruff voice of the wolf, but she thought that perhaps her grandmother had got a cold, so she answered: 'It is your grandchild, Little Red Riding Hood. Mamma has sent you some cheesecakes, and a little pot of butter.' The wolf cried out in a softer voice, 'Pull the bobbin, and the latch will go up.' Little Red Riding Hood pulled the bobbin, and the door went open. When she came into the room, the wolf hid himself under the bedclothes, and said to her, trying all he could to speak in a feeble voice: 'Put the basket on the stool, my dear, and take off your clothes, and come into bed.' Little Red Riding Hood, who always used to do as she was told, straight undressed herself, and stepped into bed; but she thought it strange to see how her grandmother looked in her nightclothes, so she said to her: 'Dear me, grandmamma, what great arms you have got!' 'They are so much the better to hug you, my child,' replied the wolf. 'But grandmamma,' said the little girl, 'what great ears you have got!' 'They are so much the better to hear you, my child,' replied the wolf. 'But then, grandmamma, what great eyes you have got!' said the little girl. 'They are so much the better to see you, my child,' replied the wolf. 'And grandmamma, what great teeth you have got!' said the little girl, who now began to be rather afraid. 'They are to eat you up,' said the wolf; and saying these words, the wicked creature fell upon Little Red Riding Hood, and ate her up in a moment.", summary: "What happens when you stray from the path while visiting grandmother?", source_link: "Magic", attribution: "Banana")
+
 little_red_riding.update_attributes(character: little_red)
-little_red_riding.save
+little_red_riding.save!
