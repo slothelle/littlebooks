@@ -1,4 +1,4 @@
-
+// modularize all of this js in object literal(s)
  var storyForm = {
    mainCharDivClass: ".main_character",
    titleTarg: '.mytale-title',

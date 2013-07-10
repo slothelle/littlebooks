@@ -9,7 +9,6 @@ class Mytale < ActiveRecord::Base
   validates_presence_of :title, :content, :story_id, :mytales_character_id
 
   slice :content, :as => :page, :window => 0, :slice => { :maximum => 175, :complete => /\b/ }
-
   slice :content, :as => :edit, :window => 0, :slice => { :maximum => 100, :complete => /(?<=\.\s)|(?<=\!\s)/ }
 
   def replace_goldilocks

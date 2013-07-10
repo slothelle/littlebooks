@@ -1,16 +1,20 @@
 module MytaleHelper
+  # i'd prefer a little simpler naming: get_genders
   def grab_all_genders
     @gender = Gender.all
   end
 
+  # get_images
   def grab_all_images
     @peopleimages = PeopleImage.all
   end
 
+  # get_story_image
   def find_image
     @image = PeopleImage.find_by_id(@mytale.mytale_image.people_image_id)
   end
 
+  # get_story_character
   def grab_story_character
     @story = Story.find_by_id(params[:story_id])
     @character = @story.character
