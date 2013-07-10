@@ -1,7 +1,8 @@
 $accent-font: 'Trocchi', Georgia, serif;
 $body-font: 'ABeeZee', Arial, sans-seif;
 $nav-spacing: 12px;
-$main-color: #71A44B;
+$main-color: #105B63;
+$accent-color: #EDC449;
 $small-font: 0.9em;
 $large-font: 1.1em;
 $light-gray: #CCCCCC;
@@ -20,6 +21,10 @@ p {
 
 .small {
   font-size: $small-font;
+}
+
+.large {
+  font-size: $large-font * 1.5;
 }
 
 .center {
@@ -102,8 +107,8 @@ a.dark {
   background-color: $main-color;
   color: #ffffff;
   border-radius: 100px;
-  font-size: $large-font * 2;
-  padding: 8px 20px 8px 20px;
+  font-size: $large-font * 1.4;
+  padding: 8px 17px 8px 17px;
   margin-right: 10px;
   line-height: 2.5em;
 }
@@ -111,16 +116,15 @@ a.dark {
 .num-alt {
   a {
     color: $mainfont-color;
-    background-color: $main-color;
+    background-color: $accent-color;
     border-radius: 100px;
-    font-size: $large-font * 1.7;
     padding: 8px 20px 8px 20px;
     margin-right: 10px;
     line-height: 2.5em;
   }
   a:hover {
-    background-color: $mainfont-color;
-    color: $main-color;
+    background-color: $main-color;
+    color: $accent-color;
   }
 }
 
@@ -170,7 +174,7 @@ input[type="submit"] {
   left: 0;
   width: 100%;
   padding: $nav-spacing;
-  border-bottom: 3px solid $main-color;
+  border-bottom: 3px solid $accent-color;
   font-size: $small-font;
 }
 
