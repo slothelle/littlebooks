@@ -177,13 +177,12 @@ input[type="submit"] {
 }
 
 .reader {
-  font-size: $large-font * 1.3;
-  line-height: $large-font * 2.5;
+  font-size: $large-font * 1.2;
+  line-height: $large-font * 2.2;
   text-align: justify;
 }
 
 .reader-title {
-  margin-top: -50px;
   font-size: $large-font * 1.3;
   line-height: $large-font * 2.5;
   text-align: justify;
@@ -196,7 +195,7 @@ input[type="submit"] {
 
 .kid {
   position: absolute;
-  left: 20%;
+  left: 35%;
   top: 35%;
   z-index: 2;
 }
