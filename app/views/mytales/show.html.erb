@@ -2,9 +2,9 @@
   Congratulations! You created a story about <%= @mytale.mytales_character.name %>.
 </h2>
 
-<p>
-  What would you like to do next?
-</p>
+<h2>
+  <%= link_to "Read '#{@mytale.title}' now!", read_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id), { class: "dark" }  %>
+</h2>
 
 <div class="section">
   <div class="col span_1_of_3">
@@ -13,21 +13,25 @@
     </p>
   </div>
   <div class="col span_2_of_3">
-    <h2>
-      <%= link_to "Read #{@mytale.title} now!", read_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id)  %>
-    </h2>
-
+    <h3>
+      About <%= @mytale.title %>
+    </h3>
     <p>
       Or <%= link_to "print #{@mytale.title}", print_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id), :onclick=>"window.open(this.href,'print', 'height=600, width=600');return false;"%>
-    </p>
-
-    <p>
       Starring: <%= @mytale.mytales_character.name %>
     </p>
 
     <p>
       Summary: <%= @mytale.story.summary %>
     </p>
+
+    <h3>
+      Story Options
+    </h3>
+    <p>
+      <%= link_to "Print '#{@mytale.title}'", print_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id) %>
+    </p>
+
 
     <% if current_user == @mytale.user %>
       <p>

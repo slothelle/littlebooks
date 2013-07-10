@@ -10,6 +10,8 @@ class Mytale < ActiveRecord::Base
 
   slice :content, :as => :page, :window => 0, :slice => { :maximum => 175, :complete => /\b/ }
 
+  slice :content, :as => :edit, :window => 0, :slice => { :maximum => 100, :complete => /(?<=\.\s)|(?<=\!\s)/ }
+
   def replace_goldilocks
     content.gsub!(/#{story.character.name}/, mytales_character.name)
     subber = {/\bmiss\b/ => "lad", /\bHer\b/ => "His", /\bherself\b/ => "himself",
