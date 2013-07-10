@@ -26,6 +26,11 @@ class MytalesController < ApplicationController
     grab_story_character
     grab_all_images
     grab_all_genders
+    if current_user && (current_user = @mytale.user)
+      render :edit
+    else
+      render "shared/denied"
+    end
   end
 
   def update
@@ -50,8 +55,12 @@ class MytalesController < ApplicationController
 
   def destroy
     @mytale = Mytale.find(params[:id])
-    @mytale.destroy
-    redirect_to stories_path
+    if current_user&& (current_user = @mytale.user)
+      @mytale.destroy
+      redirect_to stories_path
+    else
+      render "shared/denied"
+    end
   end
 
   def print
