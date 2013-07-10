@@ -1,17 +1,29 @@
+<h1>
+   Create your custom story
+</h1>
+
+<p>
+  Enter the story title, main character name, and gender below and watch the story change. Click 'Customize' to select your main character image.
+</p>
+
+<p class="center">
+  <%= image_tag @story.background_image.url %>
+</p>
+
 <%= form_for ([@story, @mytale]) do |f| %>
   <div class="section">
     <div class="col span_1_of_3">
-      <%= f.label :title, "Title" %> <br>
+      <%= f.label :title, "Story title" %> <br>
       <%= f.text_field :title, value: "#{@story.title}", autofocus: true %>
     </div>
 
     <div class="col span_1_of_3">
-      <%= label_tag :name, "Main Character Name" %> <br>
+      <%= label_tag :name, "Main character's name" %> <br>
       <%= text_field_tag :name, "", value: "#{@story.character.name}" %>
     </div>
 
     <div class="col span_1_of_3">
-      <%= label_tag :gender, "Gender" %> <br>
+      <%= label_tag :gender, "Main character's gender" %> <br>
       <%= select_tag :gender, options_from_collection_for_select(@gender, "id", "sex"), { :prompt => 'Gender?', :include_blank => false } %>
     </div>
   </div>
