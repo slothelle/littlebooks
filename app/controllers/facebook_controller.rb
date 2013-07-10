@@ -1,7 +1,7 @@
 class FacebookController < ApplicationController
   def create
     omniauth = request.env["omniauth.auth"]
-    @user = User.find_by_provider(omniauth['uid'])
+    @user = User.find_by_provider(omniauth['uid']) # why is user an instance variable?
     if @user
       create_session
       redirect_to @user

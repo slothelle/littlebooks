@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      user.password = "facebook"
+      user.password = "facebook" # ? why dont we skip validation of password and leave it null instead of populating it with a fake password
       user.save!
     end
   end

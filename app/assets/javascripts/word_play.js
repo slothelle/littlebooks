@@ -1,4 +1,4 @@
-
+// modularize all of this js in object literal(s)
  var storyForm = {
    mainCharDivClass: ".main_character",
    titleTarg: '.mytale-title',
@@ -58,7 +58,7 @@ function placeSpans(hash){
       $(storyForm.pTarg).html(function(index, value) {
         console.log(pronoun);
         return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="female">' + pronoun +' </span>')});
-    } else { 
+    } else {
 
       $(storyForm.pTarg).html(function(index, value) {
         return value.replace(new RegExp('\\b'+ hash[pronoun] + '\\b', 'g'), '<span class="male">' + hash[pronoun] +' </span>');
