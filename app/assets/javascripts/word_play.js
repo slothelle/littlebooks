@@ -24,6 +24,7 @@
     girl: "boy",
     man: "woman"
   },
+
   checkStory: function() {
     if (storyForm.mainc() === "Little Red Riding Hood"){
       storyForm.setflagTarg('Yet');
@@ -33,6 +34,8 @@
       storyForm.setflagTarg('husband');
     } else if (storyForm.mainc() === "Jack"){
       storyForm.setflagTarg('Jack');
+    } else if (storyForm.mainc() === "Princess"){
+      storyForm.setflagTarg('bitterly?');
     }
   }
 }
