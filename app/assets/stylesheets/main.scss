@@ -1,10 +1,10 @@
 $accent-font: 'Trocchi', Georgia, serif;
 $body-font: 'ABeeZee', Arial, sans-seif;
 $nav-spacing: 12px;
-$main-color: #96BE72;
+$main-color: #71A44B;
 $small-font: 0.9em;
 $large-font: 1.1em;
-$light-gray: #dddddd;
+$light-gray: #CCCCCC;
 $mainfont-color: #333333;
 
 // Core styles
@@ -34,7 +34,7 @@ footer {
 h1 {
   font-family: $accent-font;
   font-weight: 400;
-  font-size: 2.5em;
+  font-size: 3.5em;
   color: $main-color;
 }
 
@@ -70,6 +70,10 @@ a.dark {
 }
 
 // Page specific styles
+
+.head {
+  font-size: 0.9em;
+}
 
 .error {
   color: #e52232;
