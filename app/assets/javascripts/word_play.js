@@ -11,13 +11,25 @@
    aniTargF: '.female',
    pTarg: '.word-play',
    flagTarg: 'Wood',
+   setflagTarg: function(word){
+      this.flagTarg = word;
+   },
    subberMale: {
     She: "He",
     she: "he",
     miss: "lad",
     herself: "himself",
-    her: "his",
-    Her: "His"
+    her: "him",
+    Her: "His",
+    girl: "boy"
+  },
+  checkStory: function() {
+    if (storyForm.mainc() === "Little Red Riding Hood"){
+      storyForm.setflagTarg('Yet'); 
+    } else if (storyForm.mainc() === "Goldenhair"){
+      storyForm.setflagTarg('Wood');
+    }
+    
   }
 };
 
@@ -56,7 +68,6 @@ function placeSpans(hash){
   for (var pronoun in hash){
     if ($('.edit-text').parent().html().match(/\bshe\b/g) !== null && $('.edit-text').parent().html().match(/\bshe\b/g).length < 3) {
       $(storyForm.pTarg).html(function(index, value) {
-        console.log(pronoun);
         return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="female">' + pronoun +' </span>')});
     } else { 
 
@@ -117,10 +128,16 @@ function selectValidate(){
   });
 }
 
-$(document).ready(function(){
+function placeMainSpans(){
   $(storyForm.pTarg).html(function(index, value) {
     return value.replace(new RegExp('\\b' + storyForm.mainc() + '\\b','g'), '<span class="main_character">' + storyForm.mainc() +'</span>');
   });
+}
+
+$(document).ready(function(){
+  storyForm.checkStory();
+
+  placeMainSpans();
 
   selectValidate();
 
