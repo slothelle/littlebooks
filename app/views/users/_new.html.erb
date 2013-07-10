@@ -1,10 +1,11 @@
-<h2>
-  <%= link_to "Login using Facebook", '/auth/facebook' %>
-</h2>
+ <h1>
+   Welcome to Little Books
+ </h1>
 
- <p>
-   Already have a Little Books account? <%= link_to "Login", new_session_path %>.
- </p>
+ <h2 class="num-alt">
+   <%= link_to "Log In with Facebook", '/auth/facebook' %>
+   <%= link_to "Log In with Little Books", new_session_path %>
+ </h2>
 
 <h3>
   Or create a Little Books account:
@@ -21,6 +22,6 @@
 <%= f.label :password, "Password" %><br>
 <%= f.password_field :password, placeholder: '********'%>
 <p>
-<%= f.submit "Signup" %>
+<%= f.submit "Sign Up" %>
 </p>
 <%end%>
