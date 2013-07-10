@@ -8,4 +8,5 @@ class Story < ActiveRecord::Base
   slice :content, :as => :paged, :window => 2, :slice => { :maximum => 500, :complete => /(?<=\.\s)|(?<=\!\s)/ }
 
   validates_presence_of :title, :content, :summary, :character_id, :source_link, :attribution
+
 end
