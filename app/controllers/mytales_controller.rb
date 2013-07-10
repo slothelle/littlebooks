@@ -1,7 +1,9 @@
 class MytalesController < ApplicationController
+  include MytaleHelper
+
   def new
-    grab_story_character
-    grab_all_genders
+    get_story_character
+    get_genders
     @mytale = Mytale.new
     @mytales_character = MytalesCharacter.new
     @story_paged = @story.paged.slice!(5)
@@ -9,7 +11,7 @@ class MytalesController < ApplicationController
   end
 
   def create
-    grab_story_character
+    get_story_character
     create_mytales_character
     create_mytale
     if @mytale.save
@@ -23,9 +25,9 @@ class MytalesController < ApplicationController
   def edit
     @mytale = Mytale.find_by_id(params[:id])
     @mytales_character = MytalesCharacter.find_by_id(@mytale.mytales_character_id)
-    grab_story_character
-    grab_all_images
-    grab_all_genders
+    get_story_character
+    get_images
+    get_genders
     if current_user && (current_user = @mytale.user)
       render :edit
     else
@@ -34,9 +36,9 @@ class MytalesController < ApplicationController
   end
 
   def update
-    grab_all_genders
-    grab_all_images
-    grab_story_character
+    get_genders
+    get_images
+    get_story_character
     @mytale = Mytale.find_by_id(params[:id])
     @mytales_character = MytalesCharacter.find_by_id(@mytale.mytales_character_id)
     @myimage = MytaleImage.find_by_mytale_id(params[:id])
@@ -50,7 +52,7 @@ class MytalesController < ApplicationController
 
   def show
     @mytale = Mytale.find(params[:id])
-    find_image
+    get_story_image
   end
 
   def destroy
@@ -65,14 +67,14 @@ class MytalesController < ApplicationController
 
   def print
     @mytale = Mytale.find_by_id(params[:mytale_id])
-    find_image
+    get_story_image
     render layout: "print"
   end
 
   def read
-    @mytale = Mytale.find_by_id(params[:mytale_id])
+    @mytale = Mytale.find_by_id(params[:id])
     @story_paged = @mytale.page.slice!(params[:slice])
-    find_image
+    get_story_image
     respond_to do |format|
       format.html { render layout: "read" }
       format.js {}

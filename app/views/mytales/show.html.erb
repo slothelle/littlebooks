@@ -3,7 +3,7 @@
 </h2>
 
 <h2>
-  <%= link_to "Read '#{@mytale.title}' now!", read_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id), { class: "dark" }  %>
+  <%= link_to "Read '#{@mytale.title}' now!", read_story_mytale_path(story_id: @mytale.story_id, id: @mytale.id), { class: "dark" }  %>
 </h2>
 
 <div class="section">
@@ -28,10 +28,10 @@
       Story Options
     </h3>
     <p>
-      <%= link_to "Print #{@mytale.title}", print_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id), :onclick=>"window.open(this.href,'print', 'height=600, width=600');return false;"%>
+      <%= link_to "Print", print_story_mytale_path(story_id: @mytale.story_id, id: @mytale.id), :onclick=>"window.open(this.href,'print', 'height=600, width=600');return false;"%>
     </p>
     <p>
-      <%= link_to "Read", read_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id) %><% if current_user && (current_user == @mytale.user) %>, <%= link_to "edit", edit_story_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id) %> or <%= link_to "delete", story_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id), method: :delete %>
+      <%= link_to "Read", read_story_mytale_path(story_id: @mytale.story_id, id: @mytale.id) %><% if current_user && (current_user == @mytale.user) %>, <%= link_to "edit", edit_story_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id) %> or <%= link_to "delete", story_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id), method: :delete %>
     <% end %>
     this story
     </p>

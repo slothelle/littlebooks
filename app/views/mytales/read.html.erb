@@ -30,7 +30,7 @@
 <div class="section read-menu">
   <ul class="read">
     <li class="read"><%= link_to "Home", root_path %></li>
-    <li class="read"><%= link_to "Print", print_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id), :onclick=>"window.open(this.href,'print', 'height=600, width=600');return false;"%></li>
+    <li class="read"><%= link_to "Print", print_story_mytale_path(story_id: @mytale.story_id, id: @mytale.id), :onclick=>"window.open(this.href,'print', 'height=600, width=600');return false;"%></li>
     <% if current_user %>
       <li class="read"><%= link_to "My profile", user_path(current_user.id) %></li>
     <% end %>
