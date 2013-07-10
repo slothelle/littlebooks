@@ -23,6 +23,10 @@
     Her: "His",
     girl: "boy"
   },
+
+  // riding:["there", "bear!!!!!", "the", "hellsyeah", "were", "fair!!!!!",
+  //   "the", "bombers!!!!"],
+   
   checkStory: function() {
     if (storyForm.mainc() === "Little Red Riding Hood"){
       storyForm.setflagTarg('Yet'); 
@@ -32,6 +36,14 @@
     
   }
 };
+
+// for (var item in storyForm.riding) {
+//     $('#mytale_content').html(function(index, value) {
+//           debugger
+//           var nextItem = parseInt(item)+ 1;
+//           return value.replace(new RegExp('\\b'+ storyForm.riding[parseInt(item)*2] + '\\b'), '<span class="female">' + storyForm.riding[item] +' </span>');
+//     });
+//   }
 
 function highlightButton(){
   if ($(storyForm.titleTextField).val() !== "" && $(storyForm.nameTextField).val() !== "" && $(''+ storyForm.selectTarg + ' option:selected').text() !== "Gender?"){
