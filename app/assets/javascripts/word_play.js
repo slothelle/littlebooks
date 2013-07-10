@@ -21,7 +21,8 @@
     herself: "himself",
     her: "him",
     Her: "His",
-    girl: "boy"
+    girl: "boy",
+    man: "woman"
   },
   checkStory: function() {
     if (storyForm.mainc() === "Little Red Riding Hood"){
@@ -30,6 +31,8 @@
       storyForm.setflagTarg('Wood');
     } else if (storyForm.mainc() === "Rapunzel"){
       storyForm.setflagTarg('husband');
+    } else if (storyForm.mainc() === "Jack"){
+      storyForm.setflagTarg('Jack');
     }
   }
 }
@@ -103,7 +106,7 @@ function rep(ind,val){
 }
 
 function backAnimate(target){
-  $(target).animate({backgroundColor:"yellow"},  100);
+  $(target).animate({backgroundColor:"#EDC449"},  100);
   $(target).animate({backgroundColor:"white" },  1000);
 }
 
@@ -128,7 +131,7 @@ function selectValidate(){
     if ($(''+ storyForm.selectTarg+' option:selected').text() !== "female" && $(''+ storyForm.selectTarg+' option:selected').text() !== "male") {
       e.preventDefault();
       $('.error').remove();
-      $(storyForm.selectTarg).parent().append('<span class="error">  Please Enter a Gender </span>');
+      $('.jsError').append('<span class="error">  Please Enter a Gender </span>');
     }
   });
 }
