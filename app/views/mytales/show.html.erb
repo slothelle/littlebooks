@@ -13,14 +13,13 @@
     </p>
   </div>
   <div class="col span_2_of_3">
+
     <h3>
       About <%= @mytale.title %>
     </h3>
     <p>
-      Or <%= link_to "print #{@mytale.title}", print_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id), :onclick=>"window.open(this.href,'print', 'height=600, width=600');return false;"%>
       Starring: <%= @mytale.mytales_character.name %>
     </p>
-
     <p>
       Summary: <%= @mytale.story.summary %>
     </p>
@@ -29,10 +28,8 @@
       Story Options
     </h3>
     <p>
-      <%= link_to "Print '#{@mytale.title}'", print_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id) %>
+      <%= link_to "Print #{@mytale.title}", print_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id), :onclick=>"window.open(this.href,'print', 'height=600, width=600');return false;"%>
     </p>
-
-
     <% if current_user == @mytale.user %>
       <p>
         <%= link_to "Edit", edit_story_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id) %> or <%= link_to "delete", story_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id), method: :delete %> this story
