@@ -2,7 +2,7 @@ $accent-font: 'Trocchi', Georgia, serif;
 $body-font: 'ABeeZee', Arial, sans-seif;
 $nav-spacing: 10px;
 $main-color: #A3BD8E;
-$dark-color: #708262;
+$dark-color: #677E52;
 $small-font: 0.9em;
 $large-font: 1.1em;
 $light-gray: #CCCCCC;
@@ -33,17 +33,18 @@ footer {
 }
 
 h1 {
-  font-size: 4em;
+  font-size: 3.6em;
   font-family: $accent-font;
   font-weight: 400;
   color: $main-color;
 }
 
 .emphasized {
-  font-size: 2em;
+  font-size: 1.5em;
+  padding-top: $nav-spacing * 2;
   font-family: $accent-font;
   font-weight: 400;
-  color: $main-color;
+  color: $dark-color;
 }
 
 h2, h3, h4, h5, h6 {
@@ -55,6 +56,12 @@ a {
   font-weight: 700;
   text-decoration: none;
   color: $main-color;
+}
+
+a.dark {
+  font-weight: 700;
+  text-decoration: none;
+  color: $dark-color;
 }
 
 #container {
@@ -77,6 +84,14 @@ a {
   line-height: 1.5em;
 }
 
+.word-play {
+  font-size: $large-font;
+  line-height: $large-font * 2;
+}
+
+.mytale-title {
+  padding-top: 15px;
+}
 
 // Customize button
 button {
