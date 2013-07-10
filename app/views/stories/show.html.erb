@@ -13,14 +13,10 @@
       <li class="welcome">Choose an <%= link_to "image", all_images_path %></li>
     </ol>
   </p>
+<% end %>
 
   <h1 class="emphasized">
     Type below to create your story:
   </h1>
-<% else %>
- <p>
-   Generate a custom version of <%= @story.title %> by filling out the form below.
- </p>
-<% end %>
 
 <%= render 'mytales/new' %>
