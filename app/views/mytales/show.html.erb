@@ -29,7 +29,7 @@
       Story Options
     </h3>
     <p>
-      <%= link_to "Print", print_story_mytale_path(story_id: @mytale.story_id, id: @mytale.id), :onclick=>"window.open(this.href,'print', 'height=600, width=600');return false;"%> full custom story
+      <%= link_to "Print", print_story_mytale_path(story_id: @mytale.story_id, id: @mytale.id), class: "print-link"%> full custom story
     </p>
     <p>
       <%= link_to "Read", read_story_mytale_path(story_id: @mytale.story_id, id: @mytale.id) %><% if current_user && (current_user == @mytale.user) %>, <%= link_to "edit", edit_story_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id) %> or <%= link_to "delete", story_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id), method: :delete %>
