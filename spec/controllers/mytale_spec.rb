@@ -24,9 +24,9 @@ describe MytalesController do
   end
 
   describe "GET mytales#edit" do
-    it "should render new template" do
+    it "should render denied template when user is logged out" do
       get :edit, story_id: Story.last.id, id: Mytale.last.id
-      response.should render_template :edit
+      response.should render_template 'shared/denied'
     end
   end
 
@@ -37,79 +37,15 @@ describe MytalesController do
     end
   end
 
-  describe "GET mytales#print" do
-    it "should render print template" do
-      get :print, story_id: Story.last.id, mytale_id: Mytale.last.id
-      response.should render_template :print
-    end
-  end
-
   describe "GET mytales#read" do
-    it "should render read template" do
-      get :read, story_id: Story.last.id, mytale_id: Mytale.last.id
-      response.should render_template :read
-    end
-
     it "should render AJAX page turns" do
-      get :read, story_id: Story.last.id, mytale_id: Mytale.last.id, slice: 2, format: :js
+      get :read, story_id: Story.last.id, id: Mytale.last.id, slice: 2, format: :js
       expect(response.headers['Content-Type']).to have_content('text/javascript')
     end
 
     it "should return content on AJAX page turn" do
-      get :read, story_id: Story.last.id, mytale_id: Mytale.last.id, slice: 2, format: :js
+      get :read, story_id: Story.last.id, id: Mytale.last.id, slice: 2, format: :js
       expect(response.body).to have_content('More tacos!')
-    end
-  end
-
-  describe "POST mytales#create" do
-    context "with valid attributes" do
-      it "should create a new mytale" do
-        pending
-      end
-
-      it "should update mytales_character with mytale_id" do
-        pending
-      end
-
-      it "should redirect to mytaleimages#new" do
-        pending
-      end
-
-      it "should call method mytale.replace_goldilocks" do
-        pending
-      end
-    end
-
-    context "with invalid attributes" do
-      it "should render mytales#new" do
-        pending
-      end
-    end
-  end
-
-  describe "POST mytales#update" do
-    context "with valid attributes" do
-      it "should create a new mytale" do
-        pending
-      end
-
-      it "should update mytales_character with mytale_id" do
-        pending
-      end
-
-      it "should redirect to mytaleimages#new" do
-        pending
-      end
-
-      it "should call method mytale.replace_goldilocks" do
-        pending
-      end
-    end
-
-    context "with invalid attributes" do
-      it "should render mytales#new" do
-        pending
-      end
     end
   end
 end
