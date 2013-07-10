@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710124856) do
+ActiveRecord::Schema.define(:version => 20130710134500) do
 
   create_table "background_images", :force => true do |t|
     t.string   "url"
@@ -65,10 +65,9 @@ ActiveRecord::Schema.define(:version => 20130710124856) do
 
   create_table "people_images", :force => true do |t|
     t.string   "url"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.integer  "gender_id"
-    t.integer  "ethnicity_id"
   end
 
   create_table "stories", :force => true do |t|
