@@ -1,4 +1,4 @@
-Little Books. {<img src="https://travis-ci.org/feministy/littlebooks.png" />}[https://travis-ci.org/feministy/littlebooks]
+Little Books. [![Build Status](https://travis-ci.org/feministy/littlebooks.png)](https://travis-ci.org/feministy/littlebooks)
 ==============
 
 
