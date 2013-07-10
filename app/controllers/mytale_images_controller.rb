@@ -1,4 +1,6 @@
 class MytaleImagesController < ApplicationController
+  include MytaleHelper
+
   def index
     get_images
   end

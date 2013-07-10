@@ -1,4 +1,6 @@
 class MytalesController < ApplicationController
+  include MytaleHelper
+
   def new
     get_story_character
     get_genders
