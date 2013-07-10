@@ -6,5 +6,4 @@ class Character < ActiveRecord::Base
 
   validates_presence_of :name, :gender_id
   validates_length_of :name, :within => 2..40, :too_long => "must be less than 20 characters.", :too_short => "must be at least 2 characters."
-
 end

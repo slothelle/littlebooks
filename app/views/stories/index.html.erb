@@ -1,27 +1,5 @@
-<%= form_for ([@story, @mytale]) do |f| %>
-  <div class="section">
-    <div class="col span_1_of_3">
-      <%= f.label :title, "Title" %> <br>
-      <%= f.text_field :title, value: "#{@story.title}", autofocus: true %>
-    </div>
-
-    <div class="col span_1_of_3">
-      <%= label_tag :name, "Main Character Name" %> <br>
-      <%= text_field_tag :name, "", value: "#{@character.name}" %>
-    </div>
-
-    <div class="col span_1_of_3">
-      <%= label_tag :gender, "Gender" %> <br>
-      <%= select_tag :gender, options_from_collection_for_select(@gender, "id", "sex"), { :prompt => 'Gender?', :include_blank => 'None' } %>
-    </div>
-  </div>
-  <div class="section">
-    <%= f.hidden_field :content, value: @story.content %>
-    <%= f.hidden_field :story_id, value: @story.id %>
-    <%= f.hidden_field :summary, value: @story.summary %>
-    <h2><%= @story.title %></h2>
-    <p class="word-play"><%= @story_paged%></p>
-    <%= f.button "Customize" %>
-  <% end %>
-  </div>
-
+<% @stories.each do |story| %>
+  <h2>
+    <%= story.title %>
+  </h2>
+<% end %>

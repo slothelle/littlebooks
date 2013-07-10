@@ -1,4 +1,8 @@
 class MytaleImagesController < ApplicationController
+  def index
+    grab_all_images
+  end
+
   def new
     grab_all_images
     @mytale = Mytale.find_by_id(params[:mytale_id])

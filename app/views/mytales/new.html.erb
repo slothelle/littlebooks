@@ -1,6 +1,4 @@
-<% if current_user %>
-
-  <%= form_for ([@story, @mytale]) do |f| %>
+<%= form_for ([@story, @mytale]) do |f| %>
   <div class="section">
     <div class="col span_1_of_3">
       <%= f.label :title, "Title" %> <br>
@@ -24,12 +22,6 @@
     <%= f.hidden_field :summary, value: @story.summary %>
   <% end %>
   </div>
-
-<% else %>
-  <h4>
-    Please <%= link_to "login", new_session_path %> or <%= link_to "signup", new_user_path %> to customize this story.
-  </h4>
-<% end %>
 
 
 <h2><%= @story.title %></h2>

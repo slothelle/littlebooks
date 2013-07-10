@@ -1,7 +1,7 @@
 
  var storyForm = {
    mainCharDivClass: ".main_character",
-   titleTarg: 'h2',
+   titleTarg: '.mytale-title',
    mainc: function(){ return $('#name').attr('value');},
    titleTextField: "#mytale_title",
    nameTextField: "#name",
@@ -54,14 +54,16 @@ function getVal(targ){
 
 function placeSpans(hash){
   for (var pronoun in hash){
-    if ($('.edit-text').parent().html().match(/\bshe\b/g) !== null && $('.edit-text').parent().html().match(/\bshe\b/g).length >4){
+    if ($('.edit-text').parent().html().match(/\bshe\b/g) !== null && $('.edit-text').parent().html().match(/\bshe\b/g).length < 3) {
       $(storyForm.pTarg).html(function(index, value) {
-        return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="female">' + pronoun +' </span>');
+        console.log(pronoun);
+        return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="female">' + pronoun +' </span>')});
+    } else { 
+
+      $(storyForm.pTarg).html(function(index, value) {
+        return value.replace(new RegExp('\\b'+ hash[pronoun] + '\\b', 'g'), '<span class="male">' + hash[pronoun] +' </span>');
       });
     }
-    $(storyForm.pTarg).html(function(index, value) {
-      return value.replace(new RegExp('\\b'+ hash[pronoun] + '\\b', 'g'), '<span class="male">' + hash[pronoun] +' </span>');
-    });
   }
 }
 
