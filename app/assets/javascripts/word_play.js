@@ -34,7 +34,9 @@
 
 function highlightButton(){
   if ($(storyForm.titleTextField).val() !== "" && $(storyForm.nameTextField).val() !== "" && $(''+ storyForm.selectTarg + ' option:selected').text() !== "Gender?"){
-    $('button').toggleClass('ready');
+    $('button').addClass('ready');
+  } else if ($(''+ storyForm.selectTarg + ' option:selected').text() == "Gender?"){
+    $('button').removeClass('ready');
   }
 }
 
@@ -112,6 +114,8 @@ function changePronouns(){
     } else if ($(''+ storyForm.selectTarg+' option:selected').text() === "female"){
       setFemale(storyForm.subberMale);
       backAnimate(storyForm.aniTargF);
+      highlightButton();
+    } else {
       highlightButton();
     }
   });
