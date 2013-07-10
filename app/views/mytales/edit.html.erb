@@ -1,18 +1,29 @@
-<%= form_for ([@story, @mytale]) do |f| %>
-  <p>
+<h2>
   What does <%= @mytale.mytales_character.name %> look like?
-</p>
-<p> Current
-  <%= image_tag (@mytale.mytale_image.people_image.url) %>
-</p>
+</h2>
 
-<h5>Would you like to pick a new image?</h5>
-  <% @peopleimages.each do |image| %>
-    <div class="col span_1_of_6">
-      <%= image_tag image.url,  size: '39x105' %>
-      <%= radio_button_tag 'image_ids[]', image.id, @mytale.mytale_image.people_image.id == image.id %>
-    </div>
-  <%end%>
+<div class="section">
+  <div class="col span_1_of_4">
+    <%= form_for ([@story, @mytale]) do |f| %>
+    <h4>
+      <%= @mytale.mytales_character.name %>'s current image:
+    </h4>
+    <%= image_tag (@mytale.mytale_image.people_image.url) %>
+  </div>
+
+  <div class="col span_3_of_4">
+    <h4>Change <%= @mytale.mytales_character.name %> by selecting a new character below:</h4>
+      <% @peopleimages.each do |image| %>
+        <div class="col span_1_of_6">
+          <%= image_tag image.url,  height: '105' %>
+          <%= radio_button_tag 'image_ids[]', image.id, @mytale.mytale_image.people_image.id == image.id %>
+        </div>
+      <%end%>
+  </div>
+<p>&nbsp;</p>
+<h2>
+  Change <%= @mytale.title %>:
+</h2>
   <div class="section">
     <div class="col span_1_of_3">
       <%= f.label :title, "Title" %> <br>
@@ -33,7 +44,6 @@
     <%= f.hidden_field :content, value: @mytale.content %>
     <%= f.hidden_field :story_id, value: @mytale.story_id %>
     <%= f.hidden_field :summary, value: @mytale.summary %>
-    <h2><%= @mytale.title %></h2>
-    <p class="word-play"><%= @mytale.content%></p>
+    <p class="word-play">... <%= @mytale.edit.slice!(5) %> ...</p>
     <%= f.button "Edit your story" %>
 <%end%>
