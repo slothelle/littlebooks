@@ -18,7 +18,7 @@
     </h2>
 
     <p>
-      Or <%= link_to "print #{@mytale.title}", print_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id) %>
+      Or <%= link_to "print #{@mytale.title}", print_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id), :onclick=>"window.open(this.href,'print', 'height=600, width=600');return false;"%>
     </p>
 
     <p>
