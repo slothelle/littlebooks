@@ -154,6 +154,6 @@ jack_bean = Story.new(title: "Jack and the Beanstalk", content: "There was once 
 
 jack_bean.update_attributes(character: jack)
 
-jack_bean.background_image = (BackgroundImage.create!(url: "rapunzel.jpg", story: jack_bean))
+jack_bean.background_image = (BackgroundImage.create!(url: "placeholder", story: jack_bean))
 
-jack_bean.save!
+jack_bean.save
