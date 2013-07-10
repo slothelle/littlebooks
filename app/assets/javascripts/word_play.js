@@ -1,7 +1,7 @@
 
  var storyForm = {
    mainCharDivClass: ".main_character",
-   titleTarg: 'h2',
+   titleTarg: '.mytale-title',
    mainc: function(){ return $('#name').attr('value');},
    titleTextField: "#mytale_title",
    nameTextField: "#name",
@@ -59,9 +59,9 @@ function placeSpans(hash){
         return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="female">' + pronoun +' </span>');
       });
     }
-    $(storyForm.pTarg).html(function(index, value) {
-      return value.replace(new RegExp('\\b'+ hash[pronoun] + '\\b', 'g'), '<span class="male">' + hash[pronoun] +' </span>');
-    });
+    // $(storyForm.pTarg).html(function(index, value) {
+    //   return value.replace(new RegExp('\\b'+ hash[pronoun] + '\\b', 'g'), '<span class="male">' + hash[pronoun] +' </span>');
+    // });
   }
 }
 
