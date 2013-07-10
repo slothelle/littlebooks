@@ -4,6 +4,8 @@ class MytalesController < ApplicationController
     grab_all_genders
     @mytale = Mytale.new
     @mytales_character = MytalesCharacter.new
+    @story_paged = @story.paged.slice!(5)
+    render "_new"
   end
 
   def create

@@ -2,6 +2,10 @@ Gender.delete_all
 Story.delete_all
 Character.delete_all
 PeopleImage.delete_all
+BackgroundImage.delete_all
+Mytale.delete_all
+MytalesCharacter.delete_all
+MytaleImage.delete_all
 
 girl = Gender.create!(sex: "female")
 boy = Gender.create!(sex: "male")
@@ -130,3 +134,9 @@ The wolf set out full speed, running as fast as he could, and taking the nearest
 
 little_red_riding.update_attributes(character: little_red)
 little_red_riding.save!
+
+little_red_riding.background_image = (BackgroundImage.create(url: "house.jpg", story: little_red_riding))
+three_bears.background_image = (BackgroundImage.create(url: "bears.jpg", story: three_bears))
+
+little_red_riding.save
+three_bears.save
