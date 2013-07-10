@@ -1,7 +1,8 @@
 $accent-font: 'Trocchi', Georgia, serif;
 $body-font: 'ABeeZee', Arial, sans-seif;
-$nav-spacing: 20px;
-$main-color: #7aa6bf;
+$nav-spacing: 10px;
+$main-color: #A3BD8E;
+$dark-color: #708262;
 $small-font: 0.9em;
 $large-font: 1.1em;
 $light-gray: #CCCCCC;
@@ -38,6 +39,13 @@ h1 {
   color: $main-color;
 }
 
+.emphasized {
+  font-size: 2em;
+  font-family: $accent-font;
+  font-weight: 400;
+  color: $main-color;
+}
+
 h2, h3, h4, h5, h6 {
   font-family: $accent-font;
   font-weight: 400;
@@ -51,7 +59,7 @@ a {
 
 #container {
   margin: 0 auto;
-  margin-top: 80px;
+  margin-top: 30px;
   width: 100%;
 }
 
@@ -63,6 +71,10 @@ a {
   width: 50%;
   margin: 0 0 20px 0;
   font-size: $small-font;
+}
+
+.welcome {
+  line-height: 1.5em;
 }
 
 
@@ -87,9 +99,10 @@ button.ready {
 
 // Form boxes get perdy
 input, select {
-  border: 1px solid $light-gray;
+  border: 3px solid $light-gray;
   padding: 5px;
-  font-family:$body-font;
+  // background-color: $main-color;
+  font-family:$accent-font;
   font-size: $small-font;
 }
 
@@ -123,7 +136,7 @@ input[type="submit"] {
     // Things
   }
   li {
-    padding-right: $nav-spacing;
+    padding-right: $nav-spacing * 2;
   }
 }
 
