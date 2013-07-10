@@ -1,9 +1,9 @@
 <% @stories.each do |story| %>
   <div class="section">
-    <div class="col span_1_of_3">
-      <%= image_tag story.background_image.url, width: '200px' %>
+    <div class="col span_1_of_2">
+      <%= image_tag story.background_image.url, width: '320px' %>
     </div>
-    <div class="col span_2_of_3">
+    <div class="col span_1_of_2">
       <h2>
         <%= story.title %>
       </h2>

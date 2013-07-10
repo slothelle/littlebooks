@@ -31,9 +31,19 @@
       <%= link_to "Print #{@mytale.title}", print_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id), :onclick=>"window.open(this.href,'print', 'height=600, width=600');return false;"%>
     </p>
     <p>
-      <%= link_to "Read", read_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id) %><% if current_user == @mytale.user %>, <%= link_to "edit", edit_story_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id) %> or <%= link_to "delete", story_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id), method: :delete %>
+      <%= link_to "Read", read_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id) %><% if current_user && (current_user == @mytale.user) %>, <%= link_to "edit", edit_story_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id) %> or <%= link_to "delete", story_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id), method: :delete %>
     <% end %>
     this story
+    </p>
+  </div>
+
+  <div class="section">
+    <p class="small">
+      <% if !current_user %>
+      You can always access this story at: <%= link_to "#{story_mytale_url(story_id: @mytale.story_id, id: @mytale.id)}", story_mytale_url(story_id: @mytale.story_id, id: @mytale.id) %>
+      <% else %>
+      View this story and others you've created on your <%= link_to "profile page", user_path(current_user.id) %>.
+      <% end %>
     </p>
   </div>
 </div>
