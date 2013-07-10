@@ -46,6 +46,12 @@ class MytalesController < ApplicationController
     find_image
   end
 
+  def destroy
+    @mytale = Mytale.find(params[:id])
+    @mytale.destroy
+    redirect_to stories_path
+  end
+
   def print
     @mytale = Mytale.find_by_id(params[:mytale_id])
     find_image

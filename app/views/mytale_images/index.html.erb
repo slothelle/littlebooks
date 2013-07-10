@@ -1,0 +1,21 @@
+<h2>Available Characters</h2>
+
+<div class="section">
+<% @peopleimages.each do |image| %>
+  <% if image.gender.sex == "female" %>
+    <div class="col span_1_of_5">
+      <%= image_tag(image.url) %>
+    </div>
+  <% end %>
+<% end %>
+</div>
+
+<div class="section">
+<% @peopleimages.each do |image| %>
+  <% if image.gender.sex == "male" %>
+    <div class="col span_1_of_5">
+      <%= image_tag(image.url) %>
+    </div>
+  <% end %>
+<% end %>
+</div>
