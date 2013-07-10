@@ -5,7 +5,7 @@ $main-color: #105B63;
 $accent-color: #EDC449;
 $small-font: 0.9em;
 $large-font: 1.1em;
-$light-gray: #CCCCCC;
+$light-gray: #DDDDDD;
 $mainfont-color: #333333;
 
 // Core styles
@@ -114,6 +114,12 @@ a.dark {
 }
 
 .num-alt {
+    color: $mainfont-color;
+    background-color: $accent-color;
+    border-radius: 100px;
+    padding: 8px 20px 8px 20px;
+    margin-right: 10px;
+    line-height: 2.5em;
   a {
     color: $mainfont-color;
     background-color: $accent-color;
@@ -131,7 +137,7 @@ a.dark {
 // Customize button
 button {
   border: 1px solid #ffffff;
-  background-color: #ffffff;
+  background-color: $light-gray;
   font-family: $accent-font;
   font-size: $large-font;
   width: 100%;
@@ -139,8 +145,8 @@ button {
 }
 
 button.ready {
-  border: 1px solid $main-color;
-  background-color: $main-color;
+  border: 1px solid $light-gray;
+  background-color: $accent-color;
   font-family: $accent-font;
   font-size: $large-font;
   width: 100%;
@@ -149,9 +155,8 @@ button.ready {
 
 // Form boxes get perdy
 input, select {
-  border: 3px solid $light-gray;
-  padding: 5px;
-  // background-color: $main-color;
+  border: 2px solid $light-gray;
+  padding: 8px;
   font-family:$accent-font;
   font-size: $small-font;
 }
@@ -193,7 +198,7 @@ input[type="submit"] {
     padding: $nav-spacing;
   }
   a:hover {
-    background-color: $main-color;
+    background-color: $accent-color;
   }
 }
 
