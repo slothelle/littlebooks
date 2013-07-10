@@ -16,7 +16,11 @@ class MytaleImagesController < ApplicationController
       @mytale.update_attribute(:mytale_image_id, @myimage.id)
       redirect_to story_mytale_path(story_id: @mytale.story_id, id: @mytale.id)
     else
-      redirect_to new_story_mytale_path(story_id: @mytale.story_id)
+      @error = @myimage.errors.full_messages.join(". ")
+      grab_story_character
+      grab_all_genders
+      @story_paged = @story.paged.slice!(5)
+      render "stories/show", story_id: @mytale.story
     end
   end
 end
