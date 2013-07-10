@@ -8,6 +8,7 @@ class StoriesController < ApplicationController
     grab_all_genders
     @story = Story.find(params[:id])
     @story_paged = @story.paged.slice!(5)
+    @character = @story.character
     @mytale = Mytale.new
   end
 end
