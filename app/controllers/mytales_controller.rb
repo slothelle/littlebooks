@@ -66,7 +66,7 @@ class MytalesController < ApplicationController
   end
 
   def print
-    @mytale = Mytale.find_by_id(params[:mytale_id])
+    @mytale = Mytale.find_by_id(params[:id])
     get_story_image
     render layout: "print"
   end

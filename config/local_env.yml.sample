@@ -1,0 +1,13 @@
+# Rename this file to local_env.yml
+# Add account settings and API keys here.
+# This file should be listed in .gitignore to keep your settings secret!
+# Each entry gets set as a local environment variable.
+# This file overrides ENV variables in the Unix shell.
+
+
+GMAIL_USERNAME: "Your Google username here"
+GMAIL_PASSWORD: "Your super secret password here"
+GMAIL_DOMAIN: "You domain here"
+
+FACEBOOK_KEY: "Your Facebook key here"
+FACEBOOK_SECRET: "Your Facebook secret token here"

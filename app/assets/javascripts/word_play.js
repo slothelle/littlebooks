@@ -21,16 +21,21 @@
     herself: "himself",
     her: "him",
     Her: "His",
-    girl: "boy"
+    girl: "boy",
+    man: "woman"
   },
   checkStory: function() {
     if (storyForm.mainc() === "Little Red Riding Hood"){
-      storyForm.setflagTarg('Yet'); 
+      storyForm.setflagTarg('Yet');
     } else if (storyForm.mainc() === "Goldenhair"){
       storyForm.setflagTarg('Wood');
+    } else if (storyForm.mainc() === "Rapunzel"){
+      storyForm.setflagTarg('husband');
+    } else if (storyForm.mainc() === "Jack"){
+      storyForm.setflagTarg('Jack');
     }
   }
-};
+}
 
 function highlightButton(){
   if ($(storyForm.titleTextField).val() !== "" && $(storyForm.nameTextField).val() !== "" && $(''+ storyForm.selectTarg + ' option:selected').text() !== "Gender?"){
@@ -69,9 +74,9 @@ function placeSpans(hash){
   for (var pronoun in hash){
     if ($('.edit-text').parent().html().match(/\bshe\b/g) !== null && $('.edit-text').parent().html().match(/\bshe\b/g).length < 3) {
       $(storyForm.pTarg).html(function(index, value) {
-        return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="female">' + pronoun +' </span>')});
+        return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="female">' + pronoun +' </span>');
+      });
     } else {
-
       $(storyForm.pTarg).html(function(index, value) {
         return value.replace(new RegExp('\\b'+ hash[pronoun] + '\\b', 'g'), '<span class="male">' + hash[pronoun] +' </span>');
       });
@@ -101,7 +106,7 @@ function rep(ind,val){
 }
 
 function backAnimate(target){
-  $(target).animate({backgroundColor:"yellow"},  100);
+  $(target).animate({backgroundColor:"#EDC449"},  100);
   $(target).animate({backgroundColor:"white" },  1000);
 }
 
@@ -126,7 +131,7 @@ function selectValidate(){
     if ($(''+ storyForm.selectTarg+' option:selected').text() !== "female" && $(''+ storyForm.selectTarg+' option:selected').text() !== "male") {
       e.preventDefault();
       $('.error').remove();
-      $(storyForm.selectTarg).parent().append('<span class="error">  Please Enter a Gender </span>');
+      $('.jsError').append('<span class="error">  Please Enter a Gender </span>');
     }
   });
 }

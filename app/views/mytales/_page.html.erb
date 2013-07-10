@@ -17,7 +17,11 @@
 </div>
 
 <div class="section read-menu small">
-  <% if params[:slice] %>
+  <% if params[:slice] && params[:slice] != "1" %>
     <%= link_to "Back to beginning", "?slice=1", :remote => true %>
+
+  <p></p>
+
+  <%= slice_entries_info @story_paged %>
   <% end %>
 </div>
