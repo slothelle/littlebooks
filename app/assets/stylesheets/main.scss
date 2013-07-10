@@ -185,6 +185,7 @@ input[type="submit"] {
 }
 
 .reader {
+  padding-top: $nav-spacing * 3;
   font-size: $large-font * 1.2;
   line-height: $large-font * 2.2;
   text-align: justify;
