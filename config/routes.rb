@@ -4,7 +4,7 @@ LittleBooks::Application.routes.draw do
 
   delete '/logout', to: 'sessions#destroy'
 
-  root :to => 'stories#show', id: 5
+  root :to => 'stories#show', id: 4
 
   resources :stories do
     resources :mytales do
