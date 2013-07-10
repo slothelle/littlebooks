@@ -1,18 +1,23 @@
 <div class="section">
   <div class="col span_1_of_7">
-    <br>
-    <% if params[:slice] %>
-    <h1>
-      <%= link_to 'Prev', "?slice=#{params[:slice].to_i-1}", :remote => true %>
-    </h1>
+    <% if params[:slice] && params[:slice] != "1" %>
+      <%= link_to image_tag("prev.png"), "?slice=#{params[:slice].to_i-1}", :remote => true %>
     <% end %>
   </div>
   <div class="col span_5_of_7 reader">
     <%= @story_paged %>
   </div>
   <div class="col span_1_of_7">
-    <h1>
-      <%= link_to_next_slice @story_paged, 'Next', :remote => true %>
-    </h1>
+    <% if params[:slice] %>
+      <%= link_to image_tag("next.png"), "?slice=#{params[:slice].to_i+1}", :remote=> true %>
+    <% else %>
+      <%= link_to image_tag("next.png"), "?slice=2", :remote=> true %>
+    <% end %>
   </div>
+</div>
+
+<div class="section read-menu small">
+  <% if params[:slice] %>
+    <%= link_to "Back to beginning", "?slice=1", :remote => true %>
+  <% end %>
 </div>
