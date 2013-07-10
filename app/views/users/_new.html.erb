@@ -1,3 +1,14 @@
+<h2>
+  <%= link_to "Login using Facebook", '/auth/facebook' %>
+</h2>
+
+ <p>
+   Already have a Little Books account? <%= link_to "Login", new_session_path %>.
+ </p>
+
+<h3>
+  Or create a Little Books account:
+</h3>
 <%= render "shared/errors", layout: false %>
 
 <%= form_for(:user, url: users_path) do |f| %>

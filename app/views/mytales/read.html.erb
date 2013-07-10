@@ -7,7 +7,7 @@
 <div class="section">
   <div class="col span_1_of_5"></div>
   <div class="col span_3_of_5 center">
-    <%= image_tag "bears.jpg" %>
+    <%= image_tag @mytale.story.background_image.url %>
 
     <div class="kid">
       <%= image_tag @image.url %>
@@ -29,12 +29,11 @@
 
 <div class="section read-menu">
   <ul class="read">
-    <li class="read">Home</li>
-    <li class="read">Print story</li>
+    <li class="read"><%= link_to "Home", root_path %></li>
+    <li class="read"><%= link_to "Print", print_story_mytale_path(story_id: @mytale.story_id, id: @mytale.id), :onclick=>"window.open(this.href,'print', 'height=600, width=600');return false;"%></li>
     <% if current_user %>
-      <li class="read">My profile</li>
-    <% else %>
-      <li class="read">Signup or Login to save</li>
+      <li class="read"><%= link_to "My profile", user_path(current_user.id) %></li>
     <% end %>
+    <li class="read"><%= link_to "Story summary", story_mytale_path(story_id: @mytale.story_id, id: @mytale.id) %></li>
   </ul>
 </div>

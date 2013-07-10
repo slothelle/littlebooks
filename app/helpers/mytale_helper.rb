@@ -1,17 +1,17 @@
 module MytaleHelper
-  def grab_all_genders
+  def get_genders
     @gender = Gender.all
   end
 
-  def grab_all_images
+  def get_images
     @peopleimages = PeopleImage.all
   end
 
-  def find_image
+  def get_story_image
     @image = PeopleImage.find_by_id(@mytale.mytale_image.people_image_id)
   end
 
-  def grab_story_character
+  def get_story_character
     @story = Story.find_by_id(params[:story_id])
     @character = @story.character
   end

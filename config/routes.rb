@@ -4,19 +4,17 @@ LittleBooks::Application.routes.draw do
 
   delete '/logout', to: 'sessions#destroy'
 
-  root :to => 'stories#show', id: 1
+  root :to => 'stories#show', id: 13
 
   resources :stories do
     resources :mytales do
+      get :print, :on => :member
+      get :read, :on => :member
       resources :mytale_images
     end
   end
 
   get '/images' => 'mytale_images#index', :as => :all_images
-
-  get '/stories/:story_id/mytales/:mytale_id/print' => 'mytales#print', :as => :print_mytale
-
-  get '/stories/:story_id/mytales/:mytale_id/read' => 'mytales#read', :as => :read_mytale
 
   get '/auth/facebook/callback' => 'facebook#create', :as => :facebook_login
   get '/auth/failure' => 'stories#index'
