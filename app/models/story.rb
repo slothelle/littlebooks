@@ -4,6 +4,7 @@ class Story < ActiveRecord::Base
   has_many :mytales
   has_many :users, :through => :mytales
   belongs_to :character
+  belongs_to :background_image
 
   slice :content, :as => :paged, :window => 2, :slice => { :maximum => 100, :complete => /(?<=\.\s)|(?<=\!\s)/ }
 
