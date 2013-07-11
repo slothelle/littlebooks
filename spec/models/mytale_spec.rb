@@ -28,14 +28,14 @@ describe Mytale do
 
     it "should replace 'Colinpants' with 'Eggbert'" do
       mytale = Mytale.create(story_id: Story.last.id, summary: "Hello", content: "Colinpants young miss", title: "Hello three", mytales_character_id: MytalesCharacter.last.id)
-      mytale.replace_goldilocks
+      mytale.replace_text
       mytale.save
       expect(mytale.content).to match(/Eggbert/)
     end
 
     it "should change gender pronouns" do
       mytale = Mytale.create(story_id: Story.last.id, summary: "Hello", content: "Colinpants young miss", title: "Hello three", mytales_character_id: MytalesCharacter.last.id)
-      mytale.replace_goldilocks
+      mytale.replace_text
       mytale.save
       expect(mytale.content).to include("young lad")
     end

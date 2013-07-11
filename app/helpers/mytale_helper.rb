@@ -23,7 +23,7 @@ module MytaleHelper
   def create_mytale
     params[:mytale][:mytales_character_id] = @mytales_character.id
     @mytale = Mytale.new(params[:mytale])
-    @mytale.replace_goldilocks
+    @mytale.replace_text
   end
 
   def create_mytales_character_relationship
