@@ -130,14 +130,11 @@ var wordPlay = {
       if (wordPlay.compareSelect('male')){
         wordPlay.setMale(wordPlay.storyForm.subberMale);
         wordPlay.backAnimate(wordPlay.storyForm.aniTargM);
-        wordPlay.highlightButton();
       } else if (wordPlay.compareSelect('female')){
         wordPlay.setFemale(wordPlay.storyForm.subberMale);
         wordPlay.backAnimate(wordPlay.storyForm.aniTargF);
-        wordPlay.highlightButton();
-      } else {
-        wordPlay.highlightButton();
       }
+      wordPlay.highlightButton();
     });
   },
 
