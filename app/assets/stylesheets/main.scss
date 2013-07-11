@@ -23,6 +23,11 @@ p {
   font-size: $small-font;
 }
 
+.xsmall {
+  font-size: $small-font/1.2;
+  line-height: 1em;
+}
+
 .large {
   font-size: $large-font * 1.5;
 }
@@ -211,19 +216,15 @@ input[type="submit"] {
 }
 
 // Reader specific styles
-.bar {
-  position: absolute;
-  bottom: 40px;
-  width: 40%;
-}
+
 .meter {
-  min-height: 18px;
+  height: 18px;
   background-color: $light-gray;
 }
 
 .progress {
   background-color: $accent-color;
-  min-height: 18px;
+  height: 18px;
 }
 
 .progress-bar {
@@ -233,9 +234,11 @@ input[type="submit"] {
 .read {
   margin: 0;
   padding: 0px;
-  display: inline;
   li {
-    padding-right: $nav-spacing * 3;
+    padding-right: $nav-spacing * 1.5;
+    font-size: $small-font;
+    list-style-type: none;
+    line-height: 2em;
   }
 }
 
@@ -244,6 +247,7 @@ input[type="submit"] {
   top: 0;
   right: 0;
   padding: $nav-spacing;
+  background: #ffffff;
 }
 
 .reader {
@@ -267,8 +271,8 @@ input[type="submit"] {
 
 .kid {
   position: absolute;
-  left: 35%;
-  top: 39%;
+  left: 25%;
+  top: 29%;
   z-index: 2;
 }
 

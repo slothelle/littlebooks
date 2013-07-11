@@ -2,7 +2,7 @@ var printJs = {
   openPrintWindow: function(){
     $('.print-link').on('click',function(e){
       e.preventDefault();
-      window.open(this.href,'print', 'height=800, width=600');
+      window.open(this.href,'print', 'height=600, width=900');
     });
   },
 

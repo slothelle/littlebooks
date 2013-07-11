@@ -4,8 +4,19 @@
       <%= link_to "<", "?slice=#{params[:slice].to_i-1}", :remote => true %>
     <% end %>
   </div>
-  <div class="col span_5_of_7 reader">
+  <div class="col span_5_of_7">
+      <div class="meter">
+      <div class="progress center" style="width:<%= get_progress_percentage %>">
+        <span class="xsmall">
+          <% if params[:slice] && params[:slice] != "1" %>
+            <%= params[:slice] %>
+          <% end %>
+        </span>
+      </div>
+    </div>
+    <div class="reader">
     <%= @story_paged %>
+  </div>
   </div>
   <div class="col span_1_of_7 num-alt xlarge center">
     <% if params[:slice] %>
@@ -19,20 +30,9 @@
 <div class="section center small">
   <div class="col span_1_of_7"></div>
   <div class="col span_5_of_7">
-    <div class="bar">
     <% if params[:slice] && params[:slice] != "1" %>
       <%= link_to "Back to beginning", "?slice=1", :remote => true %>
-      <% end %> <br><br>
-      <div class="meter">
-      <div class="progress" style="width:<%= get_progress_percentage %>">
-        <span>
-          <% if params[:slice] && params[:slice] != "1" %>
-            <%= params[:slice] %> of <%= @story_paged.slice_number %>
-          <% end %>
-        </span>
-      </div>
-    </div>
-    </div>
+      <% end %>
   </div>
   <div class="col span_1_of_7"></div>
 </div>
