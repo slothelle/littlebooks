@@ -43,7 +43,7 @@ var wordPlay = {
   highlightButton: function(){
     if ($(wordPlay.storyForm.titleTextField).val() !== "" && $(wordPlay.storyForm.nameTextField).val() !== "" && $(''+ wordPlay.storyForm.selectTarg + ' option:selected').text() !== "Gender?"){
       $('button').addClass('ready');
-    } else if ($(''+ wordPlay.storyForm.selectTarg + ' option:selected').text() == "Gender?"){
+    } else {
       $('button').removeClass('ready');
     }
   },
@@ -77,7 +77,7 @@ var wordPlay = {
 
   placeSpans: function (hash){
     for (var pronoun in hash){
-      if (checkDivClassPronounCount('.edit-text')) {
+      if (wordPlay.checkDivClassPronounCount('.edit-text') < 3) {
         wordPlay.wrapSpan(wordPlay.storyForm.pTarg, pronoun, pronoun);
       } else {
         wordPlay.wrapSpan(wordPlay.storyForm.pTarg, hash[pronoun], hash[pronoun]);
@@ -86,7 +86,7 @@ var wordPlay = {
   },
 
   checkDivClassPronounCount: function(divClass){
-    $(divClass).parent().html() && $(divClass).parent().html().match(/\bshe\b/g) !== null && $(divClass).parent().html().match(/\bshe\b/g).length < 3
+    $(divClass).parent().html() && $(divClass).parent().html().match(/\bshe\b/g) !== null && $(divClass).parent().html().match(/\bshe\b/g)
   },
 
   wrapSpan: function(paragraphtarg, elementtarg, replacement){
