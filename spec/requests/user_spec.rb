@@ -8,12 +8,12 @@ describe "User" do
   context "account authentication" do
     it "passes with correct credentials" do
       login
-      expect(page).to have_content("Logout")
+      expect(page).to have_content("Log Out")
     end
 
     it "logs an existing user out" do
       login
-      click_link("Logout")
+      click_link("Log Out")
       expect(page).to have_no_content(User.last.name)
     end
 
