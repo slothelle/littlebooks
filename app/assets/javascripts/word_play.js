@@ -77,23 +77,29 @@ var wordPlay = {
 
   placeSpans: function (hash){
     for (var pronoun in hash){
-      if ($('.edit-text').parent().html() && $('.edit-text').parent().html().match(/\bshe\b/g) !== null && $('.edit-text').parent().html().match(/\bshe\b/g).length < 3) {
-        $(wordPlay.storyForm.pTarg).html(function(index, value) {
-          return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="female">' + pronoun +' </span>');
-        });
+      if (checkDivClassPronounCount('.edit-text')) {
+        wordPlay.wrapSpan(wordPlay.storyForm.pTarg, pronoun, pronoun);
       } else {
-        $(wordPlay.storyForm.pTarg).html(function(index, value) {
-          return value.replace(new RegExp('\\b'+ hash[pronoun] + '\\b', 'g'), '<span class="male">' + hash[pronoun] +' </span>');
-        });
+        wordPlay.wrapSpan(wordPlay.storyForm.pTarg, hash[pronoun], hash[pronoun]);
       }
     }
+  },
+
+  checkDivClassPronounCount: function(divClass){
+    $(divClass).parent().html() && $(divClass).parent().html().match(/\bshe\b/g) !== null && $(divClass).parent().html().match(/\bshe\b/g).length < 3
+  },
+
+  wrapSpan: function(paragraphtarg, elementtarg, replacement){
+    $(paragraphtarg).html(function(index, value) {
+          return value.replace(new RegExp('\\b'+ elementtarg + '\\b', 'g'), '<span class="male">' + replacement +' </span>');
+    });
   },
 
 
   setMale: function (hash){
     for (var pronoun in hash){
       $(wordPlay.storyForm.startFlag).nextAll().html(function(index, value) {
-        return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="male">' + wordPlay.storyForm.subberMale[pronoun] +' </span>');
+        return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="male">' + hash[pronoun] +' </span>');
       });
     }
   },
@@ -115,13 +121,17 @@ var wordPlay = {
     $(target).animate({backgroundColor:"white" },  1000);
   },
 
+  compareSelect: function (selector){
+    $(''+ wordPlay.storyForm.selectTarg +' option:selected').text() === selector;
+  },
+
   changePronouns: function (){
     $(wordPlay.storyForm.selectTarg).change(function(){
-      if ($(''+ wordPlay.storyForm.selectTarg +' option:selected').text() === "male"){
+      if (wordPlay.compareSelect('male')){
         wordPlay.setMale(wordPlay.storyForm.subberMale);
         wordPlay.backAnimate(wordPlay.storyForm.aniTargM);
         wordPlay.highlightButton();
-      } else if ($(''+ wordPlay.storyForm.selectTarg+' option:selected').text() === "female"){
+      } else if (wordPlay.compareSelect('female')){
         wordPlay.setFemale(wordPlay.storyForm.subberMale);
         wordPlay.backAnimate(wordPlay.storyForm.aniTargF);
         wordPlay.highlightButton();
@@ -142,10 +152,8 @@ var wordPlay = {
   },
 
   placeMainSpans: function (){
-    $(wordPlay.storyForm.pTarg).html(function(index, value) {
-      return value.replace(new RegExp('\\b' + wordPlay.storyForm.mainc() + '\\b','g'), '<span class="main_character">' + wordPlay.storyForm.mainc() +'</span>');
-    });
-  },
+    wordPlay.wrapSpan(wordPlay.storyForm.pTarg, wordPlay.storyForm.mainc(), wordPlay.storyForm.mainc());
+  }
 }
 
 $(document).ready(function(){
