@@ -76,4 +76,8 @@ FactoryGirl.define do
     people_image_id 1
     mytale_id 1
   end
+
+  factory :background_image do
+    url "http://google.com"
+  end
 end

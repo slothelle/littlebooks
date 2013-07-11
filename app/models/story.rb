@@ -1,5 +1,5 @@
 class Story < ActiveRecord::Base
-  attr_accessible :summary, :content, :title, :character_id, :source_link, :attribution, :character
+  attr_accessible :summary, :content, :title, :character_id, :source_link, :attribution, :character, :background_image
 
   has_many :mytales
   has_many :users, :through => :mytales
