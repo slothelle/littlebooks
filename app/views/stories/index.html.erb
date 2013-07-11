@@ -5,19 +5,16 @@
 <% @stories.each do |story| %>
   <div class="section">
     <div class="col span_1_of_2">
-      <%= image_tag story.background_image.url, width: '320px' %>
+      <%= image_tag story.background_image.url, width: '90%' %>
     </div>
     <div class="col span_1_of_2">
       <h2>
         <%= story.title %>
       </h2>
       <p>
-        Summary: <%= story.summary %>
+        <%= story.summary %>
       </p>
 
-      <p>
-        Main character: <%= story.character.name %>, <%= story.character.gender.sex %>
-      </p>
 
       <p class="num-alt">
         <%= link_to "Customize story", new_story_mytale_path(story.id) %>
