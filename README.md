@@ -4,7 +4,7 @@ Little Books. [![Build Status](https://travis-ci.org/feministy/littlebooks.png)]
 
 A [Dev Bootcamp](http://www.devbootcamp.com) final project.
 
-Little Books was inspired on [NPR](http://www.npr.org/blogs/codeswitch/2013/06/25/193174358/as-demographics-shift-kids-books-stay-stubbornly-white), which discusses the lack of diversity in children's books and the importance of diversity in children's reading experiences. The goal of Little Books is to help parents, teachers, and educators enrich the lives of children by modyfing beloved stories to feature a cast of diverse characters.
+Little Books was inspired by an [NPR](http://www.npr.org/blogs/codeswitch/2013/06/25/193174358/as-demographics-shift-kids-books-stay-stubbornly-white) story, which discusses the lack of diversity in children's books and the importance of diversity in children's reading experiences. The goal of Little Books is to help parents, teachers, and educators enrich the lives of children by modyfing beloved stories to feature a cast of diverse characters.
 
 Designed to have stories created by adults and read by children, the reader view is optimized for iPads and other small screen devices.
 
