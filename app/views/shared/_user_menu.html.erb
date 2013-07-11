@@ -2,5 +2,5 @@
 <% if session[:oauth].nil?%>
 <li class="nav"><%= link_to "Log Out", logout_path, method: :delete %></li>
 <%else%>
-<li class="nav"><%= link_to "Log Out Facebook", "https://www.facebook.com/logout.php?next=http://localhost:3000/fb&access_token=#{session[:oauth]}"%></li>
+<li class="nav"><%= link_to "Log Out", "https://www.facebook.com/logout.php?next=http://localhost:3000/fb&access_token=#{session[:oauth]}"%></li>
 <%end%>
