@@ -11,6 +11,7 @@ LittleBooks::Application.routes.draw do
     resources :mytales do
       get :print, :on => :member
       get :read, :on => :member
+      get :email, :on => :member
       resources :mytale_images
     end
   end

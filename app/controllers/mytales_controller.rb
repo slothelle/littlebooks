@@ -80,4 +80,14 @@ class MytalesController < ApplicationController
       format.js {}
     end
   end
+
+  def email
+   @mytale = Mytale.find_by_id(params[:id])
+   @story = Story.find_by_id(params[:story_id])
+   @user = User.find_by_id(@mytale.user_id)
+   #get_story_image
+   #call action mailer here 
+   UserMailer.email_story(@user,@mytale).deliver
+   redirect_to story_mytale_path(story_id: @story.id, mytale_id: @mytale.id)
+  end
 end

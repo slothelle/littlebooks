@@ -19,7 +19,7 @@
       <%= link_to "Print full story", print_story_mytale_path(story_id: @mytale.story_id, id: @mytale.id), class: "print-link"%>
 
       <% if is_owner? %>
-      <%= link_to "Edit", edit_story_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id) %> <%= link_to "Delete", story_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id), method: :delete %>
+      <%= link_to "Edit", edit_story_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id) %> <%= link_to "Email", email_story_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id) %><%= link_to "Delete", story_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id), method: :delete %>
     </p>
     <% end %>
   </div>
