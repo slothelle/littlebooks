@@ -22,7 +22,7 @@
           <%= tale.title %>
         </h2>
         <span class="num-alt">
-          <%= link_to "Read", read_story_mytale_path(story_id: tale.story, id: tale.id) %> <%= link_to "Print", print_story_mytale_path(story_id: tale.story, id: tale.id), :onclick=>"window.open(this.href,'print', 'height=600, width=600');return false;"%>
+          <%= link_to "Read", read_story_mytale_path(story_id: tale.story, id: tale.id) %> <%= link_to "Print", print_story_mytale_path(story_id: tale.story, id: tale.id), class: "print-link" %>
           <% if is_owner? %>
           <%= link_to "Edit", edit_story_mytale_path(story_id: tale.story, id: tale.id) %> <%= link_to "Delete", story_mytale_path(story_id: tale.story, id: tale.id), method: :delete %>
           <% end %>
