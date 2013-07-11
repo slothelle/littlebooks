@@ -18,7 +18,7 @@ describe "Mytale" do
       expect(page).to have_content('Bill Adventures')
     end
 
-    it "does not allow user to create a story if gender is not selected", js: :true do
+    it "does not allow user to create a story if gender is not selected" do
       home_filler
       click_button('Customize')
       expect(page).to have_content('Please Enter a Gender')
@@ -32,7 +32,7 @@ describe "Mytale" do
       expect(page).to have_content('Bill Adventures')
     end
 
-    it "does not allow user to create a story if gender is not selected", js: :true do
+    it "does not allow user to create a story if gender is not selected" do
       home_filler
       click_button('Customize')
       expect(page).to have_content('Please Enter a Gender')
