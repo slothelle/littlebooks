@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    #@user.non_fb_signup = true
     if @user.save
       create_session
       UserMailer.welcome_signup(@user).deliver
@@ -19,5 +20,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @mytales = @user.mytales
+    @mytale = @mytales.first
   end
 end

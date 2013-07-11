@@ -1,28 +1,49 @@
-<h2><%= @user.name %></h2>
+
+<% if is_user? %>
+  <h1>
+    Hello <%= @user.name %>
+  </h1>
+<% else %>
+  <h1>
+    <%= @user.name %>'s Profile
+  </h1>
+<% end %>
 
 <% if @mytales.any? %>
   <% @mytales.each_with_index do |tale, num| %>
-  
-  <% if num == 0 || num % 2 == 0 %>
     <div class="section">
-      <div class="col span_1_of_2">
-        <h3><%= tale.title %></h3>
+      <div class="col span_1_of_4">
         <p>
-        <%= image_tag(tale.mytale_image.people_image.url) %>
+          <%= image_tag(tale.mytale_image.people_image.url) %>
         </p>
-        <%= tale.summary %> <br>
-        <%= link_to "View this tale", story_mytale_path(story_id: tale.story_id, id: tale.id) %>
       </div>
-  <% else %>
-    <div class="col span_1_of_2">
-      <h3><%= tale.title %></h3>
-      <p>
-        <%= image_tag(tale.mytale_image.people_image.url) %>
-      </p>
-      <%= tale.summary %> <br>
-      <%= link_to "View this tale", story_mytale_path(story_id: tale.story_id, id: tale.id) %>
-    </div>
+      <div class="col span_3_of_4">
+        <h2>
+          <%= tale.title %>
+        </h2>
+        <span class="num-alt">
+          <%= link_to "Read", read_story_mytale_path(story_id: tale.story, id: tale.id) %> <%= link_to "Print", print_story_mytale_path(story_id: tale.story, id: tale.id), :onclick=>"window.open(this.href,'print', 'height=600, width=600');return false;"%>
+          <% if is_owner? %>
+          <%= link_to "Edit", edit_story_mytale_path(story_id: tale.story, id: tale.id) %> <%= link_to "Delete", story_mytale_path(story_id: tale.story, id: tale.id), method: :delete %>
+          <% end %>
+        </span>
+        <p>
+          <%= tale.summary %>
+        </p>
+        <%= link_to "View story details", story_mytale_path(story_id: tale.story_id, id: tale.id) %>
+      </div>
   </div>
-  <% end %>
 <% end %>
+
+<% else %>
+  <% if is_user? %>
+    <h2 class="num-alt">
+      You haven't created any custom stories yet.
+    </h2>
+    <p class="num-alt">
+      <%= link_to "Browse the library to begin customizing", stories_path %>
+    </p>
+  <% else %>
+    <%= @user.name %> doesn't have any stories yet.
+  <% end %>
 <% end %>
