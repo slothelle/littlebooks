@@ -4,30 +4,22 @@
 
 <div class="section">
   <div class="col span_2_of_3">
-
-    <h2>
-      About <%= @mytale.title %>
-    </h2>
+    <p>
+      <%= @mytale.story.summary %>
+    </p>
     <span class="num-alt large">
       <%= link_to "Read story now!", read_story_mytale_path(story_id: @mytale.story_id, id: @mytale.id) %>
     </span>
-    <p>
-      Starring: <%= @mytale.mytales_character.name %>
-    </p>
-    <p>
-      Summary: <%= @mytale.story.summary %>
-    </p>
 
-    <h2>
-      Story Options
-    </h2>
+    <h3>
+      Additional Options
+    </h3>
 
     <p class="num-alt">
       <%= link_to "Print full story", print_story_mytale_path(story_id: @mytale.story_id, id: @mytale.id), :onclick=>"window.open(this.href,'print', 'height=600, width=600');return false;"%>
-    </p>
-      <% if current_user && (current_user == @mytale.user) %>
-    <p>
-      <%= link_to "Edit", edit_story_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id) %> or <%= link_to "delete", story_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id), method: :delete %> this custom story
+
+      <% if is_owner? %>
+      <%= link_to "Edit", edit_story_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id) %> <%= link_to "Delete", story_mytale_path(story_id: @mytale.story_id, mytale_id: @mytale.id), method: :delete %>
     </p>
     <% end %>
   </div>
@@ -36,15 +28,14 @@
   </div>
 
   <div class="section">
-      <% if !current_user %>
-      <h2>Save for later</h2>
+      <h3>Save for later</h3>
+      <% if is_owner? %>
+      View this story and others you've created on your <%= link_to "profile page", user_path(current_user.id) %>.
+      <% else %>
       <p>
         You can always access this story at:
       </p>
       <%= link_to "#{story_mytale_url(story_id: @mytale.story_id, id: @mytale.id)}", story_mytale_url(story_id: @mytale.story_id, id: @mytale.id) %>
-      <% else %>
-      <h2>My stories</h2>
-      View this story and others you've created on your <%= link_to "profile page", user_path(current_user.id) %>.
       <% end %>
     </p>
   </div>
