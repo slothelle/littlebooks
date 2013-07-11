@@ -4,7 +4,7 @@ module SeederHelper
     FactoryGirl.create(:girl)
     FactoryGirl.create(:character)
     FactoryGirl.create(:mytales_character)
-    p FactoryGirl.create(:story)
+    FactoryGirl.create(:story)
   end
 
   def populate_images

@@ -11,7 +11,7 @@
 <% @peopleimages.each do |image| %>
   <% if image.gender.sex == "female" %>
     <div class="col span_1_of_5">
-      <%= link_to image_tag(image.url), story_mytale_mytale_images_path(people_image_id: image.id), mytale_id: params[:mytale_id], method: :post %>
+      <%= link_to image_tag(image.url), story_mytale_mytale_images_path(people_image_id: image.id), mytale_id: params[:mytale_id], method: :post, :id => image.id %>
     </div>
   <% end %>
 <% end %>
@@ -21,7 +21,7 @@
 <% @peopleimages.each do |image| %>
   <% if image.gender.sex == "male" %>
     <div class="col span_1_of_5">
-      <%= link_to image_tag(image.url), story_mytale_mytale_images_path(people_image_id: image.id), mytale_id: params[:mytale_id], method: :post %>
+      <%= link_to image_tag(image.url), story_mytale_mytale_images_path(people_image_id: image.id), mytale_id: params[:mytale_id], method: :post, :id => image.id %>
     </div>
   <% end %>
 <% end %>

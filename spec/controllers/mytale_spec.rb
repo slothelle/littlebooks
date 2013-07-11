@@ -16,13 +16,6 @@ describe MytalesController do
     suzy.update_attributes(mytale_id: tale.id)
   end
 
-  describe "GET mytales#new" do
-    it "should render new template" do
-      get :new, story_id: Story.last.id
-      response.should render_template :new
-    end
-  end
-
   describe "GET mytales#edit" do
     it "should render denied template when user is logged out" do
       get :edit, story_id: Story.last.id, id: Mytale.last.id
