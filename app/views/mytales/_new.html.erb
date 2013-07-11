@@ -2,13 +2,10 @@
    Create your custom story
 </h1>
 
-<p>
-  Enter the story title, main character name, and gender below and watch the story change. Click 'Customize' to select your main character image.
-</p>
-
 <p class="center">
   <%= image_tag @story.background_image.url %>
 </p>
+
 
 <%= form_for ([@story, @mytale]) do |f| %>
   <div class="section">
@@ -28,12 +25,13 @@
     </div>
   </div>
   <div class="section">
+    <span class="jsError"></span> <br>
+    <%= f.button "Customize" %>
     <%= f.hidden_field :content, value: @story.content %>
     <%= f.hidden_field :story_id, value: @story.id %>
     <%= f.hidden_field :summary, value: @story.summary %>
     <h2 class="mytale-title"><%= @story.title %></h2>
     <p class="word-play">... <%= @story_paged%> ...</p>
-    <%= f.button "Customize" %>
   <% end %>
   </div>
 

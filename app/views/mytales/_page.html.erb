@@ -1,27 +1,38 @@
-<div class="section">
-  <div class="col span_1_of_7">
+ <div class="section">
+  <div class="col span_1_of_7 num-alt xlarge center">
     <% if params[:slice] && params[:slice] != "1" %>
-      <%= link_to image_tag("prev.png"), "?slice=#{params[:slice].to_i-1}", :remote => true %>
+      <%= link_to "<", "?slice=#{params[:slice].to_i-1}", :remote => true %>
     <% end %>
   </div>
   <div class="col span_5_of_7 reader">
     <%= @story_paged %>
   </div>
-  <div class="col span_1_of_7">
+  <div class="col span_1_of_7 num-alt xlarge center">
     <% if params[:slice] %>
-      <%= link_to image_tag("next.png"), "?slice=#{params[:slice].to_i+1}", :remote=> true %>
+      <%= link_to ">", "?slice=#{params[:slice].to_i+1}", :remote=> true %>
     <% else %>
-      <%= link_to image_tag("next.png"), "?slice=2", :remote=> true %>
+      <%= link_to ">", "?slice=2", :remote=> true %>
     <% end %>
   </div>
 </div>
 
-<div class="section read-menu small">
-  <% if params[:slice] && params[:slice] != "1" %>
-    <%= link_to "Back to beginning", "?slice=1", :remote => true %>
-
-  <p></p>
-
-  <%= slice_entries_info @story_paged %>
-  <% end %>
+<div class="section center small">
+  <div class="col span_1_of_7"></div>
+  <div class="col span_5_of_7">
+    <div class="bar">
+    <% if params[:slice] && params[:slice] != "1" %>
+      <%= link_to "Back to beginning", "?slice=1", :remote => true %>
+      <% end %> <br><br>
+      <div class="meter">
+      <div class="progress" style="width:<%= get_progress_percentage %>">
+        <span>
+          <% if params[:slice] && params[:slice] != "1" %>
+            <%= params[:slice] %> of <%= @story_paged.slice_number %>
+          <% end %>
+        </span>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="col span_1_of_7"></div>
 </div>

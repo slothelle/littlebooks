@@ -20,5 +20,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @mytales = @user.mytales
+    @mytale = @mytales.first
   end
 end
