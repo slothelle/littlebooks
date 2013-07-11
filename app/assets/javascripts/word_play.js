@@ -86,7 +86,7 @@ var wordPlay = {
   },
 
   checkDivClassPronounCount: function(divClass){
-    $(divClass).parent().html() && $(divClass).parent().html().match(/\bshe\b/g) !== null && $(divClass).parent().html().match(/\bshe\b/g)
+    $(divClass).parent().html() && $(divClass).parent().html().match(/\bshe\b/g) !== null && $(divClass).parent().html().match(/\bshe\b/g);
   },
 
   wrapSpan: function(paragraphtarg, elementtarg, replacement){
