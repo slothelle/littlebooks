@@ -1,20 +1,21 @@
 var wordPlay = {
-      storyForm: {
-     mainCharDivClass: ".main_character",
-     titleTarg: '.mytale-title',
-     mainc: function(){ return $('#name').attr('value');},
-     titleTextField: "#mytale_title",
-     nameTextField: "#name",
-     startFlag: ".edit-text",
-     selectTarg: "#gender",
-     aniTargM: '.male',
-     aniTargF: '.female',
-     pTarg: '.word-play',
-     flagTarg: 'Wood',
-     setflagTarg: function(word){
+  storyForm: {
+    mainCharDivClass: ".main_character",
+    titleTarg: '.mytale-title',
+    mainc: function(){ return $('#name').attr('value');},
+    titleTextField: "#mytale_title",
+    nameTextField: "#name",
+    startFlag: ".edit-text",
+    selectTarg: "#gender",
+    aniTargM: '.male',
+    aniTargF: '.female',
+    pTarg: '.word-play',
+    flagTarg: 'Wood',
+    buttonTarg: 'button',
+    setflagTarg: function(word){
         this.flagTarg = word;
-     },
-     subberMale: {
+    },
+    subberMale: {
       She: "He",
       she: "he",
       miss: "lad",
@@ -40,12 +41,11 @@ var wordPlay = {
     }
   },
 
-
   highlightButton: function(){
     if ($(wordPlay.storyForm.titleTextField).val() !== "" && $(wordPlay.storyForm.nameTextField).val() !== "" && $(''+ wordPlay.storyForm.selectTarg + ' option:selected').text() !== "Gender?"){
-      $('button').addClass('ready');
+      $(buttonTarg).addClass('ready');
     } else if ($(''+ wordPlay.storyForm.selectTarg + ' option:selected').text() == "Gender?"){
-      $('button').removeClass('ready');
+      $(buttonTarg).removeClass('ready');
     }
   },
 
@@ -87,7 +87,7 @@ var wordPlay = {
   },
 
   pTagTextChecker: function(){
-    return $('.edit-text').parent().html() && $('.edit-text').parent().html().match(/\bshe\b/g) !== null && $('.edit-text').parent().html().match(/\bshe\b/g);
+    return $(startFlag).parent().html() && $(startFlag).parent().html().match(/\bshe\b/g) !== null && $(startFlag).parent().html().match(/\bshe\b/g);
   },
 
   wrapSpans: function (selector, target, replacement, spanc){
