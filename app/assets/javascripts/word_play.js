@@ -1,29 +1,29 @@
 var wordPlay = {
-    storyForm:  {
-      mainCharDivClass: ".main_character",
-      titleTarg: '.mytale-title',
-      mainc: function(){ return $('#name').attr('value');},
-      titleTextField: "#mytale_title",
-      nameTextField: "#name",
-      startFlag: ".edit-text",
-      selectTarg: "#gender",
-      aniTargM: '.male',
-      aniTargF: '.female',
-      pTarg: '.word-play',
-      flagTarg: 'Wood',
-      setflagTarg: function(word){
-          this.flagTarg = word;
-       },
-      subberMale: {
-        She: "He",
-        she: "he",
-        miss: "lad",
-        herself: "himself",
-        her: "him",
-        Her: "His",
-        girl: "boy",
-        man: "woman"
-      },
+      storyForm: {
+     mainCharDivClass: ".main_character",
+     titleTarg: '.mytale-title',
+     mainc: function(){ return $('#name').attr('value');},
+     titleTextField: "#mytale_title",
+     nameTextField: "#name",
+     startFlag: ".edit-text",
+     selectTarg: "#gender",
+     aniTargM: '.male',
+     aniTargF: '.female',
+     pTarg: '.word-play',
+     flagTarg: 'Wood',
+     setflagTarg: function(word){
+        this.flagTarg = word;
+     },
+     subberMale: {
+      She: "He",
+      she: "he",
+      miss: "lad",
+      herself: "himself",
+      her: "him",
+      Her: "His",
+      girl: "boy",
+      man: "woman"
+    },
 
     checkStory: function() {
       if (wordPlay.storyForm.mainc() === "Little Red Riding Hood"){
@@ -40,31 +40,30 @@ var wordPlay = {
     }
   },
 
+
   highlightButton: function(){
     if ($(wordPlay.storyForm.titleTextField).val() !== "" && $(wordPlay.storyForm.nameTextField).val() !== "" && $(''+ wordPlay.storyForm.selectTarg + ' option:selected').text() !== "Gender?"){
       $('button').addClass('ready');
-    } else {
+    } else if ($(''+ wordPlay.storyForm.selectTarg + ' option:selected').text() == "Gender?"){
       $('button').removeClass('ready');
     }
   },
 
   breakTxt: function(){
-    return $(wordPlay.storyForm.pTarg).html(wordPlay.plantFlag($(wordPlay.storyForm.pTarg).index(), $(wordPlay.storyForm.pTarg).html(), wordPlay.storyForm.flagTarg));
+    return $(wordPlay.storyForm.pTarg).html(this.plantFlag($(wordPlay.storyForm.pTarg).index(), $(wordPlay.storyForm.pTarg).html(), wordPlay.storyForm.flagTarg));
   },
 
   plantFlag: function(index, value, targ) {
-    if (value){
       return value.replace(new RegExp('\\b'+ targ + '\\b', 'g'), '<span class="edit-text">' + targ + '</span>');
-    }
   },
 
   changeTitle: function(){
-    $(wordPlay.storyForm.titleTextField).keyup(wordPlay.getVal(wordPlay.storyForm.titleTarg));
+    $(wordPlay.storyForm.titleTextField).keyup(this.getVal(wordPlay.storyForm.titleTarg));
     wordPlay.highlightButton();
   },
 
-  changeMainC: function (){
-    $(wordPlay.storyForm.nameTextField).keyup(wordPlay.getVal(wordPlay.storyForm.mainCharDivClass));
+  changeMainC: function(){
+    $(wordPlay.storyForm.nameTextField).keyup(this.getVal(wordPlay.storyForm.mainCharDivClass));
     wordPlay.highlightButton();
   },
 
@@ -75,62 +74,51 @@ var wordPlay = {
   },
 
 
-  placeSpans: function (hash){
+  placeSpans: function(hash){
     for (var pronoun in hash){
-      if (wordPlay.checkDivClassPronounCount('.edit-text') < 3) {
-        wordPlay.wrapSpan(wordPlay.storyForm.pTarg, pronoun, pronoun);
+      if ($('.edit-text').parent().html().match(/\bshe\b/g) !== null && $('.edit-text').parent().html().match(/\bshe\b/g).length < 3) {
+        $(wordPlay.storyForm.pTarg).html(function(index, value) {
+          return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="female">' + pronoun +' </span>');
+        });
       } else {
-        wordPlay.wrapSpan(wordPlay.storyForm.pTarg, hash[pronoun], hash[pronoun]);
+        $(wordPlay.storyForm.pTarg).html(function(index, value) {
+          return value.replace(new RegExp('\\b'+ hash[pronoun] + '\\b', 'g'), '<span class="male">' + hash[pronoun] +' </span>');
+        });
       }
     }
   },
 
-  checkDivClassPronounCount: function(divClass){
-    $(divClass).parent().html() && $(divClass).parent().html().match(/\bshe\b/g) !== null && $(divClass).parent().html().match(/\bshe\b/g);
-  },
-
-  wrapSpan: function(paragraphtarg, elementtarg, replacement){
-    $(paragraphtarg).html(function(index, value) {
-          return value.replace(new RegExp('\\b'+ elementtarg + '\\b', 'g'), '<span class="male">' + replacement +' </span>');
-    });
-  },
-
-
-  setMale: function (hash){
+  setMale: function(hash){
     for (var pronoun in hash){
       $(wordPlay.storyForm.startFlag).nextAll().html(function(index, value) {
-        return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="male">' + hash[pronoun] +' </span>');
+        return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="male">' + wordPlay.storyForm.subberMale[pronoun] +' </span>');
       });
     }
   },
 
-  setFemale: function (hash){
+  setFemale: function(hash){
     for (var pronoun in hash){
-          rep(pronoun, hash);
+          this.rep(pronoun, hash);
     }
   },
 
-  rep: function (ind,val){
+  rep: function(ind,val){
     $(wordPlay.storyForm.startFlag).nextAll().html(function(index, value) {
             return value.replace(new RegExp('\\b'+ val[ind] + '\\b', 'g'), '<span class="female">' + ind +' </span>');
     });
   },
 
-  backAnimate: function (target){
+  backAnimate: function(target){
     $(target).animate({backgroundColor:"#EDC449"},  100);
     $(target).animate({backgroundColor:"white" },  1000);
   },
 
-  compareSelect: function (selector){
-    $(''+ wordPlay.storyForm.selectTarg +' option:selected').text() === selector;
-  },
-
-  changePronouns: function (){
+  changePronouns: function(){
     $(wordPlay.storyForm.selectTarg).change(function(){
-      if (wordPlay.compareSelect('male')){
+      if ($(''+ wordPlay.storyForm.selectTarg +' option:selected').text() === "male"){
         wordPlay.setMale(wordPlay.storyForm.subberMale);
         wordPlay.backAnimate(wordPlay.storyForm.aniTargM);
-      } else if (wordPlay.compareSelect('female')){
+      } else if ($(''+ wordPlay.storyForm.selectTarg+' option:selected').text() === "female"){
         wordPlay.setFemale(wordPlay.storyForm.subberMale);
         wordPlay.backAnimate(wordPlay.storyForm.aniTargF);
       }
@@ -138,7 +126,7 @@ var wordPlay = {
     });
   },
 
-  selectValidate: function (){
+  selectValidate: function(){
     $('#new_mytale button').on('click', function(e){
       if ($(''+ wordPlay.storyForm.selectTarg+' option:selected').text() !== "female" && $(''+ wordPlay.storyForm.selectTarg+' option:selected').text() !== "male") {
         e.preventDefault();
@@ -148,10 +136,12 @@ var wordPlay = {
     });
   },
 
-  placeMainSpans: function (){
-    wordPlay.wrapSpan(wordPlay.storyForm.pTarg, wordPlay.storyForm.mainc(), wordPlay.storyForm.mainc());
+  placeMainSpans: function(){
+    $(wordPlay.storyForm.pTarg).html(function(index, value) {
+      return value.replace(new RegExp('\\b' + wordPlay.storyForm.mainc() + '\\b','g'), '<span class="main_character">' + wordPlay.storyForm.mainc() +'</span>');
+    });
   }
-}
+};
 
 $(document).ready(function(){
   wordPlay.storyForm.checkStory();
