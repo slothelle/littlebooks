@@ -14,7 +14,7 @@ class Mytale < ActiveRecord::Base
   def replace_goldilocks
     content.gsub!(/#{story.character.name}/, mytales_character.name)
     subber = {/\bmiss\b/ => "lad", /\bHer\b/ => "His", /\bherself\b/ => "himself",
-            /\bher\b/ => "his", /\bShe\b/ => "He", /\bshe\b/ => "he"}
+            /\bher\b/ => "his", /\bShe\b/ => "He", /\bshe\b/ => "he", /\bprincess\b/ => "prince", /\bPrincess\b/ => "prince", /\bgirl\b/ => "boy", /\bwoman\b/ => "man" }
     if mytales_character.gender.sex != "female"
       subber.each {|k,v| content.gsub!(k,v)}
     end
