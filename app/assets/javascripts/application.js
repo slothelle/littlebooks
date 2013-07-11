@@ -15,3 +15,15 @@
 //=require jquery.ui.all
 //= require_tree .
 
+$(document).ready(function(){
+  $('.print-link').on('click',function(e){
+    e.preventDefault();
+    window.open(this.href,'print', 'height=600, width=600');
+    // window.print();
+  });
+  $('.print').on('click',function(e){
+    e.preventDefault();
+    // window.open(this.href,'print', 'height=600, width=600');
+    window.print();
+  });
+});
