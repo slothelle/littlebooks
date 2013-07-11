@@ -4,7 +4,7 @@ module LoginHelper
     visit new_session_path
     fill_in("Email", :with => "joe3@joe.com")
     fill_in("Password", :with => "password1234")
-    click_button("Login")
+    click_button("Log In")
   end
 
   def signup
@@ -12,6 +12,6 @@ module LoginHelper
     fill_in("Name", :with => "Joe")
     fill_in("Email", :with => "joe@joe.com")
     fill_in("Password", :with => "password1234")
-    click_button("Signup")
+    click_button("Sign Up")
   end
 end
