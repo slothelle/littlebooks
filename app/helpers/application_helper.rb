@@ -7,8 +7,16 @@ module ApplicationHelper
     session[:current_user_id] = @user.id
   end
 
+  def fb_session
+    session[:oauth] = @user.oauth_token
+  end 
+
   def destroy_session
     session[:current_user_id] = nil
+  end
+
+  def destroy_fb
+    session[:oauth] = nil
   end
 
   def is_user?

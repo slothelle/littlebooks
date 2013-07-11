@@ -3,7 +3,8 @@ LittleBooks::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   delete '/logout', to: 'sessions#destroy'
-
+  # match '/logout', to: 'sessions#destroy'
+  get '/fb' , to: 'facebook#fb'
   root :to => 'high_voltage/pages#show', id: "home"
 
   resources :stories do

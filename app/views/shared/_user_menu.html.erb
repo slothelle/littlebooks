@@ -1,2 +1,6 @@
 <li class="nav">Hello, <%= link_to "#{current_user.name}", user_path(current_user.id) %></li>
-<li class="nav"><%= link_to "Logout", logout_path, method: :delete %></li>
+<% if session[:oauth].nil?%>
+<li class="nav"><%= link_to "Log Out", logout_path, method: :delete %></li>
+<%else%>
+<li class="nav"><%= link_to "Log Out", "https://www.facebook.com/logout.php?next=http://littlebooks.herokuapp.com/fb&access_token=#{session[:oauth]}"%></li>
+<%end%>
