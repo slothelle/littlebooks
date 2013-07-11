@@ -1,14 +1,3 @@
-<div class="section small read-menu">
-    <ul class="read">
-      <li class="read"><%= link_to "Home", root_path %></li>
-      <li class="read"><%= link_to "Print", print_story_mytale_path(story_id: @mytale.story_id, id: @mytale.id), class: "print-link" %></li>
-      <% if current_user %>
-        <li class="read"><%= link_to "My profile", user_path(current_user.id) %></li>
-      <% end %>
-      <li class="read"><%= link_to "Story details", story_mytale_path(story_id: @mytale.story_id, id: @mytale.id) %></li>
-    </ul>
-</div>
-
 <div class="section">
   <div class="col span_1_of_5">
     <!-- Empty div for spacing -->
@@ -25,8 +14,15 @@
     </div>
   </div>
   </div>
-  <div class="col span_1_of_5">
-    <!-- Empty div for spacing -->
+  <div class="col span_1_of_5 small read-menu">
+       <ul class="read">
+      <li class="read"><%= link_to "Home", root_path %></li>
+      <li class="read"><%= link_to "Print", print_story_mytale_path(story_id: @mytale.story_id, id: @mytale.id), class: "print-link" %></li>
+      <% if current_user %>
+        <li class="read"><%= link_to "My profile", user_path(current_user.id) %></li>
+      <% end %>
+      <li class="read"><%= link_to "Story details", story_mytale_path(story_id: @mytale.story_id, id: @mytale.id) %></li>
+    </ul>
   </div>
 </div>
 
