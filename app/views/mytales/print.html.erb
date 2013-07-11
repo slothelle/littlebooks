@@ -3,10 +3,11 @@
     <!--  -->
   </div>
 
-  <div class="col span_3_of_5">
-    <p class="center">
+  <div class="col span_3_of_5 center">
+    <%= image_tag @mytale.story.background_image.url %>
+    <div class="kid">
       <%= image_tag(@image.url) %>
-    </p>
+    </div>
     <h1>
       <%= @mytale.title %>
     </h1>
