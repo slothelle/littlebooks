@@ -54,7 +54,9 @@ var wordPlay = {
   },
 
   plantFlag: function(index, value, targ) {
+    if (value) {
       return value.replace(new RegExp('\\b'+ targ + '\\b', 'g'), '<span class="edit-text">' + targ + '</span>');
+    }
   },
 
   changeTitle: function(){
@@ -73,39 +75,49 @@ var wordPlay = {
     };
   },
 
-
   placeSpans: function(hash){
     for (var pronoun in hash){
-      if ($('.edit-text').parent().html().match(/\bshe\b/g) !== null && $('.edit-text').parent().html().match(/\bshe\b/g).length < 3) {
-        $(wordPlay.storyForm.pTarg).html(function(index, value) {
-          return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="female">' + pronoun +' </span>');
-        });
+      if (wordPlay.pTagTextChecker() && wordPlay.pTagTextChecker().length < 3) {
+        this.wrapSpans(wordPlay.storyForm.pTarg, pronoun, pronoun, "female");
       } else {
-        $(wordPlay.storyForm.pTarg).html(function(index, value) {
-          return value.replace(new RegExp('\\b'+ hash[pronoun] + '\\b', 'g'), '<span class="male">' + hash[pronoun] +' </span>');
-        });
+        var targrep = hash[pronoun];
+        this.wrapSpans(wordPlay.storyForm.pTarg, targrep, targrep, "male");
       }
+    }
+  },
+
+  pTagTextChecker: function(){
+    return $('.edit-text').parent().html() && $('.edit-text').parent().html().match(/\bshe\b/g) !== null && $('.edit-text').parent().html().match(/\bshe\b/g);
+  },
+
+  wrapSpans: function (selector, target, replacement, spanc){
+    if (selector){
+      $(selector).html(function(index, value) {
+        return value.replace(new RegExp('\\b'+ target + '\\b', 'g'), '<span class="'+ spanc +'">' + replacement +' </span>');
+      });
+    }
+  },
+
+  wrapMultSpans: function (selector, target, replacement, spanc){
+    if (selector){
+      $(selector).nextAll().html(function(index, value) {
+        return value.replace(new RegExp('\\b'+ target + '\\b', 'g'), '<span class="'+ spanc +'">' + replacement +' </span>');
+      });
     }
   },
 
   setMale: function(hash){
     for (var pronoun in hash){
-      $(wordPlay.storyForm.startFlag).nextAll().html(function(index, value) {
-        return value.replace(new RegExp('\\b'+ pronoun + '\\b', 'g'), '<span class="male">' + wordPlay.storyForm.subberMale[pronoun] +' </span>');
-      });
+      var replacement = hash[pronoun];
+      this.wrapMultSpans(wordPlay.storyForm.startFlag,pronoun, replacement, "male");
     }
   },
 
   setFemale: function(hash){
     for (var pronoun in hash){
-          this.rep(pronoun, hash);
+      var target = hash[pronoun];
+      this.wrapMultSpans(wordPlay.storyForm.startFlag, target, pronoun, "female");
     }
-  },
-
-  rep: function(ind,val){
-    $(wordPlay.storyForm.startFlag).nextAll().html(function(index, value) {
-            return value.replace(new RegExp('\\b'+ val[ind] + '\\b', 'g'), '<span class="female">' + ind +' </span>');
-    });
   },
 
   backAnimate: function(target){
@@ -128,7 +140,7 @@ var wordPlay = {
 
   selectValidate: function(){
     $('#new_mytale button').on('click', function(e){
-      if ($(''+ wordPlay.storyForm.selectTarg+' option:selected').text() !== "female" && $(''+ wordPlay.storyForm.selectTarg+' option:selected').text() !== "male") {
+      if (wordPlay.fieldChecker()) {
         e.preventDefault();
         $('.error').remove();
         $('.jsError').append('<span class="error">  Please Enter a Gender </span>');
@@ -136,10 +148,12 @@ var wordPlay = {
     });
   },
 
+  fieldChecker: function(){
+    return $(''+ wordPlay.storyForm.selectTarg+' option:selected').text() !== "female" && $(''+ wordPlay.storyForm.selectTarg+' option:selected').text() !== "male";
+  },
+
   placeMainSpans: function(){
-    $(wordPlay.storyForm.pTarg).html(function(index, value) {
-      return value.replace(new RegExp('\\b' + wordPlay.storyForm.mainc() + '\\b','g'), '<span class="main_character">' + wordPlay.storyForm.mainc() +'</span>');
-    });
+    this.wrapSpans(wordPlay.storyForm.pTarg, wordPlay.storyForm.mainc(), wordPlay.storyForm.mainc(), "main_character");
   }
 };
 
