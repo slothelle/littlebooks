@@ -19,8 +19,8 @@
         Main character: <%= story.character.name %>, <%= story.character.gender.sex %>
       </p>
 
-      <p>
-        <%= link_to "Customize #{story.title}", new_story_mytale_path(story.id) %>
+      <p class="num-alt">
+        <%= link_to "Customize story", new_story_mytale_path(story.id) %>
       </p>
     </div>
   </div>

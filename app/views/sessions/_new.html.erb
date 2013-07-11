@@ -1,3 +1,7 @@
+<h1>
+  Login to Little Books
+</h1>
+
 <%= render "shared/errors", layout: false %>
 
 <%= form_tag sessions_path do %>
@@ -7,5 +11,10 @@
   <%= label_tag(:password, "Password") %><br>
   <%= password_field_tag :password, nil, :placeholder => "********"%>
 </p>
-<%= submit_tag("Login") %>
+<%= submit_tag("Log In") %>
 <% end %>
+
+<p class="num-alt">
+  Don't have a Little Books Account? <br>
+  <%= link_to "Create Little Books account", new_user_path %>or <%= link_to "Log In with Facebook", '/auth/facebook' %>
+</p>
