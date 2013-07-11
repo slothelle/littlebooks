@@ -1,20 +1,17 @@
 var wordPlay = {
-      storyForm: {
-     mainCharDivClass: ".main_character",
-     titleTarg: '.mytale-title',
-     mainc: function(){ return $('#name').attr('value');},
-     titleTextField: "#mytale_title",
-     nameTextField: "#name",
-     startFlag: ".edit-text",
-     selectTarg: "#gender",
-     aniTargM: '.male',
-     aniTargF: '.female',
-     pTarg: '.word-play',
-     flagTarg: 'Wood',
-     setflagTarg: function(word){
-        this.flagTarg = word;
-     },
-     subberMale: {
+  storyForm: {
+    mainCharDivClass: ".main_character",
+    titleTarg: '.mytale-title',
+    titleTextField: "#mytale_title",
+    nameTextField: "#name",
+    startFlag: ".edit-text",
+    selectTarg: "#gender",
+    aniTargM: '.male',
+    aniTargF: '.female',
+    pTarg: '.word-play',
+    flagTarg: 'Wood',
+    buttonTarg: 'button',
+    subberMale: {
       She: "He",
       she: "he",
       miss: "lad",
@@ -24,7 +21,10 @@ var wordPlay = {
       girl: "boy",
       man: "woman"
     },
-
+    mainc: function(){ return $('#name').attr('value');},
+    setflagTarg: function(word){
+        this.flagTarg = word;
+    },
     checkStory: function() {
       if (wordPlay.storyForm.mainc() === "Little Red Riding Hood"){
         wordPlay.storyForm.setflagTarg('Yet');
@@ -40,12 +40,11 @@ var wordPlay = {
     }
   },
 
-
   highlightButton: function(){
     if ($(wordPlay.storyForm.titleTextField).val() !== "" && $(wordPlay.storyForm.nameTextField).val() !== "" && $(''+ wordPlay.storyForm.selectTarg + ' option:selected').text() !== "Gender?"){
-      $('button').addClass('ready');
+      $(wordPlay.storyForm.buttonTarg).addClass('ready');
     } else if ($(''+ wordPlay.storyForm.selectTarg + ' option:selected').text() == "Gender?"){
-      $('button').removeClass('ready');
+      $(wordPlay.storyForm.buttonTarg).removeClass('ready');
     }
   },
 
@@ -60,16 +59,16 @@ var wordPlay = {
   },
 
   changeTitle: function(){
-    $(wordPlay.storyForm.titleTextField).keyup(this.getVal(wordPlay.storyForm.titleTarg));
+    $(wordPlay.storyForm.titleTextField).keyup(this.getTextVal(wordPlay.storyForm.titleTarg));
     wordPlay.highlightButton();
   },
 
   changeMainC: function(){
-    $(wordPlay.storyForm.nameTextField).keyup(this.getVal(wordPlay.storyForm.mainCharDivClass));
+    $(wordPlay.storyForm.nameTextField).keyup(this.getTextVal(wordPlay.storyForm.mainCharDivClass));
     wordPlay.highlightButton();
   },
 
-  getVal: function(targ){
+  getTextVal: function(targ){
     return function () {
       return $(targ).text($(this).val());
     };
@@ -87,7 +86,7 @@ var wordPlay = {
   },
 
   pTagTextChecker: function(){
-    return $('.edit-text').parent().html() && $('.edit-text').parent().html().match(/\bshe\b/g) !== null && $('.edit-text').parent().html().match(/\bshe\b/g);
+    return $(wordPlay.storyForm.startFlag).parent().html() && $(wordPlay.storyForm.startFlag).parent().html().match(/\bshe\b/g) !== null && $(wordPlay.storyForm.startFlag).parent().html().match(/\bshe\b/g);
   },
 
   wrapSpans: function (selector, target, replacement, spanc){
@@ -123,7 +122,7 @@ var wordPlay = {
   backAnimate: function(target){
     $(target).animate({backgroundColor:"#EDC449"},  100);
     $(target).animate({backgroundColor:"white" },  1000);
-  },
+   },
 
   changePronouns: function(){
     $(wordPlay.storyForm.selectTarg).change(function(){
