@@ -14,8 +14,9 @@ class FacebookController < ApplicationController
     end
   end
 
-  def destroy
-    destroy_fb
-    redirect_to root_path
+  def fb
+   destroy_fb
+   destroy_session
+   redirect_to new_session_path
   end
 end
