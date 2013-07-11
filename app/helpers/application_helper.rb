@@ -18,4 +18,13 @@ module ApplicationHelper
   def is_owner?
     current_user && (current_user == @mytale.user)
   end
+
+  def get_progress_percentage
+    if params[:slice] != nil
+      num = (params[:slice].to_f / @story_paged.slice_number.to_f * 100).round(0)
+      return "#{num}%"
+    else
+      return "1%"
+    end
+  end
 end
