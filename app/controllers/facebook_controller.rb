@@ -4,16 +4,18 @@ class FacebookController < ApplicationController
     @user = User.find_by_provider(omniauth['uid'])
     if @user
       create_session
+      fb_session
       redirect_to @user
     else
       @user = User.from_omniauth(env["omniauth.auth"])
       create_session
+      fb_session
       redirect_to @user
     end
   end
 
   def destroy
-    destroy_session
+    destroy_fb
     redirect_to root_path
   end
 end
